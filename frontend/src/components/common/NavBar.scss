@@ -3,9 +3,12 @@
 $white: #fcfcfc;
 $black: #3c3c3c;
 
+
 // accent colors
 $yellow: #ffb703;
 $orange: #fb8500;
+
+$red:#fe4343;
 
 // light mode colors
 $dark-blue: #023047;
@@ -142,7 +145,7 @@ nav {
 		position: fixed;
 		top: 0;
 		left: -100vw;
-		width: 90vw;
+		width: 40%;
 		max-width: 380px;
 		height: 100vh;
         padding-top: 85px;
@@ -176,7 +179,7 @@ nav {
 		a:hover,
 		a:active,
 		a:focus {
-			text-decoration: underline;
+			text-decoration: none;
 		}
 		
 		> li {
@@ -480,4 +483,32 @@ body.dark-mode {
             color: $white;
         }
     }
+
+	
+}
+
+.logout_area {
+	position: fixed;
+	text-align: center;
+	bottom: 0;
+	width: inherit;
+	background-color: white;
+	padding: 15px;
+	cursor: pointer;
+
+	&:hover,
+	&:active,
+	&:focus,
+	&.active{
+		background-color: $red;
+		a:link,
+		a:visited {
+			text-decoration: none;
+			color: $black;
+		}
+	}
+
+	a {
+		text-decoration: none;
+	}
 }
