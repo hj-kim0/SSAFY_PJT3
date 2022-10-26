@@ -56,7 +56,7 @@ nav {
 	input[name="toggle-nav"],
 	label[for="toggle-nav"] {
 		position: absolute;
-		top: -20px;
+		top: 20px;
 		width: 35px;
 		height: 35px;
 	}
@@ -78,6 +78,7 @@ nav {
 	}
 	
 	label[for="toggle-nav"] {
+		top:0px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
