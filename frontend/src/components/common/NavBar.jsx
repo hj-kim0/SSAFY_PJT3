@@ -10,7 +10,7 @@ function NavBar(){
         <Container>
           <Row>
           <Col xs={3}>
-          <input type="checkbox" className="mt-4 pr-2" name="toggle-nav"/>
+          <input type="checkbox" className="pr-2" name="toggle-nav"/>
         <label htmlFor="toggle-nav" className="mt-4 pr-2">
           <div className="menu-icon"/>
         </label>
@@ -29,14 +29,15 @@ function NavBar(){
           </div>
         </section>
           </Col>
-          <Col xs={3}>2</Col>
-          <Col xs={3}>3</Col>
-          <Col xs={3}>4</Col>
+          <Col xs={3}>
+            <Link to="">
+              <img src={logo} alt="" width="100px" height="25px"/>
+            </Link>
+          </Col>
+          <Col xs={3}></Col>
+          <Col xs={3}></Col>
           </Row>
         </Container>
-        <Link to="">
-          <img src={logo} alt="" width="100px" height="25px"/>
-        </Link>
         <section class="social-nav social-nav_header">
         </section>
 		</Navbar>
