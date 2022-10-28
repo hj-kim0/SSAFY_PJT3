@@ -1,0 +1,14 @@
+#container{
+    position:relative;
+}
+
+#inline{
+    display: flex;
+    justify-content:space-around;
+    padding: 40px;
+}
+
+*{
+    z-index: 1;
+}
+
