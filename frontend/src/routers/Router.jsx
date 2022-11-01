@@ -4,15 +4,16 @@ import Home from "../screens/Home";
 import Login from "../screens/Login";
 import Auth from "../utils/Auth";
 import UserInfo from "../screens/UserInfo";
-import Header from "../components/common/Header";
+import NavBar from "../components/common/NavBar";
+// import Header from "../components/common/Header";
 import Footer from "../components/common/Footer";
-import "./Router.scss";
 
 
 function Router() {
   return (
     <>
     <div id="wrapper">
+      <NavBar/>
       <Routes>
         <Route path="/" element={<Home/>}></Route>
         {/* user */}
@@ -21,9 +22,6 @@ function Router() {
         <Route path="/userinfo" element={<UserInfo/>}></Route>
         {/* comssa */}
       </Routes>
-      <div id ="nav_wrapper">
-      <Header/>
-      </div>
       <Footer/>
     </div>    
     </>
