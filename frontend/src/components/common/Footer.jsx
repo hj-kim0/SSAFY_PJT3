@@ -25,7 +25,6 @@ color:white;
 
 function FooterPage(){
     return(
-<<<<<<< HEAD
         <footer className="footer">
             <div className="footer_wrapper">
             <div className="footer_body">
@@ -42,31 +41,12 @@ function FooterPage(){
                 <div className="pd3">
                 <span className='white'>&copy; {new Date().getFullYear()} Copyright:{' '}</span>
                 <a className='white' href='https://edu.ssafy.com/'>
-=======
-        <Footer>
-            <Container>
-                <Row>
-                <Col xs={4}></Col>
-                <Col xs={12} md={4}>
-                    <ContentHeader className="text-uppercase">Contact Us</ContentHeader>
-                    <br/>
-                    <p>
-                        <a href="https://www.notion.so/Comssa-42d6c98b7d044b2687a597035b1777ee">
-                            <img src={notion} width="50px" alt=""/>
-                        </a>
-                    </p>
-                </Col>
-                <Col xs={4}></Col>
-                </Row>
-            </Container>+
-            <DivCenter className='text-center p-3'>
-                &copy; {new Date().getFullYear()} Copyright:{' '}
-                <a className='text-white' href='https://edu.ssafy.com/'>
->>>>>>> parent of ee91941 (Frontend # feat : home/common struct create & refactoring)
                     SSAFY.com
                 </a>
-            </DivCenter>
-        </Footer>
+                </div>
+            </div>
+            </div>
+        </footer>
     );
 }
 
