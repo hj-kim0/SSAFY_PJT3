@@ -14,24 +14,49 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+//@Table(name = "User")
+public class User{
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "member_id")
+    @Column(name = "user_id")
     private Long id;
 
     @Column
     private String name;
 
     @Column
-    private String gender;
-
-    @Column
     private String email;
 
+    @Column
+    private String nickname;
+
+    @Column
+    private String picture;
+
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String socialId;
+    private Role role;
+
+    @Builder
+    public User(String name, String email, String picture, Role role){
+        this.name = name;
+        this.email = email;
+        this.picture = picture;
+        this.role = role;
+    }
+
+    public User update(String name, String picture){
+        this.name = name;
+        this.picture = picture;
+
+        return this;
+    }
+
+    public String getRoleKey(){
+        return this.role.getKey();
+    }
+
 
 
 

@@ -1,34 +1,41 @@
 server:
-  port: 8081
+  port: 8082
 
 spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/comssa_app?serverTimezone=UTC&characterEncoding=UTF-8
+#    url: jdbc:mysql://k7c204.p.ssafy.io:3306/S07P31C204?serverTimezone=UTC&useUniCode=yes&characterEncoding=UTF-8&amp
+    username: root
+    password: thekey1919
+
   data:
     mongodb:
       host: localhost
       port: 27017
       database: comssa
 
-    security:
-      oauth2:
-        client:
-          registration:
-            kakao:
-              client-id: [ 9801ad08f8d5a556fa5aa7062582c327 ]
-              redirect-uri: [ http://k7c204.p.ssafy.io ]
-              authorization-grant-type: authorization_code
-              client-authentication-method: POST
-              client-name: Kakao
-              scope:
-                - profile_nickname
-                - account_email
-          provider:
-            kakao:
-              authorization-uri: https://kauth.kakao.com/oauth/authorize
-              token-uri: https://kauth.kakao.com/oauth/token
-              user-info-uri: https://kapi.kakao.com/v2/user/me
-              user-name-attribute: id
+  profiles: oauth
 
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
 ## JWT Custom
 jwt:
   secret:
     signature: "Thekey"
+
+
+app:
+  auth:
+    tokenSecret: secretkeyC204secretkeyC204secretkeyC204secretkeyC204secretkeyC204
+    tokenExpiry: 204204204
+
