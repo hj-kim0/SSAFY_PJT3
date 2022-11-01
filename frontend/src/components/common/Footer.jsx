@@ -1,27 +1,6 @@
 import React from "react";
-import styled from "styled-components";
-import notion from "../../assets/images/notion.png";
-import { Col, Row, Container } from "react-bootstrap";
-
-const Footer = styled.footer`
-background-color:black;
-text-align:center;
-padding: 5px;
-`;
-
-const ContentHeader = styled.h1`
-margin-top:40px;
-padding: 5px;
-font-size:32px;
-color:white;
-`
-
-const DivCenter = styled.div`
-margin-top:40px;
-border: 5px;
-padding: 5px;
-color:white;
-`
+import notion from "../../assets/images/common/notion.png";
+import "./Footer.scss";
 
 function FooterPage(){
     return(
@@ -43,7 +22,7 @@ function FooterPage(){
                 <a className='white' href='https://edu.ssafy.com/'>
                     SSAFY.com
                 </a>
-                </div>
+            </div>
             </div>
             </div>
         </footer>
