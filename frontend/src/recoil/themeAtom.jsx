@@ -9,10 +9,3 @@ export const themeMode = atom({
     default : {"theme" : 0 },
     effects_UNSTABLE:[persistAtom],
 });
-
-export const cartState = atom({
-    key: "cartState",
-    default:{
-        "cartItems" : []
-    }
-})

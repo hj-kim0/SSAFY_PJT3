@@ -3,7 +3,7 @@ import "./ArticleTop.scss";
 
 const scrollToBody = () => {
     window.scrollTo({
-        top: 790,
+        top: 800,
         behavior: 'smooth'
     })
 }
