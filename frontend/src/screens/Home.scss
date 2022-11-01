@@ -12,3 +12,22 @@
     z-index: 1;
 }
 
+.center_top{
+    align-items: center;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.center_bottom{
+    align-items: center;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+body {
+    -ms-overflow-style: none;
+}
+ 
+::-webkit-scrollbar {
+    display: none;
+}

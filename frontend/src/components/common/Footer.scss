@@ -3,11 +3,12 @@
 }
 
 .footer_wrapper {
+
+    
+    display: list-item;
     background-color: black;
-    text-align: center;
     padding: 5px;
-    display: flex;
-    justify-content: center;
+    
 }
 
 h1 {
@@ -20,5 +21,12 @@ h1 {
 }
 
 .pd3{
+    position: flex;
     padding:6px;
+}
+
+.footer_body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

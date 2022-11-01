@@ -6,7 +6,7 @@ function FooterPage(){
     return(
         <footer className="footer">
             <div className="footer_wrapper">
-            <div>
+            <div className="footer_body">
                 <div className="pd3">
                     <h1>
                     Contact Us
