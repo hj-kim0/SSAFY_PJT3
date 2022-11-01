@@ -1,0 +1,109 @@
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.h-full {
+    height: auto;
+}
+
+
+.title {
+    position: relative;
+    font-size: 0.75rem;
+    margin-left: 40px;
+}
+
+.title::before {
+    position: absolute;
+    content: " ";
+    left: -40px;
+    bottom: 7px;
+    width: 35px;
+    height: 2px;
+    background-color: currentColor;
+}
+
+.center{
+    left: 50vw;
+}
+
+.banner {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../../assets/images/top/dummytop.jpg);
+    
+
+    background-size: cover; /* 핵심코드 */
+    position: relative; /* 핵심코드 */
+    display : inline-block;
+    max-width: 100%;
+    background-repeat :no-repeat;
+  }
+  
+  .banner-txt {
+    position: absolute; /* 핵심코드 */
+    top: 50%; /* 핵심코드 */
+    left: 50%; /* 핵심코드 */
+    transform: translate( -50%, -50%); /* 핵심코드 */
+    font-size: x-large;
+  }
+  
+
+
+.visual_scroll{
+
+
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 50vw;
+    padding-bottom: 150px;
+    font-size: 15px;
+    color: azure;
+    letter-spacing: -0.06em;
+    text-align: center;
+    transform: translateX(-50%);
+    font-weight: 500;
+    background-color: inherit;
+    border-style: none;
+
+    &::before,
+    &::after {
+        position: absolute;
+        content: '';
+    }
+    
+    &::before {
+        display: block;
+        position: absolute;
+        top: 40px;
+        left: 50%;
+        width: 30px;
+        height: 18px;
+        margin-left: -15px;
+        background: url(../../assets/images/common/visual_arrow.svg) no-repeat;
+        background-size: contain;
+        -webkit-animation: scroll 1s ease-in-out infinite both;
+        animation: scroll 1s ease-in-out infinite;
+    }
+    
+    &::after {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 2px;
+        height: 28px;
+        background-color: #fff;
+        padding-bottom: 50px;
+    }
+}
