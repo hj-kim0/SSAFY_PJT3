@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import Home from "../screens/Home";
 import Login from "../screens/Login";
 import Auth from "../utils/Auth";
-import UserInfo from "../screens/UserInfo";
 import Header from "../components/common/Header";
 import Footer from "../components/common/Footer";
 import "./Router.scss";
@@ -18,7 +17,6 @@ function Router() {
         {/* user */}
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/oauth/kakao" element={<Auth/>}></Route>
-        <Route path="/userinfo" element={<UserInfo/>}></Route>
         {/* comssa */}
       </Routes>
       <div id ="nav_wrapper">
