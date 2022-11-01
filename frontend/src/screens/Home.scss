@@ -31,3 +31,9 @@ body {
 ::-webkit-scrollbar {
     display: none;
 }
+
+.cart{
+    display:flex;
+    flex-direction: column; 
+    align-items: center;
+}
