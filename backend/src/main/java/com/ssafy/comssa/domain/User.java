@@ -1,62 +1,78 @@
 package com.ssafy.comssa.domain;
 
-import lombok.AllArgsConstructor;
+import com.sun.istack.NotNull;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
+//import java.security.AuthProvider;
+import javax.validation.constraints.Email;
 
-import static javax.persistence.GenerationType.IDENTITY;
 
 @Getter
+@Setter
 @Entity
-@Builder
+@Table(name = "user", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "email")
+})
 @NoArgsConstructor
-@AllArgsConstructor
-//@Table(name = "User")
-public class User{
-
+public class User {
     @Id
-    @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(nullable = false)
     private String name;
 
-    @Column
+    @Email
+    @Column(nullable = false)
     private String email;
 
     @Column
     private String nickname;
 
-    @Column
-    private String picture;
+    private String imageUrl;
 
-    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Role role;
+    private Boolean emailVerified = false;
 
-    @Builder
-    public User(String name, String email, String picture, Role role){
+    @JsonIgnore
+    private String password;
+
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private AuthProvider provider;
+
+    private String providerId;
+
+    @Builder(builderClassName= "social", builderMethodName = "socialBuilder")
+    private User(String name, @Email String email, String nickname, String imageUrl, @NotNull AuthProvider provider, String providerId) {
         this.name = name;
         this.email = email;
-        this.picture = picture;
-        this.role = role;
+        this.nickname = nickname;
+        this.imageUrl = imageUrl;
+        this.provider = provider;
+        this.providerId = providerId;
     }
 
-    public User update(String name, String picture){
+    @Builder(builderClassName = "local",builderMethodName = "localBuilder")
+    public User(String name, @Email String email, String nickname, String password, String imageUrl, @NotNull AuthProvider provider, String providerId) {
         this.name = name;
-        this.picture = picture;
-
-        return this;
+        this.email = email;
+        this.nickname = nickname;
+        this.password = password;
+        this.imageUrl = imageUrl;
+        this.provider = provider;
+        this.providerId = providerId;
     }
 
-    public String getRoleKey(){
-        return this.role.getKey();
+    public void updateNameAndImage(String name, String imageUrl) {
+        this.name = name;
+        this.imageUrl = imageUrl;
     }
-
 
 
 
