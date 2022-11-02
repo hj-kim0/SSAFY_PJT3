@@ -16,14 +16,16 @@ function NavBar(){
         </label>
         <section className="side-nav-panel">
           <ul className="top-nav">
-            <li><Link to="">장바구니</Link></li>
-            <li><Link to="">마이 페이지</Link></li>
+            <li><Link to="">자동 견적</Link></li>
+            <li><Link to="/Compare">비교</Link></li>
+            <li><Link to="">내 견적</Link></li>
+            <li><Link to="">내 설정</Link></li>
             <li className="logout_area"><Link to="">로그아웃</Link></li>
           </ul>
         </section>
           </div>
           <div className="logo">
-            <Link to="">
+            <Link to="/">
               <img src={logo} alt="" width="100px" height="25px"/>
             </Link>
           </div>

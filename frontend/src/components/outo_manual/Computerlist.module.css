@@ -1,0 +1,51 @@
+.thStyle  {
+    border:  solid #3498DB;
+    background : #3498DB;
+    color: white;
+    padding: 5px;
+    width: 50px;
+};
+
+.tableStyle  {
+    border:  solid black;
+    border-collapse: collapse;
+    text-align: center;
+    width: 100%;
+}
+
+.tdStyle  {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    background: white;
+    /* padding: 5px; */
+    width: 100%;
+    height: 150px;
+};
+
+.boxstyle {
+    background: dimgray;
+    text-emphasis-color: white;
+}
+
+.itemcontrol {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.boxcenter {
+    display: flex;
+    width: 100% ;
+    margin: 3px;
+  }
+
+.boxitem {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+  }
+
+.textout{
+    word-break:break-all
+}
