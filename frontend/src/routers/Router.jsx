@@ -6,6 +6,7 @@ import Compare from "../screens/Compare";
 import Auth from "../utils/Auth";
 import Header from "../components/common/Header";
 import Footer from "../components/common/Footer";
+
 import MoneyUse from "../components/outo_manual/MoneyUse";
 import ItemDetail from "../components/detail/ItemDetail";
 

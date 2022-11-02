@@ -16,10 +16,11 @@ function NavBar(){
         </label>
         <section className="side-nav-panel">
           <ul className="top-nav">
-            <li><Link to="">자동 견적</Link></li>
+            <li><Link to="/money">자동 견적</Link></li>
             <li><Link to="/Compare">비교</Link></li>
-            <li><Link to="">내 견적</Link></li>
-            <li><Link to="">내 설정</Link></li>
+            <li><Link to="/">내 견적</Link></li>
+            <li><Link to="/">내 설정</Link></li>
+            <li><Link to="/detail:10">물품 상세</Link></li>
             <li className="logout_area"><Link to="">로그아웃</Link></li>
           </ul>
         </section>
