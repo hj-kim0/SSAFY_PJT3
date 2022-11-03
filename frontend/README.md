@@ -1,70 +1,30 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+CPU
+CPU는 컴퓨터를 통제하는 핵심적인 장치입니다.
+메인보드(또는 마더보드)
+메인보드는 각종 부품을 연결해주는 장치입니다.
+메모리(RAM)
+메모리는 동시에 더 많은 프로그램을 실행하게 해주는 장치입니다.
+인터넷 창을 많이 띄우거나 많은 계산을 하는 게임이라면 용량이 큰 것으로 가는 것이 좋습니다.
+그래픽카드(GPU)
+GPU는 더 매끄러운 게임을 하게 해주는 장치입니다.
+게임을 더 사실적이게 보여주게 할수록 비싸고 커집니다.
+SSD
+SSD는 빠르게 자료를 읽어주는 장치입니다.
+온라인 게임을 하거나 많은 계산을 하는 게임이라면 용량이 큰 것으로 가는 것이 좋습니다.
+하드디스크(HDD)
+HDD는 더 많은 자료를 저장해주는 장치입니다.
+영화, 음악 파일 등을 많이 보관할수록 큰 것으로 가는 것이 좋습니다.
+외장드라이브(ODD)
+외장드라이브는 CD와 같은 디스크를 읽어주는 장치입니다.
+음반이나 DVD, 혹은 블루레이 디스크를 재생하고 싶다면 포함하는 것이 좋습니다.
+케이스
+모든 부품들을 적재적소에 배치해주는 장치입니다.
+파워
+모든 부품들에게 전원을 공급해주는 장치입니다.
+사람이 일정량 이상의 칼로리는 항상 쓰듯, 부품에 따라 일정 W(와트) 이상의 파워가 필요합니다.
+CPU 쿨러
+CPU는 사용하면 열이 발생하는데, 열을 발산해주는 장치입니다.
+CPU와 함께 들어있는 것이 다수이지만, 그렇지 않은 것도 있습니다.
+윈도우&소프트웨어
+우리가 사용하려는 프로그램을 구동하게 해주는 소프트웨어가 윈도우 입니다.
+포토샵, 게임, 워드 들도 윈도우에서 작동하는 소프트웨어입니다.
