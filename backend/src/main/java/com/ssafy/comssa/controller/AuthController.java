@@ -1,84 +1,153 @@
 package com.ssafy.comssa.controller;
 
-import com.ssafy.comssa.domain.User;
+import com.ssafy.comssa.config.AppProperties;
+import com.ssafy.comssa.domain.UserRefreshToken;
 import com.ssafy.comssa.dto.ApiResponse;
-import com.ssafy.comssa.dto.AuthResponse;
-import com.ssafy.comssa.dto.LoginRequest;
-import com.ssafy.comssa.dto.SignUpRequest;
-import com.ssafy.comssa.exception.BadRequestException;
-import com.ssafy.comssa.repository.UserRepository;
-import com.ssafy.comssa.security.TokenProvider;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import com.ssafy.comssa.oauth.entity.RoleType;
+import com.ssafy.comssa.oauth.entity.UserPrincipal;
+import com.ssafy.comssa.oauth.token.AuthToken;
+import com.ssafy.comssa.oauth.token.AuthTokenProvider;
+import com.ssafy.comssa.repository.UserRefreshTokenRepository;
+import com.ssafy.comssa.util.CookieUtil;
+import com.ssafy.comssa.util.HeaderUtil;
+import io.jsonwebtoken.Claims;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
-//import java.security.AuthProvider;
-import com.ssafy.comssa.domain.AuthProvider;
+
+import java.util.Date;
+import com.ssafy.comssa.domain.auth.AuthReqModel;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/v1/auth")
+@RequiredArgsConstructor
 public class AuthController {
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
+    private final AppProperties appProperties;
+    private final AuthTokenProvider authTokenProvider;
+    private final AuthenticationManager authenticationManager;
+    private final UserRefreshTokenRepository userRefreshTokenRepository;
 
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Autowired
-    private TokenProvider tokenProvider;
+    private final static long THREE_DAYS_MSEC = 259200000;
+    private final static String REFRESH_TOKEN = "refresh_token";
 
     @PostMapping("/login")
-    public ResponseEntity<?> authenticateUser(@Validated @RequestBody LoginRequest loginRequest) {
-
+    public ApiResponse login(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            @RequestBody AuthReqModel authReqModel
+    ) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        loginRequest.getEmail(),
-                        loginRequest.getPassword()
+                        authReqModel.getId(),
+                        authReqModel.getPassword()
                 )
         );
 
+        String userId = authReqModel.getId();
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        String token = tokenProvider.createToken(authentication);
-        return ResponseEntity.ok(new AuthResponse(token));
-    }
+        Date now = new Date();
+        AuthToken accessToken = authTokenProvider.createAuthToken(
+                userId,
+                ((UserPrincipal) authentication.getPrincipal()).getRoleType().getCode(),
+                new Date(now.getTime() + appProperties.getAuth().getTokenExpiry())
+        );
 
-    @PostMapping("/signup")
-    public ResponseEntity<?> registerUser(@Validated @RequestBody SignUpRequest signUpRequest) {
-        if(userRepository.existsByEmail(signUpRequest.getEmail())) {
-            throw new BadRequestException("Email address already in use.");
+        long refreshTokenExpiry = appProperties.getAuth().getRefreshTokenExpiry();
+        AuthToken refreshToken = authTokenProvider.createAuthToken(
+                appProperties.getAuth().getTokenSecret(),
+                new Date(now.getTime() + refreshTokenExpiry)
+        );
+
+        // userId refresh token 으로 DB 확인
+        UserRefreshToken userRefreshToken = userRefreshTokenRepository.findByUserId(userId);
+        if (userRefreshToken == null) {
+            // 없는 경우 새로 등록
+            userRefreshToken = new UserRefreshToken(userId, refreshToken.getToken());
+            userRefreshTokenRepository.saveAndFlush(userRefreshToken);
+        } else {
+            // DB에 refresh 토큰 업데이트
+            userRefreshToken.setRefreshToken(refreshToken.getToken());
         }
 
-        // Creating user's account
-        User user = new User();
-        user.setName(signUpRequest.getName());
-        user.setEmail(signUpRequest.getEmail());
-        user.setNickname(signUpRequest.getNickname());
-        user.setPassword(signUpRequest.getPassword());
-        user.setProvider(AuthProvider.local);
+        int cookieMaxAge = (int) refreshTokenExpiry / 60;
+        CookieUtil.deleteCookie(request, response, REFRESH_TOKEN);
+        CookieUtil.addCookie(response, REFRESH_TOKEN, refreshToken.getToken(), cookieMaxAge);
 
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-
-        User result = userRepository.save(user);
-
-        URI location = ServletUriComponentsBuilder
-                .fromCurrentContextPath().path("/user/me")
-                .buildAndExpand(result.getId()).toUri();
-
-        return ResponseEntity.created(location)
-                .body(new ApiResponse(true, "User registered successfully@"));
+        return ApiResponse.success("token", accessToken.getToken());
     }
 
+    @GetMapping("/refresh")
+    public ApiResponse refreshToken (HttpServletRequest request, HttpServletResponse response) {
+        // access token 확인
+        String accessToken = HeaderUtil.getAccessToken(request);
+        AuthToken authToken = authTokenProvider.convertAuthToken(accessToken);
+        if (!authToken.validate()) {
+            return ApiResponse.invalidAccessToken();
+        }
+
+        // expired access token 인지 확인
+        Claims claims = authToken.getExpiredTokenClaims();
+        if (claims == null) {
+            return ApiResponse.notExpiredTokenYet();
+        }
+
+        String userId = claims.getSubject();
+        RoleType roleType = RoleType.of(claims.get("role", String.class));
+
+        // refresh token
+        String refreshToken = CookieUtil.getCookie(request, REFRESH_TOKEN)
+                .map(Cookie::getValue)
+                .orElse((null));
+        AuthToken authRefreshToken = authTokenProvider.convertAuthToken(refreshToken);
+
+        if (authRefreshToken.validate()) {
+            return ApiResponse.invalidRefreshToken();
+        }
+
+        // userId refresh token 으로 DB 확인
+        UserRefreshToken userRefreshToken = userRefreshTokenRepository.findByUserIdAndRefreshToken(userId, refreshToken);
+        if (userRefreshToken == null) {
+            return ApiResponse.invalidRefreshToken();
+        }
+
+        Date now = new Date();
+        AuthToken newAccessToken = authTokenProvider.createAuthToken(
+                userId,
+                roleType.getCode(),
+                new Date(now.getTime() + appProperties.getAuth().getTokenExpiry())
+        );
+
+        long validTime = authRefreshToken.getTokenClaims().getExpiration().getTime() - now.getTime();
+
+        // refresh 토큰 기간이 3일 이하로 남은 경우, refresh 토큰 갱신
+        if (validTime <= THREE_DAYS_MSEC) {
+            // refresh 토큰 설정
+            long refreshTokenExpiry = appProperties.getAuth().getRefreshTokenExpiry();
+
+            authRefreshToken = authTokenProvider.createAuthToken(
+                    appProperties.getAuth().getTokenSecret(),
+                    new Date(now.getTime() + refreshTokenExpiry)
+            );
+
+            // DB에 refresh 토큰 업데이트
+            userRefreshToken.setRefreshToken(authRefreshToken.getToken());
+
+            int cookieMaxAge = (int) refreshTokenExpiry / 60;
+            CookieUtil.deleteCookie(request, response, REFRESH_TOKEN);
+            CookieUtil.addCookie(response, REFRESH_TOKEN, authRefreshToken.getToken(), cookieMaxAge);
+        }
+
+        return ApiResponse.success("token", newAccessToken.getToken());
+    }
 }
+
