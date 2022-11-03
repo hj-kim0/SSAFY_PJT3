@@ -1,4 +1,4 @@
-package com.ssafy.comssa.repository;
+package com.ssafy.comssa.repository.part;
 
 import com.ssafy.comssa.dtoPart.Cpu;
 import org.springframework.data.mongodb.repository.MongoRepository;
