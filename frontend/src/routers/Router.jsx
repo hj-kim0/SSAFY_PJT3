@@ -1,9 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "../screens/Home";
-import Login from "../screens/Login";
-import JoinSuccess from "../screens/JoinSuccess";
-import UserInfo from "../screens/UserInfo";
+
 import Compare from "../screens/Compare";
 import Auth from "../utils/Auth";
 import Header from "../components/common/Header";
@@ -11,6 +9,10 @@ import Footer from "../components/common/Footer";
 
 import MoneyUse from "../components/outo_manual/MoneyUse";
 import ItemDetail from "../components/detail/ItemDetail";
+
+import Login from "../screens/Login";
+import JoinSuccess from "../screens/JoinSuccess";
+import UserInfo from "../screens/UserInfo";
 
 import "./Router.scss";
 
@@ -24,14 +26,16 @@ function Router() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/oauth/kakao" element={<Auth />}></Route>
           <Route path="/joinsuccess" element={<JoinSuccess />}></Route>
+          <Route path="/userinfo" element={<UserInfo />}></Route>
           {/* comssa */}
           <Route path="/compare" element={<Compare />}></Route>
           <Route path="/money" element={<MoneyUse />}></Route>
           <Route path="/detail:id" element={<ItemDetail />}></Route>
         </Routes>
-      </div>
-      <div id="nav_wrapper">
-        <Header />
+        <div id="nav_wrapper">
+          <Header />
+        </div>
+        <footer />
       </div>
     </>
   );
