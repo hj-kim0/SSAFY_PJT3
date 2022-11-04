@@ -1,6 +1,6 @@
 package com.ssafy.comssa.repository.part;
 
-import com.ssafy.comssa.dtoPart.Power;
+import com.ssafy.comssa.dto.part.Power;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

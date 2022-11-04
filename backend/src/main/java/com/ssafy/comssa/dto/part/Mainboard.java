@@ -1,4 +1,4 @@
-package com.ssafy.comssa.dtoPart;
+package com.ssafy.comssa.dto.part;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,11 +6,11 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Map;
-@Document(collection="power")
+@Document(collection="mainboard")
 @Getter
 @Setter
 @SuppressWarnings("unused")
-public class Power {
+public class Mainboard {
     @Id
     private String id;
     private Map<String,Object> optional;
@@ -18,9 +18,6 @@ public class Power {
     private String price;
     private String productID;
     private String title;
-
-    public Power() {
-    }
 
     public String getId() {
         return id;

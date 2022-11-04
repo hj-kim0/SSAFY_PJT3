@@ -1,4 +1,4 @@
-package com.ssafy.comssa.dtoPart;
+package com.ssafy.comssa.dto.part;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,11 +7,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Map;
 
-@Document(collection="cpu")
+@Document(collection="gpu")
 @Getter
 @Setter
 @SuppressWarnings("unused")
-public class Cpu {
+public class Gpu {
     @Id
     private String id;
     private Map<String,Object> optional;
@@ -19,7 +19,7 @@ public class Cpu {
     private String price;
     private String specsID;
     private String title;
-
+    private String manufacturer;
 
     public Map<String, Object> getOptional() {
         return optional;
@@ -61,6 +61,14 @@ public class Cpu {
         this.title = title;
     }
 
-    public Cpu() {
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public Gpu() {
     }
 }

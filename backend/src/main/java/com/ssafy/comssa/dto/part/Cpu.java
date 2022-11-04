@@ -1,4 +1,4 @@
-package com.ssafy.comssa.dtoPart;
+package com.ssafy.comssa.dto.part;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,29 +6,20 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Map;
-@Document(collection="ssd")
+
+@Document(collection="cpu")
 @Getter
 @Setter
 @SuppressWarnings("unused")
-public class SSD {
+public class Cpu {
     @Id
     private String id;
     private Map<String,Object> optional;
     private String partsID;
     private String price;
-    private String productID;
+    private String specsID;
     private String title;
 
-    public SSD() {
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public Map<String, Object> getOptional() {
         return optional;
@@ -54,12 +45,12 @@ public class SSD {
         this.price = price;
     }
 
-    public String getProductID() {
-        return productID;
+    public String getSpecsID() {
+        return specsID;
     }
 
-    public void setProductID(String productID) {
-        this.productID = productID;
+    public void setSpecsID(String specsID) {
+        this.specsID = specsID;
     }
 
     public String getTitle() {
@@ -68,5 +59,8 @@ public class SSD {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Cpu() {
     }
 }

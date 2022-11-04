@@ -1,4 +1,4 @@
-package com.ssafy.comssa.dtoPart;
+package com.ssafy.comssa.dto.part;
 
 import lombok.Getter;
 import lombok.Setter;

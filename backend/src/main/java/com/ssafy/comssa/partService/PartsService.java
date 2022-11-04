@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
+@SuppressWarnings("unused")
 public class PartsService {
 
     @Autowired
@@ -21,7 +22,7 @@ public class PartsService {
         ObjectMapper objectMapper = new ObjectMapper();
         log.info("hello========================================");
         try {
-            log.info(objectMapper.writeValueAsString(cpuRepository.findByPartsID(name)));
+//            log.info(objectMapper.writeValueAsString(cpuRepository.findByPartsID(name)));
             return objectMapper.writeValueAsString(cpuRepository.findAll());
         } catch (JsonProcessingException e) {
             e.printStackTrace();
