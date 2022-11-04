@@ -1,6 +1,6 @@
 import React from "react";
 import Success from "../assets/images/login/CheckBox.png";
-import Styles from "../screens/JoinSuccess.css";
+import Styles from "./JoinSuccess.css";
 
 export default function JoinSuccess() {
   return (

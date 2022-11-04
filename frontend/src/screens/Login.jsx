@@ -10,7 +10,7 @@ const KAKAO_AUTH_URI = `https://kauth.kakao.com/oauth/authorize?client_id=${REST
 
 function Login() {
   return (
-    <>
+    <div>
       <div>
         <img
           style={{
@@ -43,7 +43,7 @@ function Login() {
           </a>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
