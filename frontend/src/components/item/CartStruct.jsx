@@ -1,120 +1,23 @@
-import { Link } from "@mui/material";
+//아이템 타입 ~ CPU, 메인보드 etc
+import "./CartStruct.scss";
 
-import { cartState } from "../../recoil/atom";
-import { useRecoilState, useSetRecoilState } from "recoil";
-
-import "./CardStruct.scss";
-
-const Cart_list = [
-    {
-        id: 1,
-        name : "CPU"
-    },
-    {
-        id: 2,
-        name : "메인보드"
-    },
-    {
-        id: 3,
-        name : "메모리"
-    },
-    {
-        id: 4,
-        name : "그래픽카드"
-    },
-    {
-        id: 5,
-        name : "SSD"
-    },
-    {
-        id: 6,
-        name : "HDD"
-    },
-    {
-        id: 7,
-        name : "ODD"
-    },
-    {
-        id: 8,
-        name : "케이스"
-    },
-    {
-        id: 9,
-        name : "파워"
-    },
-    {
-        id: 10,
-        name : "쿨러"
-    },
-    
-];
-const Dummy_list = [
-    {
-        id : 1,
-        name : "i7",
-        price : 1333333,
-        amount : 1
-    },
-    {
-        id : 2,
-        name : "i5",
-        price : 133333,
-        amount : 1
-    },
-    {
-        id : 3,
-        name : "GTX 3080",
-        price : 1,
-        amount : 1
-    },
-    
-];
-
-const PcItem = ({id, name, price, img}) => (
-    <li className={"pc-item pc-item-" + id}>
-        <Link to={"/item/" + id}>
-            <div className="pc-item-container">
-                <img className="pc-item-img" src={img}/>
-                <h1 className="pc-item-name">{name}</h1>
-                <h2 className="pc-item-price">${price.toFixed(2)}</h2>
-            </div>
-        </Link>
-    </li>
-);
-
-
-
-function CartItemCreator() {
-    const setCart = useSetRecoilState(cartState);
-
-    const addItem = () => {
-        setCart((oldCart) => [
-            ...oldCart,{
-                id: 1,
-                name: 1,
-                description: 1,
-                price: 1,
-                count: 1,
-            }
-        ])
-    }
-}
-
-const ItemCart = (items) => {
-    console.log(items.items.name);
+const CartStruct = (props) => {
+    console.log(props);
     return(
-        <div className="b bd-solid rw10 pd-5 mg-2 center">{items.items.name}</div>
-    );
-}
-
-const CartStruct = () => {
-    const [cart, setCart] = useRecoilState(cartState);
-
-    return (
-        Cart_list.map((items) => (
+        props.data.parts.map((items) => (
             <>
-            <ItemCart key={items.id} items={items}/>
-            </>
+            <div className="b bd-solid rw10 pd-5 mg-2 center">
+                {items.name}
+            </div>
+            <div className="b bd-solid rw10 pd-5 mg-2 center" >
+                {items.part.map((items2) => (
+                    <div key={items2.id}>
+                        {items2.id}
+                        {/*여기서 카트 리스트를 띄우는데 드롭다운형식을 다시 채용*/}
+                    </div>
+                ))}
+            </div>
+        </>
         ))
     )
 }

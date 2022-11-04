@@ -1,0 +1,23 @@
+
+
+.tdStyle  {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    background: white;
+    /* padding: 5px; */
+    width: 100%;
+    height: 150px;
+};
+
+.boxstyle {
+    background: dimgray;
+    text-emphasis-color: white;
+}
+
+.itemcontrol {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+

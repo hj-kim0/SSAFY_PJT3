@@ -10,9 +10,6 @@ function Home(){
         <ArticleTop />
         <Parallax/> 
         <ArticleBody/>
-        <div className="cart">
-            <CartStruct/>
-        </div>  
     </>
     );
 }
