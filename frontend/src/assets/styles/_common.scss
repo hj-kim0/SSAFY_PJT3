@@ -31,6 +31,10 @@
     flex-direction: column;
   }
 
+  &.row {
+    flex-direction: row;
+  }
+
   &.align-center {
     align-items: center;
   }
