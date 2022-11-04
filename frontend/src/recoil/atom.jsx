@@ -4,15 +4,10 @@ import { recoilPersist } from "recoil-persist";
 
 const { persistAtom } = recoilPersist();
 
-export const themeMode = atom({
-    key : "themeMode",
-    default : {"theme" : 0 },
-    effects_UNSTABLE:[persistAtom],
-});
-
 export const cartState = atom({
     key: "cartState",
     default:{
         "cartItems" : []
-    }
+    },
+    effects_UNSTABLEL:[persistAtom],
 })
