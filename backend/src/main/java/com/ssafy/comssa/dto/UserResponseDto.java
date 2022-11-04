@@ -1,10 +1,7 @@
 package com.ssafy.comssa.dto;
 
 import com.ssafy.comssa.domain.User;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 
 @Getter
