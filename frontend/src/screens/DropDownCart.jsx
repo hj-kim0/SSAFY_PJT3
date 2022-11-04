@@ -12,17 +12,17 @@ const DropdownCart = (props) => {
 
     return(
         <div>
-            <div>
-                <Dropdown key={data.id} data={data} idx={index} chgIndex={chgIndex}/>
+            <div className="m-5">
+                <Dropdown key={data.id} data={data} idx={index} text={"컴퓨터를 선택해 주세요"} chgIndex={chgIndex}/>
             </div>
-            <div>
+            <div className="m-5 bd-s bdw-3 bdc-grey br-075 p-3" >
                 {
                     index ? 
                     <div>
                         <CartStruct key={data.id} data={data[index]} />
                     </div>
                     :                    
-                    <div>
+                    <div className="flex center">
                         <b>컴퓨터를 선택해 주세요.</b>
                     </div>
                 }

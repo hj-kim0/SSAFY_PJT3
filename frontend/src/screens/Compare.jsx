@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DropdownCart from "./DropDownCart";
+import MyResponsiveRadar from "./Rader";
 
 const my_list = [
     {
@@ -44,7 +45,7 @@ const my_list = [
             },
         ],
     },   
-]
+];
 
 const recom_list = [
     {
@@ -92,13 +93,26 @@ const recom_list = [
             },
         ],
     },   
-]
+];
 
 const Compare = () => {
     return(
-        <div className="m-5 p-5 container flex">
-        <DropdownCart data={my_list}/>
-        <DropdownCart data={recom_list}/>
+        <div>
+            <div className="kyobo fs-40 flex align-center mt-5 pt-5 "> 
+            <div className="bdb-s bdc-grey bdw-7 pb-3">컴퓨터 사양 비교</div></div>
+            <div className="m-2 p-5 flex mb-5">
+                <div className="">
+                <div className="flex align-center fs-22 notoBold">내 사양</div>
+                    <DropdownCart data={my_list} />
+                </div>
+                <div className="">
+                <div className="flex align-center fs-22 notoBold">내 견적</div>
+                    <DropdownCart data={recom_list} />
+                </div>
+            </div>
+            <div className="mt-5 pt-5">
+                <MyResponsiveRadar/>
+            </div>
         </div>
         )
 }

@@ -8,7 +8,8 @@ import "./assets/styles/_common.scss";
 import "./assets/styles/_font.css";
 import "./assets/styles/_typography.scss";
 import "./assets/styles/_utils.scss";
-
+import "./assets/styles/_borders.scss";
+import "./assets/styles/_base.scss";
 
 function App() {
   return (

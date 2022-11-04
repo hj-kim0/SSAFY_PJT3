@@ -24,12 +24,17 @@
   }
   
   .dropdown-item {
-    padding: 10px;
+    padding: 10px !important;
+
   }
-  
+
   .dropdown-item:hover {
     cursor: pointer;
+    background-color: #91A5BE !important;
+    color: white !important;
   }
+  
+
   
   .dropdown-item-dot {
     opacity: 0;
