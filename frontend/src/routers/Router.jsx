@@ -26,8 +26,8 @@ function Router() {
           <Route path='/money' element={<OutoManual />}></Route>
           <Route path='/detail:id' element={<ItemDetail />}></Route>
         </Routes>
-        <div id='nav_wrapper'>{/* <Header /> */}</div>
-        {/* <Footer /> */}
+        <div id='nav_wrapper'><Header /></div>
+        <Footer />
       </div>
     </>
   );
