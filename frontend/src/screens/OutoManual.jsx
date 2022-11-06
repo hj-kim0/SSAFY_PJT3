@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import styles from "./OutoManual.module.css";
+import styles from "./OutoManual.module.scss";
 import Computerlist from "./Computerlist";
 import OutoUser from "../components/datacomputer/OutoUser";
+import Tab from "../components/icon/Tab";
 
 const OutoManual = () => {
   const [tab, setTab] = useState("0");
@@ -13,7 +14,8 @@ const OutoManual = () => {
     setEnterdNum(removedCommaValue.toLocaleString());
   };
   return (
-    <div>
+    <div className={styles.body_container}>
+    <div className={styles.body_wrapper}>
       <div className={styles.boxtop}>
         <button
           onClick={() => {
@@ -51,6 +53,8 @@ const OutoManual = () => {
           <Computerlist />
         </div>
       )}
+    </div>
+    <Tab/>
     </div>
   );
 };
