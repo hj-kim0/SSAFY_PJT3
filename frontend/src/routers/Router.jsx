@@ -13,6 +13,7 @@ import ItemDetail from "../components/detail/ItemDetail";
 
 import "./Router.scss";
 import OutoManual from "../screens/OutoManual";
+import AutoManual from "../screens/AutoManual";
 
 function Router() {
   return (
@@ -26,9 +27,10 @@ function Router() {
           <Route path="/joinsuccess" element={<JoinSuccess />}></Route>
           <Route path="/userinfo" element={<UserInfo />}></Route>
           {/* comssa */}
-          <Route path="/compare" element={<Compare />}></Route>
-          <Route path="/money" element={<OutoManual />}></Route>
-          <Route path="/detail:id" element={<ItemDetail />}></Route>
+          <Route path='/compare' element={<Compare />}></Route>
+          {/* <Route path='/money' element={<OutoManual />}></Route> */}
+          <Route path='/money' element={<AutoManual />}></Route>
+          <Route path='/detail:id' element={<ItemDetail />}></Route>
         </Routes>
         <div id="nav_wrapper">
           <Header />

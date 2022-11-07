@@ -2,6 +2,10 @@
   display: inline-block;
 }
 
+.dcontents {
+  display: contents;
+}
+
 .block {
   display: block;
 }
@@ -16,6 +20,10 @@
 
 .notVisible {
   visibility: hidden;
+}
+
+.wkbox {
+  display: -webkit-box;
 }
 
 .ellipsis {
