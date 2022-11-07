@@ -48,8 +48,12 @@
     background-color: #eeeded;
     display: none;
     padding: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .active-content {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }

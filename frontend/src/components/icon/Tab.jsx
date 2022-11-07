@@ -5,6 +5,17 @@ import ManualEstimate from "./ManualEstimate";
 import "./Tab.scss";
 
 const Tab = () => {
+
+    const [enteredNum, setEnterdNum] = useState("");
+    
+    const changeEnteredNum = (e) => {
+    const value = e.target.value;
+    const removedCommaValue = Number(value.replaceAll(",", ""));
+    setEnterdNum(removedCommaValue.toLocaleString());
+
+    };
+
+
     const [check, setCheck] = useState(true);
 
     const checkTab = (chk) => {
@@ -31,10 +42,13 @@ const Tab = () => {
             </li>
         </ul>
         <div className="content-container">
-            <div className={`content ${getActiveClass(true, "active-content")}`}>
-                <UserEstimate/>
+            <div className={`content justify-center align-center ${getActiveClass(true, "active-content")}`}>
+                <UserEstimate
+                    enteredNum={enteredNum}
+                    changeEnteredNum={changeEnteredNum}
+                />
             </div>
-            <div className={`content ${getActiveClass(false, "active-content")}`}>
+            <div className={`content justify-center align-center ${getActiveClass(false, "active-content")}`}>
                 <ManualEstimate/>
             </div>
         </div>
