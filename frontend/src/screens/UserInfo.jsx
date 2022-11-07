@@ -1,4 +1,4 @@
-import { Checkbox } from "@mui/material";
+import { Box, Checkbox } from "@mui/material";
 import React from "react";
 import ComAdd from "../assets/images/login/Add.png";
 import ComDelete from "../assets/images/login/Delete.png";
@@ -8,18 +8,26 @@ import { border, display } from "@mui/system";
 
 export default function UserInfo() {
   return (
-    <div>
-      <div>회원정보 수정</div>
+    <div align="center">
+      <div>
+        <p>회원정보 수정</p>
+      </div>
       <div>
         <img
-          style={{ display: "block", margin: "auto" }}
+          width="300px"
+          height="300px"
+          border={{ width: "50px", color: "white", style: "solid" }}
           src={ProfilePicture}
           alt="이 곳에 프로필 사진이 들어갑니다"
         />
       </div>
-      <div>닉네임</div>
+      <div>
+        <br />
+        <p>닉네임</p>
+      </div>
       <div>
         <div>
+          <br />
           <input
             type="text"
             name="NickName"
@@ -27,7 +35,7 @@ export default function UserInfo() {
             style={{
               width: "25%",
               display: "inline",
-              border: "none",
+              border: "0",
               paddingLeft: "5px",
               outline: "none",
               boxSizing: "border-box",
@@ -55,15 +63,17 @@ export default function UserInfo() {
         <div>
           <div>
             <p>내 컴퓨터</p>
-            <img
-              src={ComputerAdd}
-              alt="견적을 맞춘 내 컴퓨터를 추가하려면 클릭"
-              style={{ height: "25px", width: "25px" }}
-            />
+            <button>
+              <img
+                src={ComputerAdd}
+                alt="견적을 맞춘 내 컴퓨터를 추가하려면 클릭"
+                style={{ height: "25px", width: "25px" }}
+              />
+            </button>
             추가
           </div>
           <div>
-            <p>내 컴퓨터 #1</p>
+            <p style={{ display: "inline" }}></p>
             <button>
               <img
                 src={ComAdd}
@@ -74,7 +84,7 @@ export default function UserInfo() {
                   display: "inline",
                   margin: "auto",
                   marginright: "5%",
-                  border: "0 solid",
+                  border: "5px white solid",
                 }}
               />
             </button>

@@ -10,32 +10,24 @@ const KAKAO_AUTH_URI = `https://kauth.kakao.com/oauth/authorize?client_id=${REST
 
 export default function Login() {
   return (
-    <div>
+    <div align="center">
       <div>
         <img
-          style={{
-            display: "block",
-            margin: "auto",
-          }}
+          height="300px"
+          width="400px"
+          border={{ width: "300px", color: "white", style: "solid" }}
           src={Logo}
           alt="컴싸에 오신 것을 환영합니다"
         />
         <div>
-          <img
-            style={{
-              display: "block",
-              margin: "auto",
-            }}
-          ></img>
-        </div>
-        <div>
+          <br />
+          <br />
+          <br />
           <a href={KAKAO_AUTH_URI} aria-label="Kakao">
             <img
               style={{
                 width: "400px",
                 height: "50px",
-                display: "block",
-                margin: "auto",
               }}
               src={KakaoLogin}
               alt="본 사이트는 카카오 로그인만을 지원하고 있습니다"
