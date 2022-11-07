@@ -6,5 +6,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 @SuppressWarnings("unused")
 public interface CpuSpecRepository extends MongoRepository<CpuSpec,String> {
-    List<CpuSpec> findByPartsID(String name);
+//    List<CpuSpec> findByPartsID(String name);
 }
