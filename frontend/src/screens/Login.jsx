@@ -8,7 +8,7 @@ const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI.replace(/\"/gi, "");
 
 const KAKAO_AUTH_URI = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
-function Login() {
+export default function Login() {
   return (
     <div>
       <div>
@@ -46,5 +46,3 @@ function Login() {
     </div>
   );
 }
-
-export default Login;
