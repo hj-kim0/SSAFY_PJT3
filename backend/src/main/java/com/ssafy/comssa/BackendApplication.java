@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication(
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 ////		,scanBasePackages = {"com.ssafy.comssa.repository"}
 )
 @RestController
+@CrossOrigin(origins="*")
 public class BackendApplication {
 
 	public static void main(String[] args) {

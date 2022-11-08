@@ -14,7 +14,7 @@ import java.util.Map;
 public class Cpu {
     @Id
     private String id;
-    private Map<String,Object> optional;
+    private Map<String,Object> option;
     private String partsID;
     private String price;
     private String specsID;
@@ -29,12 +29,12 @@ public class Cpu {
         this.imgSrc = imgSrc;
     }
 
-    public Map<String, Object> getOptional() {
-        return optional;
+    public Map<String, Object> getOption() {
+        return option;
     }
 
-    public void setOptional(Map<String, Object> optional) {
-        this.optional = optional;
+    public void setOption(Map<String, Object> option) {
+        this.option = option;
     }
 
     public String getPartsID() {

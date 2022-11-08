@@ -17,10 +17,11 @@ public class MemoryService {
 
     public String selectMemory(String name) {
         ObjectMapper objectMapper = new ObjectMapper();
-        log.info("hello========================================");
         try {
-//            log.info(objectMapper.writeValueAsString(cpuRepository.findByPartsID(name)));
-            return objectMapper.writeValueAsString(memoryRepository.findAll());
+            if (memoryRepository.findByPartsID(name)==null){
+                return "none";
+            }
+            return objectMapper.writeValueAsString(memoryRepository.findByPartsID(name));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
             return "ERROR";

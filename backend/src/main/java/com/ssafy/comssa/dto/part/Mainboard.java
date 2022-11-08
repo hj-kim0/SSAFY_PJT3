@@ -16,7 +16,7 @@ public class Mainboard {
     private Map<String,Object> optional;
     private String partsID;
     private String price;
-    private String productID;
+    private String specsID;
     private String title;
 
     public String getId() {
@@ -51,12 +51,12 @@ public class Mainboard {
         this.price = price;
     }
 
-    public String getProductID() {
-        return productID;
+    public String getSpecsID() {
+        return specsID;
     }
 
-    public void setProductID(String productID) {
-        this.productID = productID;
+    public void setSpecsID(String specsID) {
+        this.specsID = specsID;
     }
 
     public String getTitle() {

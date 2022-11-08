@@ -19,10 +19,13 @@ public class CpuService {
 
     public String selectCpu(String name) {
         ObjectMapper objectMapper = new ObjectMapper();
-        log.info("hello========================================");
+//        log.info("hello========================================");
         try {
 //            log.info(objectMapper.writeValueAsString(cpuRepository.findByPartsID(name)));
-            log.info("hello========================================");
+//            log.info("hello========================================");
+            if (cpuRepository.findByPartsID(name)==null){
+                return "none";
+            }
             return objectMapper.writeValueAsString(cpuRepository.findByPartsID(name));
         } catch (JsonProcessingException e) {
             log.info("hello========================================");
