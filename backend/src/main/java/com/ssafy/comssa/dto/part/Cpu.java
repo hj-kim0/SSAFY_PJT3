@@ -19,15 +19,14 @@ public class Cpu {
     private String price;
     private String specsID;
     private String title;
+    private String imgSrc;
 
-    private String imgsrc;
-
-    public String getImgsrc() {
-        return imgsrc;
+    public String getImgSrc() {
+        return imgSrc;
     }
 
-    public void setImgsrc(String imgsrc) {
-        this.imgsrc = imgsrc;
+    public void setImgSrc(String imgSrc) {
+        this.imgSrc = imgSrc;
     }
 
     public Map<String, Object> getOptional() {
