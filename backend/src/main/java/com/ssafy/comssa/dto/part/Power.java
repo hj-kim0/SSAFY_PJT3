@@ -5,7 +5,6 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Map;
 @Document(collection="power")
 @Getter
 @Setter
@@ -13,10 +12,10 @@ import java.util.Map;
 public class Power {
     @Id
     private String id;
-    private Map<String,Object> optional;
+    private String power;
     private String partsID;
     private String price;
-    private String productID;
+    private String formfactor;
     private String title;
 
     public Power() {
@@ -30,12 +29,12 @@ public class Power {
         this.id = id;
     }
 
-    public Map<String, Object> getOptional() {
-        return optional;
+    public String getPower() {
+        return power;
     }
 
-    public void setOptional(Map<String, Object> optional) {
-        this.optional = optional;
+    public void setPower(String power) {
+        this.power = power;
     }
 
     public String getPartsID() {
@@ -54,12 +53,12 @@ public class Power {
         this.price = price;
     }
 
-    public String getProductID() {
-        return productID;
+    public String getFormfactor() {
+        return formfactor;
     }
 
-    public void setProductID(String productID) {
-        this.productID = productID;
+    public void setFormfactor(String formfactor) {
+        this.formfactor = formfactor;
     }
 
     public String getTitle() {

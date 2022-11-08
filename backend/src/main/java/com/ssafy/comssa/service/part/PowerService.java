@@ -17,10 +17,11 @@ public class PowerService {
 
     public String selectPower(String name) {
         ObjectMapper objectMapper = new ObjectMapper();
-        log.info("hello========================================");
         try {
-//            log.info(objectMapper.writeValueAsString(cpuRepository.findByPartsID(name)));
-            return objectMapper.writeValueAsString(powerRepository.findAll());
+            if (powerRepository.findByPartsID(name)==null){
+                return "none";
+            }
+            return objectMapper.writeValueAsString(powerRepository.findByPartsID(name));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
             return "ERROR";

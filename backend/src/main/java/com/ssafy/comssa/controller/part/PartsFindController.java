@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
+
 @Slf4j
 @RestController
 @RequestMapping(path = "/find")
@@ -17,42 +19,44 @@ import org.springframework.web.bind.annotation.RestController;
 public class PartsFindController {
     @Autowired
     CpuService cpuService;
+    @Autowired
     GpuService gpuService;
+
+    @Autowired
     MainboardService mainboardService;
+
+    @Autowired
     MemoryService memoryService;
+
+    @Autowired
     PowerService powerService;
+
+    @Autowired
     SsdService ssdService;
 
     @GetMapping(value = "/cpu")
     public String findCpuData(String code) {
-        code = "16101083";
-        log.info("findCpuDataCalled");
         return cpuService.selectCpu(code);
     }
     @GetMapping(value = "/gpu")
-    public String findGpuData() {
-        String name = "17913863";
-        return gpuService.selectGpu(name);
+    public String findGpuData(String code) {
+        return gpuService.selectGpu(code);
     }
     @GetMapping(value = "/mainboard")
-    public String findMainboardData() {
-        String name = "17913863";
-        return mainboardService.selectMainboard(name);
+    public String findMainboardData(String code) {
+        return mainboardService.selectMainboard(code);
     }
     @GetMapping(value = "/memory")
-    public String findMemoryData() {
-        String name = "17913863";
-        return memoryService.selectMemory(name);
+    public String findMemoryData(String code) {
+        return memoryService.selectMemory(code);
     }
     @GetMapping(value = "/power")
-    public String findPowerData() {
-        String name = "17913863";
-        return powerService.selectPower(name);
+    public String findPowerData(String code) {
+        return powerService.selectPower(code);
     }
     @GetMapping(value = "/ssd")
-    public String findSsdData() {
-        String name = "17913863";
-        return ssdService.selectSsd(name);
+    public String findSsdData(String code) {
+        return ssdService.selectSsd(code);
     }
 
     public PartsFindController() {
