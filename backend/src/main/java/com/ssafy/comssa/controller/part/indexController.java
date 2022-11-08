@@ -1,4 +1,4 @@
-package com.ssafy.comssa.partController;
+package com.ssafy.comssa.controller.part;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -20,6 +20,15 @@ public class Cpu {
     private String specsID;
     private String title;
 
+    private String imgsrc;
+
+    public String getImgsrc() {
+        return imgsrc;
+    }
+
+    public void setImgsrc(String imgsrc) {
+        this.imgsrc = imgsrc;
+    }
 
     public Map<String, Object> getOptional() {
         return optional;

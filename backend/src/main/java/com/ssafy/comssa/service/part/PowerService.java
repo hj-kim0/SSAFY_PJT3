@@ -1,9 +1,8 @@
-package com.ssafy.comssa.partService;
+package com.ssafy.comssa.service.part;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ssafy.comssa.repository.part.CpuRepository;
-import com.ssafy.comssa.repository.part.GpuRepository;
+import com.ssafy.comssa.repository.part.PowerRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,36 +10,23 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @SuppressWarnings("unused")
-public class PartsService {
+public class PowerService {
 
     @Autowired
-    CpuRepository cpuRepository;
-    @Autowired
-    GpuRepository gpuRepository;
+    PowerRepository powerRepository;
 
-    public String selectCpu(String name) {
+    public String selectPower(String name) {
         ObjectMapper objectMapper = new ObjectMapper();
         log.info("hello========================================");
         try {
 //            log.info(objectMapper.writeValueAsString(cpuRepository.findByPartsID(name)));
-            return objectMapper.writeValueAsString(cpuRepository.findAll());
+            return objectMapper.writeValueAsString(powerRepository.findAll());
         } catch (JsonProcessingException e) {
             e.printStackTrace();
             return "ERROR";
         }
     }
 
-    public String selectGpu(String name) {
-        ObjectMapper objectMapper = new ObjectMapper();
-        log.info("hello========================================");
-        try {
-            log.info(objectMapper.writeValueAsString(gpuRepository.findByPartsID(name)));
-            return objectMapper.writeValueAsString(gpuRepository.findAll());
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            return "ERROR";
-        }
-    }
 //    public void saveUser(String name) {
 //
 //        Cpu cpu = new Cpu();
