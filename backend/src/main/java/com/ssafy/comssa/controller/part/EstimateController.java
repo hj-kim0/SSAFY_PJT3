@@ -17,17 +17,26 @@ import org.json.simple.parser.ParseException;
 @RequestMapping(path = "/estimate")
 @Controller
 @CrossOrigin(origins="*")
-public class EstimateController {
+public class EstimateController extends PartsFindController{
     @Autowired
     EstimateService estimateService;
 
-    @GetMapping(value = "/cpu")
+
+    @GetMapping(value = "/used")
     public JSONObject findEstimateData() throws ParseException {
         String name = "normal";
         String forReturnString = estimateService.select(name);
         JSONParser parser = new JSONParser();
-
+        JSONObject jsonObject = (JSONObject) parser.parse(forReturnString);
+        String cpuCode = jsonObject.get("cpu").toString();
+        String gpuCode = jsonObject.get("gpu").toString();
+        String mainboardCode=jsonObject.get("mainboard").toString();
+        String memory =jsonObject.get("memory").toString();
+        String power = jsonObject.get("power").toString();
+        String answer = findCpuData("16101083");
+        JSONObject cpuJsonObject = (JSONObject) parser.parse(answer);
 //        log.info(forReturn);
-        return (JSONObject) parser.parse(forReturnString);
+        jsonObject.put("cpuDetail",cpuJsonObject);
+        return jsonObject;
     }
 }
