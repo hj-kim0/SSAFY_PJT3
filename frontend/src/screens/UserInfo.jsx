@@ -9,8 +9,15 @@ import { border, display } from "@mui/system";
 export default function UserInfo() {
   return (
     <div align="center">
-      <div>
-        <p>회원정보 수정</p>
+      <div
+        style={{
+          borderStyle: "solid",
+          borderColor: "#ffffff",
+          borderWidth: "100px",
+          borderBottomWidth: "0",
+        }}
+      >
+        <p style={{ fontSize: "40px", fontWeight: "bold" }}>회원정보 수정</p>
       </div>
       <div>
         <img
@@ -23,7 +30,7 @@ export default function UserInfo() {
       </div>
       <div>
         <br />
-        <p>닉네임</p>
+        <p style={{ fontWeight: "bold" }}>닉네임</p>
       </div>
       <div>
         <div>
@@ -34,6 +41,7 @@ export default function UserInfo() {
             placeholder="한글, 대소문자, 숫자만 입력할 수 있습니다."
             style={{
               width: "25%",
+              height: "30px",
               display: "inline",
               border: "0",
               paddingLeft: "5px",
@@ -47,6 +55,7 @@ export default function UserInfo() {
             type="DuplicateCheck"
             style={{
               width: "5%",
+              height: "30px",
               display: "inline",
               margin: "0 auto",
               border: "none",
@@ -54,23 +63,28 @@ export default function UserInfo() {
               marginLeft: "-10px",
               boxSizing: "border-box",
               textAlign: "center",
-              color: "#ffdidc",
+              color: "#023047",
             }}
           >
             중복 확인
           </button>
         </div>
         <div>
-          <div>
-            <p>내 컴퓨터</p>
-            <button>
+          <div style={{ borderWidth: "100px" }}>
+            <p
+              style={{
+                display: "inline",
+              }}
+            >
+              내 컴퓨터
+            </p>
+            <button style={{ display: "inline" }}>
               <img
                 src={ComputerAdd}
                 alt="견적을 맞춘 내 컴퓨터를 추가하려면 클릭"
                 style={{ height: "25px", width: "25px" }}
               />
             </button>
-            추가
           </div>
           <div>
             <p style={{ display: "inline" }}></p>
@@ -83,8 +97,9 @@ export default function UserInfo() {
                   width: "50px",
                   display: "inline",
                   margin: "auto",
-                  marginright: "5%",
-                  border: "5px white solid",
+                  borderRadius: "20px",
+                  border: "solid",
+                  borderColor: "#ffffff",
                 }}
               />
             </button>
@@ -98,13 +113,20 @@ export default function UserInfo() {
                   display: "inline",
                   margin: "auto",
                   borderRadius: "20px",
-                  border: "0 solid",
+                  border: "solid",
+                  borderColor: "#ffffff",
                 }}
               />
             </button>
           </div>
         </div>
-        <div>
+        <div
+          style={{
+            borderStyle: "solid",
+            borderWidth: "50px",
+            borderColor: "#ffffff",
+          }}
+        >
           <button
             type="EditComplete"
             style={{
