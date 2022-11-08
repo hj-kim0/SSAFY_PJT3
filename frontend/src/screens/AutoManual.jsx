@@ -1,5 +1,12 @@
 import Tab from "../components/icon/Tab";
 import DropdownCart from "./DropDownCart";
+import ItemCard from "../components/item/ItemCard";
+
+const itemdata = {
+    url : "../assets/images/sample.png",
+    idx : 1127,
+    name : "i7 Intel Core(R)"
+}
 
 const data = [
     {
@@ -55,8 +62,16 @@ const AutoManual = () => {
             <div className="w-50 flex">
                 <Tab/>
             </div>
-            <div className="w-50 flex">
-                <DropdownCart data={data}/>
+            <div className="w-50 flex row ml-5 mr-5">
+                <ItemCard data={itemdata} kind="CPU"/>
+                <ItemCard data={itemdata} kind="MB"/>
+                <ItemCard data={itemdata} kind="GPU"/>
+                <ItemCard data={itemdata} kind="RAM"/>
+                <ItemCard data={itemdata} kind="쿨러"/>
+                <ItemCard data={itemdata} kind="CPU"/>
+                <ItemCard data={itemdata} kind="CPU"/>
+                <ItemCard data={itemdata} kind="CPU"/>
+                <ItemCard data={itemdata} kind="CPU"/>
             </div>
         </div>
         </div>
