@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication(
 		exclude={DataSourceAutoConfiguration.class}
-//		,scanBasePackages = {"com.ssafy.comssa.repository"}
+////		,scanBasePackages = {"com.ssafy.comssa.repository"}
 )
 @RestController
 public class BackendApplication {
