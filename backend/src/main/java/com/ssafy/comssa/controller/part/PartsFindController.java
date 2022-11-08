@@ -4,6 +4,7 @@ import com.ssafy.comssa.service.part.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(path = "/find")
 @Controller
+@CrossOrigin(origins="*")
 public class PartsFindController {
     @Autowired
     CpuService cpuService;
@@ -22,9 +24,10 @@ public class PartsFindController {
     SsdService ssdService;
 
     @GetMapping(value = "/cpu")
-    public String findCpuData() {
-        String name = "17913863";
-        return cpuService.selectCpu(name);
+    public String findCpuData(String code) {
+        code = "16101083";
+        log.info("findCpuDataCalled");
+        return cpuService.selectCpu(code);
     }
     @GetMapping(value = "/gpu")
     public String findGpuData() {
@@ -52,10 +55,6 @@ public class PartsFindController {
         return ssdService.selectSsd(name);
     }
 
-//    @GetMapping(value = "/save")
-//    public String saveUserData(@RequestParam String name, @RequestParam int price) {
-//        partService.saveUser(name, price);
-//
-//        return partService.selectUser(name);
-//    }
+    public PartsFindController() {
+    }
 }

@@ -6,9 +6,11 @@ import com.ssafy.comssa.repository.part.CpuRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 @Slf4j
 @Component
+@Service
 @SuppressWarnings("unused")
 public class CpuService {
 
@@ -20,8 +22,10 @@ public class CpuService {
         log.info("hello========================================");
         try {
 //            log.info(objectMapper.writeValueAsString(cpuRepository.findByPartsID(name)));
-            return objectMapper.writeValueAsString(cpuRepository.findAll());
+            log.info("hello========================================");
+            return objectMapper.writeValueAsString(cpuRepository.findByPartsID(name));
         } catch (JsonProcessingException e) {
+            log.info("hello========================================");
             e.printStackTrace();
             return "ERROR";
         }
