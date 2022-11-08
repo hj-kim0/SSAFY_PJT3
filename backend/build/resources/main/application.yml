@@ -1,0 +1,4 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://S07P31C204:comssaC204!@ssafy.ngivl.mongodb.net/S07P31C204?authSource=admin

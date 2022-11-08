@@ -12,3 +12,26 @@ export const cartState = atom({
     effects_UNSTABLEL:[persistAtom],
 })
 
+export const userState = atom({
+    key: "",
+    default:{
+        "CPU" : -1,
+        "CPU" : -1,
+        "CPU" : -1,
+        "CPU" : -1,
+        "CPU" : -1,
+        "CPU" : -1,
+        "CPU" : -1,
+        "CPU" : -1,
+        "CPU" : -1,
+    }
+})
+
+export const estimateState = atom({
+    key: "estimateState",
+    default:{
+
+    }
+})
+
+
