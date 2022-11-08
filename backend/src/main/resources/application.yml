@@ -9,11 +9,11 @@ spring:
     username: root
     password: thekey1919
 
-  data:
-    mongodb:
-      host: localhost
-      port: 27017
-      database: comssa
+#  data:
+#    mongodb:
+#      host: localhost
+#      port: 27017
+#      database: comssa
 
   security:
     oauth2:
@@ -58,15 +58,16 @@ spring:
 
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
 
   ## JWT Custom
 jwt:
-  secret: c3ByaW5nLWJvb3Qtc2VjdXJpdHktand0LXR1dG9yaWFsLWppd29vbi1zcHJpbmctYm9vdC1zZWN1cml0eS1qd3QtdHV0b3JpYWwK
+  secret: 'c3ByaW5nLWJvb3Qtc2VjdXJpdHktand0LXR1dG9yaWFsLWppd29vbi1zcHJpbmctYm9vdC1zZWN1cml0eS1qd3QtdHV0b3JpYWwK'
 
 # cors 설정
 cors:

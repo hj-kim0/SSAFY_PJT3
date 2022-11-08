@@ -22,3 +22,4 @@ public enum RoleType {
                 .orElse(GUEST);
     }
 }
+

@@ -1,10 +1,11 @@
 package com.ssafy.comssa.controller;
 
 import com.ssafy.comssa.config.AppProperties;
-import com.ssafy.comssa.domain.UserRefreshToken;
+import com.ssafy.comssa.entity.UserPrincipal;
+import com.ssafy.comssa.entity.UserRefreshToken;
 import com.ssafy.comssa.dto.ApiResponse;
+import com.ssafy.comssa.entity.auth.AuthReqModel;
 import com.ssafy.comssa.oauth.entity.RoleType;
-import com.ssafy.comssa.oauth.entity.UserPrincipal;
 import com.ssafy.comssa.oauth.token.AuthToken;
 import com.ssafy.comssa.oauth.token.AuthTokenProvider;
 import com.ssafy.comssa.repository.UserRefreshTokenRepository;
@@ -20,7 +21,6 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.Date;
-import com.ssafy.comssa.domain.auth.AuthReqModel;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

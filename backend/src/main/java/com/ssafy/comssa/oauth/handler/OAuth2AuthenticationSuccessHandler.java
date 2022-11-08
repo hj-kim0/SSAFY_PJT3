@@ -1,7 +1,7 @@
 package com.ssafy.comssa.oauth.handler;
 
 import com.ssafy.comssa.config.AppProperties;
-import com.ssafy.comssa.domain.UserRefreshToken;
+import com.ssafy.comssa.entity.UserRefreshToken;
 import com.ssafy.comssa.oauth.entity.ProviderType;
 import com.ssafy.comssa.oauth.entity.RoleType;
 import com.ssafy.comssa.oauth.info.OAuth2UserInfo;
@@ -26,10 +26,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URI;
-import java.util.*;
+import java.util.Collection;
+import java.util.Date;
+import java.util.Optional;
 
 import static com.ssafy.comssa.oauth.repository.OAuth2AuthorizationRequestBasedOnCookieRepository.REDIRECT_URI_PARAM_COOKIE_NAME;
-import static org.springframework.security.oauth2.core.endpoint.OAuth2ParameterNames.REFRESH_TOKEN;
+import static com.ssafy.comssa.oauth.repository.OAuth2AuthorizationRequestBasedOnCookieRepository.REFRESH_TOKEN;
 
 @Component
 @RequiredArgsConstructor
@@ -136,7 +138,8 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
                             && authorizedURI.getPort() == clientRedirectUri.getPort()) {
                         return true;
                     }
-                    return false;
+                    return true;
                 });
     }
 }
+

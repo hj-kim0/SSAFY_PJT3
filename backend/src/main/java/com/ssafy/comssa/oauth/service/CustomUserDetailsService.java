@@ -1,14 +1,13 @@
 package com.ssafy.comssa.oauth.service;
 
-import com.ssafy.comssa.domain.User;
+import com.ssafy.comssa.entity.User;
+import com.ssafy.comssa.entity.UserPrincipal;
 import com.ssafy.comssa.repository.UserRepository;
-import com.ssafy.comssa.oauth.entity.UserPrincipal;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
 
 @Service
 @RequiredArgsConstructor

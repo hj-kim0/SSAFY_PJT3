@@ -1,4 +1,4 @@
-package com.ssafy.comssa.domain;
+package com.ssafy.comssa.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;

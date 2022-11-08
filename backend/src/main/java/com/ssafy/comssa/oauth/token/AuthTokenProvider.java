@@ -19,11 +19,10 @@ import java.util.stream.Collectors;
 @Slf4j
 public class AuthTokenProvider {
 
-    private static final String AUTHORITIES_KEY = "role";
     private final Key key;
+    private static final String AUTHORITIES_KEY = "role";
 
     public AuthTokenProvider(String secret) {
-        // 스트링인 yml 파일의 secret키를 인코딩 된 byte 배열로 변환후 다시 SecretKey로 변환해 주는 hmacShaKeyFor
         this.key = Keys.hmacShaKeyFor(secret.getBytes());
     }
 
@@ -34,19 +33,18 @@ public class AuthTokenProvider {
     public AuthToken createAuthToken(String id, String role, Date expiry) {
         return new AuthToken(id, role, expiry, key);
     }
-    // String -> token
+
     public AuthToken convertAuthToken(String token) {
         return new AuthToken(token, key);
     }
 
-    // token 값에서 사용자의 정보를 꺼내는 함수
     public Authentication getAuthentication(AuthToken authToken) {
 
-        if (authToken.validate()) {
+        if(authToken.validate()) {
 
             Claims claims = authToken.getTokenClaims();
             Collection<? extends GrantedAuthority> authorities =
-                    Arrays.stream(new String[] {claims.get(AUTHORITIES_KEY).toString()})
+                    Arrays.stream(new String[]{claims.get(AUTHORITIES_KEY).toString()})
                             .map(SimpleGrantedAuthority::new)
                             .collect(Collectors.toList());
 

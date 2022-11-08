@@ -1,14 +1,15 @@
 package com.ssafy.comssa.config;
 
+
 import com.ssafy.comssa.oauth.entity.RoleType;
-import com.ssafy.comssa.oauth.handler.TokenAccessDeniedHandler;
-import com.ssafy.comssa.oauth.repository.OAuth2AuthorizationRequestBasedOnCookieRepository;
-import com.ssafy.comssa.oauth.service.CustomUserDetailsService;
 import com.ssafy.comssa.oauth.exception.RestAuthenticationEntryPoint;
 import com.ssafy.comssa.oauth.filter.TokenAuthenticationFilter;
-import com.ssafy.comssa.oauth.service.CustomOAuth2UserService;
 import com.ssafy.comssa.oauth.handler.OAuth2AuthenticationFailureHandler;
 import com.ssafy.comssa.oauth.handler.OAuth2AuthenticationSuccessHandler;
+import com.ssafy.comssa.oauth.handler.TokenAccessDeniedHandler;
+import com.ssafy.comssa.oauth.repository.OAuth2AuthorizationRequestBasedOnCookieRepository;
+import com.ssafy.comssa.oauth.service.CustomOAuth2UserService;
+import com.ssafy.comssa.oauth.service.CustomUserDetailsService;
 import com.ssafy.comssa.oauth.token.AuthTokenProvider;
 import com.ssafy.comssa.repository.UserRefreshTokenRepository;
 import lombok.RequiredArgsConstructor;
@@ -36,7 +37,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final AppProperties appProperties;
     private final AuthTokenProvider tokenProvider;
     private final CustomUserDetailsService userDetailsService;
-    private final CustomUserDetailsService customUserDetailsService;
     private final CustomOAuth2UserService oAuth2UserService;
     private final TokenAccessDeniedHandler tokenAccessDeniedHandler;
     private final UserRefreshTokenRepository userRefreshTokenRepository;
@@ -53,36 +53,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                //h2 오류로 추가
-                .headers().frameOptions().sameOrigin().and()
-                .cors()//cors 허용
+                .cors()
                 .and()
-                .sessionManagement() // session Creation Policy를 STATELESS로 정의해 session을 사용하지 않겠다 선언
+                .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                //REST API 이기 떄문에 사용 x
                 .csrf().disable()
                 .formLogin().disable()
                 .httpBasic().disable()
                 .exceptionHandling()
-                // 사용자가 authentication 없이 protected resource에 접근하는 경우에 invoked 되는 entry point
                 .authenticationEntryPoint(new RestAuthenticationEntryPoint())
-                //인가되지않은 사용자 Handler
                 .accessDeniedHandler(tokenAccessDeniedHandler)
                 .and()
-                // 경로 허용 경우 설정
                 .authorizeRequests()
-                .requestMatchers().permitAll()
-                .antMatchers("/**").permitAll()
-                //.requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
-                .antMatchers("/api/**","**/oauth/**").permitAll()
-                //.antMatchers("/api/**").hasAnyAuthority(RoleType.USER.getCode())
-                //.antMatchers("/api/**/admin/**").hasAnyAuthority(RoleType.ADMIN.getCode())
-                //.anyRequest().authenticated()
+                .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
+
+
+//                .antMatchers("/", "/**","/**", "/comssa/**").permitAll()
+//                .antMatchers("/api/**").hasAnyAuthority(RoleType.USER.getCode())
+                .antMatchers("/api/**", "/**", "/").permitAll()
+                .antMatchers("/api/**/admin/**").hasAnyAuthority(RoleType.ADMIN.getCode())
+
+
+                .anyRequest().authenticated()
                 .and()
-                //OAuth2 로그인 설정 부분
                 .oauth2Login()
-                // oauth 로그인시 접근할 end point를 정의합니다
                 .authorizationEndpoint()
                 .baseUri("/oauth2/authorization")
                 .authorizationRequestRepository(oAuth2AuthorizationRequestBasedOnCookieRepository())
@@ -90,15 +85,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .redirectionEndpoint()
                 .baseUri("/*/oauth2/code/*")
                 .and()
-                // 로그인시 사용할 User Service를 정의
                 .userInfoEndpoint()
                 .userService(oAuth2UserService)
                 .and()
-                //성공 실패 Handler
                 .successHandler(oAuth2AuthenticationSuccessHandler())
                 .failureHandler(oAuth2AuthenticationFailureHandler());
 
-        //reqeust 요청이 올때마다 UsernamePasswordAuthenticationFilter 이전에 tokenAuthenticaitonFilter를 수행하도록 정의
         http.addFilterBefore(tokenAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 
@@ -155,23 +147,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public OAuth2AuthenticationFailureHandler oAuth2AuthenticationFailureHandler() {
         return new OAuth2AuthenticationFailureHandler(oAuth2AuthorizationRequestBasedOnCookieRepository());
-    }
-
-    /*
-     * Cors 설정
-     * */
-    @Bean
-    public UrlBasedCorsConfigurationSource corsConfigurationSource() {
-        UrlBasedCorsConfigurationSource corsConfigSource = new UrlBasedCorsConfigurationSource();
-
-        CorsConfiguration corsConfig = new CorsConfiguration();
-        corsConfig.setAllowedHeaders(Arrays.asList(corsProperties.getAllowedHeaders().split(",")));
-        corsConfig.setAllowedMethods(Arrays.asList(corsProperties.getAllowedMethods().split(",")));
-        corsConfig.setAllowedOrigins(Arrays.asList(corsProperties.getAllowedOrigins().split(",")));
-        corsConfig.setAllowCredentials(true);
-        corsConfig.setMaxAge(corsConfig.getMaxAge());
-
-        corsConfigSource.registerCorsConfiguration("/**", corsConfig);
-        return corsConfigSource;
     }
 }

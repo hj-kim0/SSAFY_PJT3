@@ -1,7 +1,11 @@
-package com.ssafy.comssa.oauth.entity;
+package com.ssafy.comssa.entity;
 
-import com.ssafy.comssa.domain.User;
-import lombok.*;
+import com.ssafy.comssa.oauth.entity.ProviderType;
+import com.ssafy.comssa.oauth.entity.RoleType;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,7 +16,6 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 
 @Getter
@@ -82,7 +85,7 @@ public class UserPrincipal implements OAuth2User, UserDetails, OidcUser {
         return null;
     }
 
-    public static UserPrincipal create(User user) {
+     public static UserPrincipal create(User user) {
         return new UserPrincipal(
                 user.getUserId(),
                 user.getPassword(),
@@ -99,3 +102,4 @@ public class UserPrincipal implements OAuth2User, UserDetails, OidcUser {
         return userPrincipal;
     }
 }
+

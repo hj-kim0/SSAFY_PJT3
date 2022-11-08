@@ -1,13 +1,13 @@
 package com.ssafy.comssa.oauth.service;
 
-import com.ssafy.comssa.domain.User;
 import com.ssafy.comssa.oauth.entity.ProviderType;
 import com.ssafy.comssa.oauth.entity.RoleType;
+import com.ssafy.comssa.entity.User;
+import com.ssafy.comssa.entity.UserPrincipal;
 import com.ssafy.comssa.oauth.exception.OAuthProviderMissMatchException;
-import com.ssafy.comssa.repository.UserRepository;
-import com.ssafy.comssa.oauth.entity.UserPrincipal;
 import com.ssafy.comssa.oauth.info.OAuth2UserInfo;
 import com.ssafy.comssa.oauth.info.OAuth2UserInfoFactory;
+import com.ssafy.comssa.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.security.core.AuthenticationException;

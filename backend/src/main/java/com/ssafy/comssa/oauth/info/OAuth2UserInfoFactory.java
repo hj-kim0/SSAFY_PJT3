@@ -1,6 +1,5 @@
 package com.ssafy.comssa.oauth.info;
 
-//import com.ssafy.comssa.domain.AuthProvider;
 import com.ssafy.comssa.oauth.entity.ProviderType;
 import com.ssafy.comssa.oauth.info.impl.KakaoOAuth2UserInfo;
 import com.ssafy.comssa.oauth.info.impl.NaverOAuth2UserInfo;
@@ -16,3 +15,4 @@ public class OAuth2UserInfoFactory {
         }
     }
 }
+

@@ -1,29 +1,17 @@
 package com.ssafy.comssa.dto;
 
-import com.ssafy.comssa.domain.User;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-
-@Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class UserResponseDto {
-    private String userId;
-    private String username;
-    private String password;
-    private String email;
-    private String emailVerifiedYn;
-    private String profileImageUrl;
 
-    @Builder
-    public UserResponseDto(User user){
-        this.userId = user.getUserId();
-        this.email = user.getEmail();
-        this.username = user.getUsername();
-        this.password = user.getPassword();
-        this.emailVerifiedYn = user.getEmailVerifiedYn();
-        this.profileImageUrl = user.getProfileImageUrl();
-
-
-    }
-
+    Long userSeq;
+    String username;
+    String email;
 }

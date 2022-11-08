@@ -1,6 +1,6 @@
 package com.ssafy.comssa.repository;
 
-import com.ssafy.comssa.domain.UserRefreshToken;
+import com.ssafy.comssa.entity.UserRefreshToken;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

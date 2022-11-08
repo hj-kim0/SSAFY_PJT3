@@ -1,10 +1,9 @@
-package com.ssafy.comssa.domain.auth;
+package com.ssafy.comssa.entity.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 
 @Getter
 @Setter

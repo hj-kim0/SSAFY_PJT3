@@ -1,24 +1,26 @@
-package com.ssafy.comssa.domain;
+package com.ssafy.comssa.entity;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import com.ssafy.comssa.oauth.entity.ProviderType;
 import com.ssafy.comssa.oauth.entity.RoleType;
-import com.sun.istack.NotNull;
-import lombok.*;
-import net.minidev.json.annotate.JsonIgnore;
-import org.springframework.security.core.GrantedAuthority;
+import lombok.AllArgsConstructor;
+
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
-import java.util.Collection;
 
-
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "USER")
+@Builder
 public class User {
     @JsonIgnore
     @Id
@@ -42,7 +44,7 @@ public class User {
     @Size(max = 128)
     private String password;
 
-    @Column(name = "EMAIL", length = 512, unique = true)
+    @Column(name = "EMAIL", length = 512)
     @NotNull
     @Size(max = 512)
     private String email;
@@ -97,10 +99,6 @@ public class User {
         this.createdAt = createdAt;
         this.modifiedAt = modifiedAt;
     }
-
-    public User(String subject, String email, Collection<? extends GrantedAuthority> authorities) {
-        super();
-    }
-
 }
+
 

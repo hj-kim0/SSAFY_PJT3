@@ -84,4 +84,3 @@ public class AuthToken {
         return null;
     }
 }
-
