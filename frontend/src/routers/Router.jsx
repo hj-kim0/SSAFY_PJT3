@@ -12,7 +12,6 @@ import Footer from "../components/common/Footer";
 import ItemDetail from "../components/detail/ItemDetail";
 
 import "./Router.scss";
-import OutoManual from "../screens/OutoManual";
 import AutoManual from "../screens/AutoManual";
 
 function Router() {
@@ -28,7 +27,6 @@ function Router() {
           <Route path="/userinfo" element={<UserInfo />}></Route>
           {/* comssa */}
           <Route path='/compare' element={<Compare />}></Route>
-          {/* <Route path='/money' element={<OutoManual />}></Route> */}
           <Route path='/money' element={<AutoManual />}></Route>
           <Route path='/detail:id' element={<ItemDetail />}></Route>
         </Routes>
