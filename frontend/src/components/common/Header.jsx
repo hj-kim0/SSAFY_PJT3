@@ -31,13 +31,18 @@ function NavBar(){
             </Link>
           </div>
           <div className="gnb">
+          <div className="note">
+              <Link to="/userinfo">
+                <img src={note} alt="" width="25px" height="25px"/>
+              </Link>
+            </div>
             <div className="note">
-              <Link to="">
+              <Link to="/joinsuccess">
                 <img src={note} alt="" width="25px" height="25px"/>
               </Link>
             </div>
             <div className="user">
-            <Link to="">
+            <Link to="/login">
                 <img src={user} alt="" width="25px" height="25px"/>
               </Link>
             </div>
