@@ -2,6 +2,7 @@ server:
   port: 8082
 
 spring:
+<<<<<<< HEAD
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/comssa_app?serverTimezone=UTC&characterEncoding=UTF-8
@@ -91,3 +92,8 @@ app:
     # 쿠키는 모바일 클라이언트에서 잘 작동하지 않기 때문에 사용하지 않습니다
     authorizedRedirectUris:
       - http://localhost:3000/oauth2/redirect
+=======
+  data:
+    mongodb:
+      uri: mongodb+srv://S07P31C204:comssaC204!@ssafy.ngivl.mongodb.net/S07P31C204?authSource=admin
+>>>>>>> 23fcd63e8ef371ba97e13444ebcee11451668734
