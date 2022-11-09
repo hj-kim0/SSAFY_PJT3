@@ -2,19 +2,27 @@ server:
   port: 8082
 
 spring:
-<<<<<<< HEAD
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/comssa_app?serverTimezone=UTC&characterEncoding=UTF-8
-    #    url: jdbc:mysql://k7c204.p.ssafy.io:3306/S07P31C204?serverTimezone=UTC&useUniCode=yes&characterEncoding=UTF-8&amp
     username: root
     password: thekey1919
+
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://k7c204.p.ssafy.io:3306/S07P31C204?serverTimezone=UTC&useUniCode=yes&characterEncoding=UTF-8&amp
+#    username: root
+#    password: comssaC204!
+
 
 #  data:
 #    mongodb:
 #      host: localhost
 #      port: 27017
 #      database: comssa
+#  data:
+#    mongodb:
+#      uri: mongodb+srv://S07P31C204:comssaC204!@ssafy.ngivl.mongodb.net/S07P31C204?authSource=admin
+
 
   security:
     oauth2:
@@ -33,6 +41,7 @@ spring:
             clientName: Naver
           kakao:
             clientId: 9801ad08f8d5a556fa5aa7062582c327
+            clientSecret: hv153n2mnh5nqFw6xjsQB5mRoKcxlJL5
             clientAuthenticationMethod: POST
             authorizationGrantType: authorization_code
             redirectUri: "http://localhost:8082/login/oauth2/code/kakao"
@@ -92,8 +101,3 @@ app:
     # 쿠키는 모바일 클라이언트에서 잘 작동하지 않기 때문에 사용하지 않습니다
     authorizedRedirectUris:
       - http://localhost:3000/oauth2/redirect
-=======
-  data:
-    mongodb:
-      uri: mongodb+srv://S07P31C204:comssaC204!@ssafy.ngivl.mongodb.net/S07P31C204?authSource=admin
->>>>>>> 23fcd63e8ef371ba97e13444ebcee11451668734

@@ -22,7 +22,7 @@ function Router() {
           <Route path="/" element={<Home />}></Route>
           {/* user */}
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/oauth/kakao" element={<Auth />}></Route>
+          <Route path="/login/oauth2/code/kakao" element={<Auth />}></Route>
           <Route path="/joinsuccess" element={<JoinSuccess />}></Route>
           <Route path="/userinfo" element={<UserInfo />}></Route>
           {/* comssa */}

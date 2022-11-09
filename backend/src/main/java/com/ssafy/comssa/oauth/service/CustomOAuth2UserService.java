@@ -7,7 +7,7 @@ import com.ssafy.comssa.entity.UserPrincipal;
 import com.ssafy.comssa.oauth.exception.OAuthProviderMissMatchException;
 import com.ssafy.comssa.oauth.info.OAuth2UserInfo;
 import com.ssafy.comssa.oauth.info.OAuth2UserInfoFactory;
-import com.ssafy.comssa.repository.UserRepository;
+import com.ssafy.comssa.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.security.core.AuthenticationException;

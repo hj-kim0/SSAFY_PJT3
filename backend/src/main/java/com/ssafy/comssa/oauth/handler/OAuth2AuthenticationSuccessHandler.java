@@ -9,7 +9,7 @@ import com.ssafy.comssa.oauth.info.OAuth2UserInfoFactory;
 import com.ssafy.comssa.oauth.repository.OAuth2AuthorizationRequestBasedOnCookieRepository;
 import com.ssafy.comssa.oauth.token.AuthToken;
 import com.ssafy.comssa.oauth.token.AuthTokenProvider;
-import com.ssafy.comssa.repository.UserRefreshTokenRepository;
+import com.ssafy.comssa.repository.user.UserRefreshTokenRepository;
 import com.ssafy.comssa.util.CookieUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;

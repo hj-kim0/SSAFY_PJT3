@@ -1,10 +1,9 @@
-package com.ssafy.comssa.service;
+package com.ssafy.comssa.service.user;
 
 import com.ssafy.comssa.entity.User;
-import com.ssafy.comssa.dto.UserResponseDto;
-import com.ssafy.comssa.repository.UserRepository;
+import com.ssafy.comssa.dto.user.UserResponseDto;
+import com.ssafy.comssa.repository.user.UserRepository;
 import org.modelmapper.ModelMapper;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;

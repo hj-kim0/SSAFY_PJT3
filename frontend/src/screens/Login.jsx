@@ -6,7 +6,8 @@ import KakaoLogin from "../assets/images/login/kakao_login_medium_narrow.png";
 const REST_API_KEY = process.env.REACT_APP_REST_API_KEY.replace(/\"/gi, "");
 const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI.replace(/\"/gi, "");
 
-const KAKAO_AUTH_URI = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+// const KAKAO_AUTH_URI = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+const KAKAO_AUTH_URI = `http://localhost:8082/oauth2/authorization/kakao`
 
 export default function Login() {
   return (

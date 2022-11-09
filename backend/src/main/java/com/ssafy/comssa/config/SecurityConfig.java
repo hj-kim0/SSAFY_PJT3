@@ -11,7 +11,7 @@ import com.ssafy.comssa.oauth.repository.OAuth2AuthorizationRequestBasedOnCookie
 import com.ssafy.comssa.oauth.service.CustomOAuth2UserService;
 import com.ssafy.comssa.oauth.service.CustomUserDetailsService;
 import com.ssafy.comssa.oauth.token.AuthTokenProvider;
-import com.ssafy.comssa.repository.UserRefreshTokenRepository;
+import com.ssafy.comssa.repository.user.UserRefreshTokenRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,11 +23,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsUtils;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
-import java.util.Arrays;
 
 @Configuration
 @RequiredArgsConstructor

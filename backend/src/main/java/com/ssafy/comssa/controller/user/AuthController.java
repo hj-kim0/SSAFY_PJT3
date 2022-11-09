@@ -1,14 +1,14 @@
-package com.ssafy.comssa.controller;
+package com.ssafy.comssa.controller.user;
 
 import com.ssafy.comssa.config.AppProperties;
 import com.ssafy.comssa.entity.UserPrincipal;
 import com.ssafy.comssa.entity.UserRefreshToken;
-import com.ssafy.comssa.dto.ApiResponse;
+import com.ssafy.comssa.dto.user.ApiResponse;
 import com.ssafy.comssa.entity.auth.AuthReqModel;
 import com.ssafy.comssa.oauth.entity.RoleType;
 import com.ssafy.comssa.oauth.token.AuthToken;
 import com.ssafy.comssa.oauth.token.AuthTokenProvider;
-import com.ssafy.comssa.repository.UserRefreshTokenRepository;
+import com.ssafy.comssa.repository.user.UserRefreshTokenRepository;
 import com.ssafy.comssa.util.CookieUtil;
 import com.ssafy.comssa.util.HeaderUtil;
 import io.jsonwebtoken.Claims;
@@ -39,16 +39,6 @@ public class AuthController {
     private final static long THREE_DAYS_MSEC = 259200000;
     private final static String REFRESH_TOKEN = "refresh_token";
 
-    /**
-     * 카카오 callback
-     * [GET] /api/v1/auth
-     * code 추출
-     */
-    @ResponseBody
-    @GetMapping("/kakao")
-    public void kakaoCallback(@RequestParam String code) {
-        System.out.println(code);
-    }
 
     @PostMapping("/login")
     public ApiResponse login(
@@ -56,6 +46,10 @@ public class AuthController {
             HttpServletResponse response,
             @RequestBody AuthReqModel authReqModel
     ) {
+//        System.out.println("=========================================");
+//        System.out.println(request +"===="+ response);
+//        System.out.println(authReqModel);
+//        System.out.println("=========================================");
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         authReqModel.getId(),

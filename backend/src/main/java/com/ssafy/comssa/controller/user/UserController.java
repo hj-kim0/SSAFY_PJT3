@@ -1,10 +1,10 @@
-package com.ssafy.comssa.controller;
+package com.ssafy.comssa.controller.user;
 
 
 
-import com.ssafy.comssa.dto.ApiResponse;
-import com.ssafy.comssa.dto.UserResponseDto;
-import com.ssafy.comssa.service.UserService;
+import com.ssafy.comssa.dto.user.ApiResponse;
+import com.ssafy.comssa.dto.user.UserResponseDto;
+import com.ssafy.comssa.service.user.UserService;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

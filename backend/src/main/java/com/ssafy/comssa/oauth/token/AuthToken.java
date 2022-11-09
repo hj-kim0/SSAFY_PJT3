@@ -50,6 +50,9 @@ public class AuthToken {
     }
 
     public Claims getTokenClaims() {
+//        System.out.println("=========================================");
+//        System.out.println(token);
+//        System.out.println("=========================================");
         try {
             return Jwts.parserBuilder()
                     .setSigningKey(key)
