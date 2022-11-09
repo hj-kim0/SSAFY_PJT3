@@ -14,12 +14,16 @@ export default function UserInfo() {
           borderStyle: "solid",
           borderColor: "#ffffff",
           borderWidth: "100px",
-          borderBottomWidth: "0",
+          borderBottomWidth: "50px",
         }}
       >
         <p style={{ fontSize: "40px", fontWeight: "bold" }}>회원정보 수정</p>
       </div>
-      <div>
+      <div
+        style={{
+          borderBottomWidth: "100px",
+        }}
+      >
         <img
           width="300px"
           height="300px"
@@ -38,9 +42,10 @@ export default function UserInfo() {
           <input
             type="text"
             name="NickName"
-            placeholder="한글, 대소문자, 숫자만 입력할 수 있습니다."
+            maxLength="6"
+            placeholder="여섯 글자까지 입력할 수 있습니다."
             style={{
-              width: "25%",
+              width: "300px",
               height: "30px",
               display: "inline",
               border: "0",
