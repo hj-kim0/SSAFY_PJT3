@@ -39,6 +39,17 @@ public class AuthController {
     private final static long THREE_DAYS_MSEC = 259200000;
     private final static String REFRESH_TOKEN = "refresh_token";
 
+    /**
+     * 카카오 callback
+     * [GET] /api/v1/auth
+     * code 추출
+     */
+    @ResponseBody
+    @GetMapping("/kakao")
+    public void kakaoCallback(@RequestParam String code) {
+        System.out.println(code);
+    }
+
     @PostMapping("/login")
     public ApiResponse login(
             HttpServletRequest request,
