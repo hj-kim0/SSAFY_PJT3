@@ -43,10 +43,10 @@ export default function UserInfo() {
             type="text"
             name="NickName"
             maxLength="6"
-            placeholder="여섯 글자까지 입력할 수 있습니다."
+            placeholder="닉네임을 입력해주세요."
             style={{
-              width: "300px",
-              height: "30px",
+              width: "500px",
+              height: "50px",
               display: "inline",
               border: "0",
               paddingLeft: "5px",
@@ -54,13 +54,14 @@ export default function UserInfo() {
               boxSizing: "border-box",
               margin: "0 auto",
               marginright: "10px",
+              fontSize: "40px",
             }}
           ></input>
           <button
             type="DuplicateCheck"
             style={{
-              width: "5%",
-              height: "30px",
+              width: "80px",
+              height: "50px",
               display: "inline",
               margin: "0 auto",
               border: "none",
