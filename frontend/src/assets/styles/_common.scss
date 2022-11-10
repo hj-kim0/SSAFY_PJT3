@@ -2,6 +2,10 @@
   display: inline-block;
 }
 
+.dcontents {
+  display: contents;
+}
+
 .block {
   display: block;
 }
@@ -18,6 +22,10 @@
   visibility: hidden;
 }
 
+.wkbox {
+  display: -webkit-box;
+}
+
 .ellipsis {
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -29,6 +37,10 @@
 
   &.column {
     flex-direction: column;
+  }
+
+  &.row {
+    flex-direction: row;
   }
 
   &.align-center {
