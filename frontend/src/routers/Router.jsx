@@ -14,6 +14,7 @@ import Footer from "../components/common/Footer";
 
 import Compare from "../screens/Compare";
 
+import ItemDetail from "../components/detail/ItemDetail";
 
 import "./Router.scss";
 import AutoManual from "../screens/AutoManual";
