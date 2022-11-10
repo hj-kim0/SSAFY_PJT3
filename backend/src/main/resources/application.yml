@@ -9,7 +9,7 @@ spring:
 #    password: thekey1919
 
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://k7c204.p.ssafy.io:3306/S07P31C204?serverTimezone=UTC&useUniCode=yes&characterEncoding=UTF-8&amp
+    url: jdbc:mysql://k7c204.p.ssafy.io:3306/comssa?serverTimezone=UTC&useUniCode=yes&characterEncoding=UTF-8&amp
     username: root
     password: comssaC204!
 
@@ -42,7 +42,7 @@ spring:
             clientAuthenticationMethod: POST
             authorizationGrantType: authorization_code
 #            redirectUri: "http://localhost:8080/oauth2/callback/naver"
-            redirect-uri: "http://k7c204.p.ssafy.io:8082/oauth2/callback/naver"
+            redirect-uri: "http://k7c204.p.ssafy.io:8080/oauth2/callback/naver"
             scope:
               - nickname
               - email
@@ -54,7 +54,7 @@ spring:
             clientAuthenticationMethod: POST
             authorizationGrantType: authorization_code
 #            redirectUri: "http://localhost:8080/oauth2/callback/kakao"
-            redirect-uri: "http://k7c204.p.ssafy.io:8082/oauth2/callback/kakao"
+            redirect-uri: "http://k7c204.p.ssafy.io:8080/oauth2/callback/kakao"
             scope:
               - profile_nickname
               - profile_image
