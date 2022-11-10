@@ -1,0 +1,364 @@
+// VARIABLES
+// base colors
+$white: #fcfcfc;
+$black: #3c3c3c;
+	
+// accent colors
+$yellow: #ffb703;
+$orange: #fb8500;
+
+$red:#fe4343;
+
+// light mode colors
+$dark-blue: #023047;
+$light-blue: #219ebc;
+
+// dark mode colors
+$dm-black: #07080a;
+$dm-off-black: #0a0b0d;
+$dm-dark-gray: #16181a;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	z-index: 10;
+}
+
+body {
+	font-family: sans-serif;
+}
+
+
+.header {
+	display: flex;
+	background-color: black;
+	opacity: 0.7;
+	width:100%;
+}
+
+.gnb, .logo, .hamburger .note .user{
+	flex: none;
+}
+
+
+.gnb{
+	margin-left: auto;
+}
+
+
+.logo, .gnb {
+	padding: 20px;
+	display: inline-flex;
+}
+
+
+.hamburger {
+	margin-left: 30px;
+	padding-bottom: 30px;
+}
+
+.note, .user{
+	padding-left: 20px;
+}
+
+.logo{
+	margin-left: 40px;
+}
+
+nav {
+	position: fixed;
+	background-color: #023047;
+	opacity: 0.8;
+	// aligning the menu button with the hidden checkbox
+	input[name="toggle-nav"],
+	label[for="toggle-nav"] {
+		position: absolute;
+		top: 20px;
+		width: 35px;
+		height: 35px;
+	}
+	
+	input[name="toggle-nav"] {
+		display: block;
+		cursor: pointer;
+		opacity: 0;
+		z-index: 1091;
+		
+        &:hover:checked + label[for="toggle-nav"],
+        &:active:checked + label[for="toggle-nav"],
+        &:focus:checked + label[for="toggle-nav"] {
+            .menu-icon::before,
+            .menu-icon::after {
+                background-color: $orange;
+            }
+        }
+	}
+	
+	label[for="toggle-nav"] {
+		top:-10px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		z-index: 1090;
+		
+		// creating the menu button
+		.menu-icon {
+			display: block;
+			width: 100%;
+			height: 3px;
+			border-radius: 10px;
+			background-color: $white;
+			transition: all .5s ease;
+			
+			&::before,
+			&::after {
+				position: absolute;
+				@extend .menu-icon;
+				content: '';
+			}
+			
+			&::before {
+				top: 7px;
+			}
+			
+			&::after {
+				bottom: 7px;
+			}
+		}
+	}
+
+	input[name="toggle-nav"]:checked {
+		& ~ .side-nav-panel {
+			left: 0;
+		}
+		
+		& + label[for="toggle-nav"] {
+			.menu-icon {
+				// makes the middle bar disappear to help create the X
+				background-color: transparent;
+				
+				&::before,
+				&::after {
+					background-color: $white;
+				}
+				
+				// rotates and positions the top and bottom bar to create the X
+				&::before {
+					top: 16px;
+					transform: rotate(45deg);
+				}
+				
+				&::after {
+					bottom: 16px;
+					transform: rotate(-45deg);
+				}
+			}			
+		}
+	}
+	
+	.side-nav-panel {
+		display: flex;
+		flex-direction: column;
+		position: fixed;
+		top: 0;
+		left: -100vw;
+		width: 40%;
+		max-width: 380px;
+		height: 100vh;
+        padding-top: 85px;
+		background-color: $dark-blue;
+        box-shadow: 1px 0 5px rgba($dm-dark-gray, .5),
+                    1px 0 3px rgba($dm-black, .7);
+		transition: 0.5s left;
+	}
+
+	.top-nav {
+        max-height: 50vh;
+        overflow-y: auto;
+        
+        @media ( max-height: 540px ) {
+            max-height: 30vh;
+        }
+		
+		// link styling for entire nav menu
+		a:link,
+		a:visited {
+			color: $white;
+			text-decoration: none;
+		}
+
+		// invert colors when menu is open
+		.active a:link,
+		.active a:visited {
+			color: $black;
+		}
+		
+		a:hover,
+		a:active,
+		a:focus {
+			text-decoration: none;
+		}
+		
+		> li {
+			min-height: 50px;
+			max-height: 100vh;
+			width: 95%;
+			border-top-right-radius: 10px;
+			border-bottom-right-radius: 10px;
+			letter-spacing: 1px;
+			cursor: pointer;
+			
+			// keep the background white on hover or when a submenu is open
+			&:hover,
+			&:active,
+			&:focus,
+			&.active{
+				background-color: $white;
+			
+				a:link,
+				a:visited {
+					color: $black;
+				}
+			}
+			
+		    a {
+				display: block;
+				width: 100%;
+                height: 100%;
+				padding-left: 2em;
+			}
+            
+            > a {
+                padding-top: 15px;
+            }
+		}
+	}
+
+	.parent-item {
+		position: relative;
+		
+		> a::after {
+			content: '^';
+			display: inline-block;
+			position: relative;
+			top: 2px;
+			left: 4px;
+			font-size: 1em;
+			transform: rotate(90deg);
+			transition: all .3s;
+		}
+		
+		// rotates the icon to show submenu being open
+		&.active > a::after {
+			top: -2px;
+			transform: rotate(180deg);
+		}
+	}
+
+	.submenu {
+		background-color: #e8e8e8;
+		position: relative;
+		top: 12px;
+		left: 0;
+		max-height: 0;
+		opacity: 0;
+		visibility: hidden;
+		overflow: hidden;
+		// lets the submenu fill in nicely with the parent element
+		border-bottom-right-radius: 10px;
+		// using max-height allows for better transitioning over just height
+		transition:	opacity .3s ease-in-out, 
+								visibility .3s ease-in-out,
+								max-height .2s ease-in-out,
+								margin-bottom .3s ease-in-out;
+		
+		&.active {
+			opacity: 1;
+			visibility: visible;
+			max-height: 100vh;
+			margin-bottom: 8px;
+			transition: max-height 1s;
+		}
+		
+		li {
+			position: relative;
+			padding-left: 1em;
+			background-color: $white;
+			
+			// add icon before all submenu items for better clarity
+			&::before {
+				content: '▸';
+				display: block;
+				position: absolute;
+				top: 10px;
+				left: 32px;
+				color: #000;
+			}
+            
+            a {
+                padding-top: 12px;
+                padding-bottom: 12px;
+            }
+		}
+	}
+    
+//     NAV PROFILE CSS
+    
+    .nav-profile {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width: 80%;
+        margin: 0 auto 2em;
+        
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 10%;
+            object-fit: fill;
+            margin-right: 12px;
+        }
+        
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 100%;
+            max-height: 100px;
+            width: 200px;
+            
+            p { 
+                margin-top: 4px;
+            }
+        }
+    }
+}
+
+.logout_area {
+	position: absolute;
+	text-align: center;
+	bottom: 0;
+	left:0;
+	background-color: $red;
+	width: fit-content;
+	cursor: pointer;
+
+	&:hover,
+	&:active,
+	&:focus,
+	&.active{
+		background-color: $red;
+		a:link,
+		a:visited {
+			text-decoration: none;
+			color: $black;
+		}
+	}
+
+	a {
+		text-decoration: none;
+	}
+}
