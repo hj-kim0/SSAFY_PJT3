@@ -1,158 +1,123 @@
 package com.ssafy.comssa.controller.user;
 
-import com.ssafy.comssa.config.AppProperties;
-import com.ssafy.comssa.entity.UserPrincipal;
-import com.ssafy.comssa.entity.UserRefreshToken;
-import com.ssafy.comssa.dto.user.ApiResponse;
-import com.ssafy.comssa.entity.auth.AuthReqModel;
-import com.ssafy.comssa.oauth.entity.RoleType;
-import com.ssafy.comssa.oauth.token.AuthToken;
-import com.ssafy.comssa.oauth.token.AuthTokenProvider;
-import com.ssafy.comssa.repository.user.UserRefreshTokenRepository;
-import com.ssafy.comssa.util.CookieUtil;
-import com.ssafy.comssa.util.HeaderUtil;
-import io.jsonwebtoken.Claims;
+
+import com.ssafy.comssa.advice.payload.ErrorResponse;
+import com.ssafy.comssa.config.security.token.CurrentUser;
+import com.ssafy.comssa.config.security.token.UserPrincipal;
+import com.ssafy.comssa.domain.entity.user.User;
+import com.ssafy.comssa.dto.auth.request.ChangePasswordRequest;
+import com.ssafy.comssa.dto.auth.request.RefreshTokenRequest;
+import com.ssafy.comssa.dto.auth.request.SignInRequest;
+import com.ssafy.comssa.dto.auth.request.SignUpRequest;
+import com.ssafy.comssa.dto.auth.response.AuthResponse;
+import com.ssafy.comssa.dto.auth.response.Message;
+import com.ssafy.comssa.service.auth.AuthService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 
-import java.util.Date;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-@RestController
-@RequestMapping("/api/v1/auth")
+@Tag(name = "Authorization", description = "Authorization API")
 @RequiredArgsConstructor
+@RestController
+@RequestMapping("/auth")
 public class AuthController {
 
-    private final AppProperties appProperties;
-    private final AuthTokenProvider authTokenProvider;
-    private final AuthenticationManager authenticationManager;
-    private final UserRefreshTokenRepository userRefreshTokenRepository;
+    private final AuthService authService;
 
-    private final static long THREE_DAYS_MSEC = 259200000;
-    private final static String REFRESH_TOKEN = "refresh_token";
-
-
-    @PostMapping("/login")
-    public ApiResponse login(
-            HttpServletRequest request,
-            HttpServletResponse response,
-            @RequestBody AuthReqModel authReqModel
+    @Operation(summary = "유저 정보 확인", description = "현제 접속된 유저정보를 확인합니다.")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "유저 확인 성공", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = User.class) ) } ),
+        @ApiResponse(responseCode = "400", description = "유저 확인 실패", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class) ) } ),
+    })
+    @GetMapping(value = "/")
+    public ResponseEntity<?> whoAmI(
+        @Parameter(description = "Accesstoken을 입력해주세요.", required = true) @CurrentUser UserPrincipal userPrincipal
     ) {
-//        System.out.println("=========================================");
-//        System.out.println(request +"===="+ response);
-//        System.out.println(authReqModel);
-//        System.out.println("=========================================");
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        authReqModel.getId(),
-                        authReqModel.getPassword()
-                )
-        );
-
-        String userId = authReqModel.getId();
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-
-        Date now = new Date();
-        AuthToken accessToken = authTokenProvider.createAuthToken(
-                userId,
-                ((UserPrincipal) authentication.getPrincipal()).getRoleType().getCode(),
-                new Date(now.getTime() + appProperties.getAuth().getTokenExpiry())
-        );
-
-        long refreshTokenExpiry = appProperties.getAuth().getRefreshTokenExpiry();
-        AuthToken refreshToken = authTokenProvider.createAuthToken(
-                appProperties.getAuth().getTokenSecret(),
-                new Date(now.getTime() + refreshTokenExpiry)
-        );
-
-        // userId refresh token 으로 DB 확인
-        UserRefreshToken userRefreshToken = userRefreshTokenRepository.findByUserId(userId);
-        if (userRefreshToken == null) {
-            // 없는 경우 새로 등록
-            userRefreshToken = new UserRefreshToken(userId, refreshToken.getToken());
-            userRefreshTokenRepository.saveAndFlush(userRefreshToken);
-        } else {
-            // DB에 refresh 토큰 업데이트
-            userRefreshToken.setRefreshToken(refreshToken.getToken());
-        }
-
-        int cookieMaxAge = (int) refreshTokenExpiry / 60;
-        CookieUtil.deleteCookie(request, response, REFRESH_TOKEN);
-        CookieUtil.addCookie(response, REFRESH_TOKEN, refreshToken.getToken(), cookieMaxAge);
-
-        return ApiResponse.success("token", accessToken.getToken());
+        return authService.whoAmI(userPrincipal);
     }
 
-    @GetMapping("/refresh")
-    public ApiResponse refreshToken (HttpServletRequest request, HttpServletResponse response) {
-        // access token 확인
-        String accessToken = HeaderUtil.getAccessToken(request);
-        AuthToken authToken = authTokenProvider.convertAuthToken(accessToken);
-        if (!authToken.validate()) {
-            return ApiResponse.invalidAccessToken();
-        }
-
-        // expired access token 인지 확인
-        Claims claims = authToken.getExpiredTokenClaims();
-        if (claims == null) {
-            return ApiResponse.notExpiredTokenYet();
-        }
-
-        String userId = claims.getSubject();
-        RoleType roleType = RoleType.of(claims.get("role", String.class));
-
-        // refresh token
-        String refreshToken = CookieUtil.getCookie(request, REFRESH_TOKEN)
-                .map(Cookie::getValue)
-                .orElse((null));
-        AuthToken authRefreshToken = authTokenProvider.convertAuthToken(refreshToken);
-
-        if (authRefreshToken.validate()) {
-            return ApiResponse.invalidRefreshToken();
-        }
-
-        // userId refresh token 으로 DB 확인
-        UserRefreshToken userRefreshToken = userRefreshTokenRepository.findByUserIdAndRefreshToken(userId, refreshToken);
-        if (userRefreshToken == null) {
-            return ApiResponse.invalidRefreshToken();
-        }
-
-        Date now = new Date();
-        AuthToken newAccessToken = authTokenProvider.createAuthToken(
-                userId,
-                roleType.getCode(),
-                new Date(now.getTime() + appProperties.getAuth().getTokenExpiry())
-        );
-
-        long validTime = authRefreshToken.getTokenClaims().getExpiration().getTime() - now.getTime();
-
-        // refresh 토큰 기간이 3일 이하로 남은 경우, refresh 토큰 갱신
-        if (validTime <= THREE_DAYS_MSEC) {
-            // refresh 토큰 설정
-            long refreshTokenExpiry = appProperties.getAuth().getRefreshTokenExpiry();
-
-            authRefreshToken = authTokenProvider.createAuthToken(
-                    appProperties.getAuth().getTokenSecret(),
-                    new Date(now.getTime() + refreshTokenExpiry)
-            );
-
-            // DB에 refresh 토큰 업데이트
-            userRefreshToken.setRefreshToken(authRefreshToken.getToken());
-
-            int cookieMaxAge = (int) refreshTokenExpiry / 60;
-            CookieUtil.deleteCookie(request, response, REFRESH_TOKEN);
-            CookieUtil.addCookie(response, REFRESH_TOKEN, authRefreshToken.getToken(), cookieMaxAge);
-        }
-
-        return ApiResponse.success("token", newAccessToken.getToken());
+    @Operation(summary = "유저 정보 삭제", description = "현제 접속된 유저정보를 삭제합니다.")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "유저 삭제 성공", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Message.class) ) } ),
+        @ApiResponse(responseCode = "400", description = "유저 삭제 실패", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class) ) } ),
+    })
+    @DeleteMapping(value = "/")
+    public ResponseEntity<?> delete(
+        @Parameter(description = "Accesstoken을 입력해주세요.", required = true) @CurrentUser UserPrincipal userPrincipal
+    ){
+        return authService.delete(userPrincipal);
     }
+
+    @Operation(summary = "유저 정보 갱신", description = "현제 접속된 유저의 비밀번호를 새로 지정합니다.")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "유저 정보 갱신 성공", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Message.class) ) } ),
+        @ApiResponse(responseCode = "400", description = "유저 정보 갱신 실패", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class) ) } ),
+    })
+    @PutMapping(value = "/")
+    public ResponseEntity<?> modify(
+        @Parameter(description = "Accesstoken을 입력해주세요.", required = true) @CurrentUser UserPrincipal userPrincipal, 
+        @Parameter(description = "Schemas의 ChangePasswordRequest를 참고해주세요.", required = true) @Valid @RequestBody ChangePasswordRequest passwordChangeRequest
+    ){
+        return authService.modify(userPrincipal, passwordChangeRequest);
+    }
+
+    @Operation(summary = "유저 로그인", description = "유저 로그인을 수행합니다.")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "유저 로그인 성공", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = AuthResponse.class) ) } ),
+        @ApiResponse(responseCode = "400", description = "유저 로그인 실패", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class) ) } ),
+    })
+    @PostMapping(value = "/signin")
+    public ResponseEntity<?> signin(
+        @Parameter(description = "Schemas의 SignInRequest를 참고해주세요.", required = true) @Valid @RequestBody SignInRequest signInRequest
+    ) {
+        return authService.signin(signInRequest);
+    }
+
+    @Operation(summary = "유저 회원가입", description = "유저 회원가입을 수행합니다.")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "회원가입 성공", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Message.class) ) } ),
+        @ApiResponse(responseCode = "400", description = "회원가입 실패", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class) ) } ),
+    })
+    @PostMapping(value = "/signup")
+    public ResponseEntity<?> signup(
+        @Parameter(description = "Schemas의 SignUpRequest를 참고해주세요.", required = true) @Valid @RequestBody SignUpRequest signUpRequest
+    ) {
+        return authService.signup(signUpRequest);
+    }
+
+    @Operation(summary = "토큰 갱신", description = "신규 토큰 갱신을 수행합니다.")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "토큰 갱신 성공", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = AuthResponse.class) ) } ),
+        @ApiResponse(responseCode = "400", description = "토큰 갱신 실패", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class) ) } ),
+    })
+    @PostMapping(value = "/refresh")
+    public ResponseEntity<?> refresh(
+        @Parameter(description = "Schemas의 RefreshTokenRequest를 참고해주세요.", required = true) @Valid @RequestBody RefreshTokenRequest tokenRefreshRequest
+    ) {
+        return authService.refresh(tokenRefreshRequest);
+    }
+
+
+    @Operation(summary = "유저 로그아웃", description = "유저 로그아웃을 수행합니다.")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "로그아웃 성공", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Message.class) ) } ),
+        @ApiResponse(responseCode = "400", description = "로그아웃 실패", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class) ) } ),
+    })
+    @PostMapping(value="/signout")
+    public ResponseEntity<?> signout(
+        @Parameter(description = "Accesstoken을 입력해주세요.", required = true) @CurrentUser UserPrincipal userPrincipal, 
+        @Parameter(description = "Schemas의 RefreshTokenRequest를 참고해주세요.", required = true) @Valid @RequestBody RefreshTokenRequest tokenRefreshRequest
+    ) {
+        return authService.signout(tokenRefreshRequest);
+    }
+
 }
-
