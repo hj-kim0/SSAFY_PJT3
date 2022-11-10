@@ -1,0 +1,41 @@
+.footer{
+    width: 100%;
+}
+
+@media (min-width:1000px) {
+    .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+}
+
+
+
+.footer_wrapper {
+
+    
+    display: list-item;
+    background-color: black;
+    padding: 5px;
+    
+}
+
+h5 {
+    color: white;
+}
+
+.white {
+    color: white;
+}
+
+.pdl-10{
+    padding-left: 10px;
+}
+
+.footer_body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
