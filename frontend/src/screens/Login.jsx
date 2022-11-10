@@ -27,7 +27,7 @@ export default function Login() {
             style: "solid",
           }}
           src={Logo}
-          style={{ backgroundColor: "#023047" }}
+          style={{ backgroundColor: "#3c3c3c" }}
           alt="컴싸에 오신 것을 환영합니다"
         />
       </div>
