@@ -1,6 +1,4 @@
 spring:
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: comssa
+      uri: mongodb+srv://S07P31C204:comssaC204!@ssafy.ngivl.mongodb.net/S07P31C204?authSource=admin
