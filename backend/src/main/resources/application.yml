@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8080
 
 spring:
   datasource:
@@ -31,8 +31,8 @@ spring:
           google:
             clientId: 615676148746-ltjgjc06koe78oo6vcn9b2rd1du21cos.apps.googleusercontent.com
             clientSecret: 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
-#            redirect-uri: "http://localhost:8082/oauth2/callback/google"
-            redirect-uri: "http://k7c204.p.ssafy.io:8082/login/oauth2/code/google"
+#            redirect-uri: "http://localhost:8080/oauth2/callback/google"
+            redirect-uri: "http://k7c204.p.ssafy.io:8080/login/oauth2/code/google"
             scope:
               - email
               - profile
@@ -41,7 +41,7 @@ spring:
             clientSecret: nJ8y0WqCJp
             clientAuthenticationMethod: POST
             authorizationGrantType: authorization_code
-#            redirectUri: "http://localhost:8082/oauth2/callback/naver"
+#            redirectUri: "http://localhost:8080/oauth2/callback/naver"
             redirect-uri: "http://k7c204.p.ssafy.io:8082/oauth2/callback/naver"
             scope:
               - nickname
@@ -53,7 +53,7 @@ spring:
             clientSecret: hv153n2mnh5nqFw6xjsQB5mRoKcxlJL5
             clientAuthenticationMethod: POST
             authorizationGrantType: authorization_code
-#            redirectUri: "http://localhost:8082/oauth2/callback/kakao"
+#            redirectUri: "http://localhost:8080/oauth2/callback/kakao"
             redirect-uri: "http://k7c204.p.ssafy.io:8082/oauth2/callback/kakao"
             scope:
               - profile_nickname
@@ -88,7 +88,7 @@ spring:
 
 # cors 설정
 #cors:
-#  allowed-origins: 'http://localhost:3000', 'http://localhost:8082'
+#  allowed-origins: 'http://localhost:3000', 'http://localhost:8080'
 #  allowed-methods: GET,POST,PUT,DELETE,OPTIONS
 #  allowed-headers: '*'
 #  max-age: 3600
@@ -99,7 +99,7 @@ h2:
 
 app:
   cors:
-    allowedOrigins: http://localhost:3000, http://localhost:8082, http://k7c204.p.ssafy.io, http://k7c204.p.ssafy.io/api
+    allowedOrigins: http://localhost:3000, http://localhost:8080, http://k7c204.p.ssafy.io, http://k7c204.p.ssafy.io/api
   auth:
     # JWT를 암호화 하기 위한 암호화 키
     tokenSecret: 'c3ByaW5nLWJvb3Qtc2VjdXJpdHktand0LXR1dG9yaWFsLWppd29vbi1zcHJpbmctYm9vdC1zZWN1cml0eS1qd3QtdHV0b3JpYWwK'
