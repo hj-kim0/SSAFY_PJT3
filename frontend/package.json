@@ -20,6 +20,7 @@
     "react-chartjs-2": "^3.0.3",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.2",
+    "react-s-alert": "^1.4.1",
     "react-scripts": "5.0.1",
     "recoil": "^0.7.6",
     "recoil-persist": "^4.2.0",
