@@ -15,7 +15,7 @@ export default function JoinSuccess() {
       >
         <img
           src={Success}
-          alt="가입이 완료되었습니다"
+          alt="회원가입이 완료되었습니다"
           height="100px"
           width="100px"
         />

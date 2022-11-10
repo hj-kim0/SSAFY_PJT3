@@ -35,96 +35,89 @@ export default function UserInfo() {
       <div>
         <br />
         <p style={{ fontWeight: "bold" }}>닉네임</p>
-      </div>
-      <div>
-        <div>
-          <br />
-          <input
-            type="text"
-            name="NickName"
-            maxLength="6"
-            placeholder="닉네임을 입력해주세요."
+        <br />
+        <p>닉네임은 최대 한글 6자까지 입력할 수 있습니다.</p>
+        <input
+          type="text"
+          name="NickName"
+          maxLength="6"
+          placeholder="닉네임을 입력해주세요."
+          style={{
+            width: "500px",
+            height: "50px",
+            display: "inline",
+            border: "0",
+            paddingLeft: "5px",
+            outline: "none",
+            boxSizing: "border-box",
+            margin: "0 auto",
+            marginright: "10px",
+            fontSize: "40px",
+          }}
+        ></input>
+        <button
+          type="DuplicateCheck"
+          style={{
+            width: "80px",
+            height: "50px",
+            display: "inline",
+            margin: "0 auto",
+            border: "none",
+            outline: "none",
+            marginLeft: "-10px",
+            boxSizing: "border-box",
+            textAlign: "center",
+            color: "#023047",
+          }}
+        >
+          중복 확인
+        </button>
+        <div style={{ borderWidth: "100px" }}>
+          <p
             style={{
-              width: "500px",
-              height: "50px",
               display: "inline",
-              border: "0",
-              paddingLeft: "5px",
-              outline: "none",
-              boxSizing: "border-box",
-              margin: "0 auto",
-              marginright: "10px",
-              fontSize: "40px",
-            }}
-          ></input>
-          <button
-            type="DuplicateCheck"
-            style={{
-              width: "80px",
-              height: "50px",
-              display: "inline",
-              margin: "0 auto",
-              border: "none",
-              outline: "none",
-              marginLeft: "-10px",
-              boxSizing: "border-box",
-              textAlign: "center",
-              color: "#023047",
             }}
           >
-            중복 확인
+            내 컴퓨터
+          </p>
+          <button style={{ display: "inline" }}>
+            <img
+              src={ComputerAdd}
+              alt="견적을 맞춘 내 컴퓨터를 추가하려면 클릭"
+              style={{ height: "25px", width: "25px" }}
+            />
           </button>
-        </div>
-        <div>
-          <div style={{ borderWidth: "100px" }}>
-            <p
+          <p style={{ display: "inline" }}></p>
+          <button>
+            <img
+              src={ComAdd}
+              alt="짜여진 견적을 추가하려면 클릭"
               style={{
+                height: "50px",
+                width: "50px",
                 display: "inline",
+                margin: "auto",
+                borderRadius: "20px",
+                border: "solid",
+                borderColor: "#ffffff",
               }}
-            >
-              내 컴퓨터
-            </p>
-            <button style={{ display: "inline" }}>
-              <img
-                src={ComputerAdd}
-                alt="견적을 맞춘 내 컴퓨터를 추가하려면 클릭"
-                style={{ height: "25px", width: "25px" }}
-              />
-            </button>
-          </div>
-          <div>
-            <p style={{ display: "inline" }}></p>
-            <button>
-              <img
-                src={ComAdd}
-                alt="짜여진 견적을 추가하려면 클릭"
-                style={{
-                  height: "50px",
-                  width: "50px",
-                  display: "inline",
-                  margin: "auto",
-                  borderRadius: "20px",
-                  border: "solid",
-                  borderColor: "#ffffff",
-                }}
-              />
-            </button>
-            <button>
-              <img
-                src={ComDelete}
-                alt="짜여진 견적을 삭제하려면 클릭"
-                style={{
-                  height: "50px",
-                  width: "50px",
-                  display: "inline",
-                  margin: "auto",
-                  borderRadius: "20px",
-                  border: "solid",
-                  borderColor: "#ffffff",
-                }}
-              />
-            </button>
-          </div>
+            />
+          </button>
+          <button>
+            <img
+              src={ComDelete}
+              alt="짜여진 견적을 삭제하려면 클릭"
+              style={{
+                height: "50px",
+                width: "50px",
+                display: "inline",
+                margin: "auto",
+                borderRadius: "20px",
+                border: "solid",
+                borderColor: "#ffffff",
+              }}
+            />
+          </button>
         </div>
         <div
           style={{
