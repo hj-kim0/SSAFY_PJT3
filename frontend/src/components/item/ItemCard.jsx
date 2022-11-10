@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import ok from "../../assets/images/login/Delete.png";
 import dummy from "../../assets/images/sample.png";
 
 
@@ -29,7 +28,7 @@ const ItemCard = (props) => {
             <div className="asd">{data.name}</div>
             <div>
                 <StyledButton>
-                <img src={ok} width="16px" height="16px"/>
+                <img src="" width="16px" height="16px"/>
                 </StyledButton>
             </div>
             </div>
