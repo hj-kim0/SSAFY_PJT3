@@ -1,51 +1,26 @@
-// VARIABLES
-// base colors
-$white: #fcfcfc;
-$black: #3c3c3c;
-	
-// accent colors
-$yellow: #ffb703;
 $orange: #fb8500;
-
+$white: #fcfcfc;
+$dark-blue: #023047;
+$dm-dark-gray: #16181a;
+$dm-black: #07080a;
+$black: #3c3c3c;
 $red:#fe4343;
 
-// light mode colors
-$dark-blue: #023047;
-$light-blue: #219ebc;
-
-// dark mode colors
-$dm-black: #07080a;
-$dm-off-black: #0a0b0d;
-$dm-dark-gray: #16181a;
-
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	z-index: 10;
+a {
+    text-decoration: none !important;
 }
 
-body {
-	font-family: sans-serif;
+@media (min-width:800px) {
+    .hamburger{
+        display: none;
+    }
 }
 
-
-.header {
-	display: flex;
-	background-color: black;
-	opacity: 0.7;
-	width:100%;
+@media (max-width:800px) {
+    .app-nav {
+        display: none;
+    }
 }
-
-.gnb, .logo, .hamburger .note .user{
-	flex: none;
-}
-
-
-.gnb{
-	margin-left: auto;
-}
-
 
 .logo, .gnb {
 	padding: 20px;
@@ -53,24 +28,70 @@ body {
 }
 
 
-.hamburger {
-	margin-left: 30px;
-	padding-bottom: 30px;
+.app-header {
+    background-color: rgb(25, 25, 25);
+    height: 60px;
+    position: fixed;
+    width: 100vw;
 }
 
-.note, .user{
-	padding-left: 20px;
+.app-title {
+    color: antiquewhite;
+    line-height: 60px;
+    vertical-align: middle;
+    font-size: 1.35em;
 }
 
-.logo{
-	margin-left: 40px;
+.app-title:hover {
+    color:rgb(238, 222, 140);
 }
 
-nav {
+.app-branding {
+    float: left;
+    
+    padding-left: 60px;
+}
+
+.app-navigator {
+    display: block;
+    float: left;
+}
+
+.app-options {
+    float: right;
+}
+
+.app-nav ul {
+    list-style-position: none;
+    margin: 0;
+    padding: 0;
+}
+
+.app-nav ul li {
+    list-style-type: none;
+    display: inline-block;
+}
+
+.app-nav ul li a {
+    color: antiquewhite;
+    display: inline-block;
+    line-height: 60px;
+    vertical-align: middle;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.app-nav ul li a:hover {
+    color: rgb(255, 228, 74);
+}
+
+.app-nav ul li a.active {
+    color: azure;
+}
+
+header {
 	position: fixed;
-	background-color: #023047;
 	opacity: 0.8;
-	// aligning the menu button with the hidden checkbox
 	input[name="toggle-nav"],
 	label[for="toggle-nav"] {
 		position: absolute;
@@ -83,7 +104,7 @@ nav {
 		display: block;
 		cursor: pointer;
 		opacity: 0;
-		z-index: 1091;
+		z-index: 100;
 		
         &:hover:checked + label[for="toggle-nav"],
         &:active:checked + label[for="toggle-nav"],
@@ -101,7 +122,7 @@ nav {
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		z-index: 1090;
+		z-index: 80;
 		
 		// creating the menu button
 		.menu-icon {
@@ -361,4 +382,8 @@ nav {
 	a {
 		text-decoration: none;
 	}
+}
+
+.gnb, .logo, .hamburger .note .user{
+	flex: none;
 }
