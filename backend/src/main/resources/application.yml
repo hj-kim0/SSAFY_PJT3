@@ -32,7 +32,7 @@ spring:
             clientId: 615676148746-ltjgjc06koe78oo6vcn9b2rd1du21cos.apps.googleusercontent.com
             clientSecret: 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
 #            redirect-uri: "http://localhost:8080/oauth2/callback/google"
-            redirect-uri: "http://k7c204.p.ssafy.io:8080/login/oauth2/code/google"
+            redirect-uri: "http://k7c204.p.ssafy.io:8080/oauth2/callback/google"
             scope:
               - email
               - profile
@@ -112,7 +112,7 @@ app:
     # 쿠키는 모바일 클라이언트에서 잘 작동하지 않기 때문에 사용하지 않습니다
     authorizedRedirectUris:
 #      - http://localhost:3000/oauth2/redirect
-      - http://k7c204.p.ssafy.io/oauth2/redirect
+      - http://k7c204.p.ssafy.io:3000/oauth2/redirect
 
 #springdoc:
 #  default-consumes-media-type: application/json
