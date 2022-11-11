@@ -17,10 +17,11 @@ public class MainboardService {
 
     public String selectMainboard(String name) {
         ObjectMapper objectMapper = new ObjectMapper();
-        log.info("hello========================================");
         try {
-//            log.info(objectMapper.writeValueAsString(cpuRepository.findByPartsID(name)));
-            return objectMapper.writeValueAsString(mainboardRepository.findAll());
+            if (mainboardRepository.findByPartsID(name)==null){
+                return "none";
+            }
+            return objectMapper.writeValueAsString(mainboardRepository.findByPartsID(name));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
             return "ERROR";

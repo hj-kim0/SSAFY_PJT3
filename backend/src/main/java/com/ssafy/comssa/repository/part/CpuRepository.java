@@ -7,7 +7,7 @@ import java.util.List;
 
 @SuppressWarnings("unused")
 public interface CpuRepository extends MongoRepository<Cpu,String> {
-    List<Cpu> findByPartsID(String name);
+    Cpu findByPartsID(String name);
 //    List<Cpu> findCpusByPartsID(String name);
 
 }
