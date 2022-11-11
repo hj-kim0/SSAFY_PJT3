@@ -3,15 +3,14 @@ server:
 
 spring:
   datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://k7c204.p.ssafy.io:3306/comssa?serverTimezone=UTC&useUniCode=yes&characterEncoding=UTF-8&amp
+    username: root
+    password: comssaC204!
 #    driver-class-name: com.mysql.cj.jdbc.Driver
 #    url: jdbc:mysql://localhost:3306/comssa_app?serverTimezone=UTC&characterEncoding=UTF-8
 #    username: root
 #    password: thekey1919
-
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/comssa?serverTimezone=UTC&useUniCode=yes&characterEncoding=UTF-8&amp
-    username: root
-    password: comssaC204!
 
 
 #  data:
