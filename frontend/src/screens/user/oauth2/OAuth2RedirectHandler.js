@@ -3,23 +3,17 @@ import { ACCESS_TOKEN, REFRESH_TOKEN } from '../../../constants';
 import { Navigate } from 'react-router-dom'
 
 class OAuth2RedirectHandler extends Component {
-    getUrlParameter(name) {
-        name = name.replace(/[\\[]/, '\\[').replace(/[\]]/, '\\]');
-        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-
-        var results = regex.exec(this.props.location.search);
-        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-    };
 
     render() {        
-        const token = this.getUrlParameter('token');
-        const error = this.getUrlParameter('error');
+        const token = new URL(window.location.href).searchParams.get("token");
+        const error = new URL(window.location.href).searchParams.get("error");
+
 
         if(token) {
             localStorage.setItem(ACCESS_TOKEN, token);
             localStorage.setItem(REFRESH_TOKEN, null);
             return <Navigate to={{
-                pathname: "/profile",
+                pathname: "/",
                 state: { from: this.props.location }
             }}/>; 
         } else {
