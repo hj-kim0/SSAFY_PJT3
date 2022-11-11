@@ -98,7 +98,7 @@ h2:
 
 app:
   cors:
-    allowedOrigins: http://localhost:3000, http://localhost:8080, http://k7c204.p.ssafy.io, http://k7c204.p.ssafy.io/api
+    allowedOrigins: http://localhost:3000, http://localhost:8080, http://k7c204.p.ssafy.io, http://k7c204.p.ssafy.io:8080
   auth:
     # JWT를 암호화 하기 위한 암호화 키
     tokenSecret: 'c3ByaW5nLWJvb3Qtc2VjdXJpdHktand0LXR1dG9yaWFsLWppd29vbi1zcHJpbmctYm9vdC1zZWN1cml0eS1qd3QtdHV0b3JpYWwK'
