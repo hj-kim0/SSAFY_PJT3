@@ -45,8 +45,6 @@ function Router() {
       });
   }
 
-  console.log(state);
-
   function handleLogout() {
       localStorage.removeItem(ACCESS_TOKEN);
       localStorage.removeItem(REFRESH_TOKEN);

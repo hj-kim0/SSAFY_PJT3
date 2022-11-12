@@ -5,9 +5,18 @@ import logo from "../../assets/images/common/logo.png";
 
 function AppHeader(props) {
     
-    const datas = useState(props.data);
+    const [datas, setDatas] = useState(props.data);
+    const [isLogin, setIsLogin] = useState(false);
+    
+    function setLoginState(){
+        setIsLogin(!isLogin);
+    }
 
-    console.log(datas);
+    useEffect(() => {
+        console.log("헤더 스테이트");
+        console.log(datas);
+        setLoginState();
+    },[datas]);
 
     return (
             <header className="app-header header">
