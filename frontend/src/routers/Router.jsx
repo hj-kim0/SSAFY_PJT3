@@ -42,6 +42,8 @@ class Router extends Component {
         authenticated: true,
         loading: false
       });
+
+      console.log("로그인 유저 셋 스테이트 : " + this.state);
     }).catch(error => {
       this.setState({
         loading: false
@@ -65,6 +67,7 @@ class Router extends Component {
   }
 
   render(){
+
     return (
       <>
         <div id="wrapper">
