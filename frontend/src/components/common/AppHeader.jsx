@@ -8,7 +8,7 @@ function AppHeader(data, handleLogout) {
     const temp = useState(data);
     const datas = temp[0].data;
 
-    // console.log(datas);
+    console.log(datas);
 
     return (
             <header className="app-header header">
