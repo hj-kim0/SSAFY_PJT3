@@ -5,11 +5,11 @@ import logo from "../../assets/images/common/logo.png";
 
 function AppHeader(props) {
     
-    const [datas, setDatas] = useState(props.data);
+    // const [datas, setDatas] = useState(props.data);
     
 
     console.log("AppHeader : ");
-    console.log(datas);
+    console.log(props.data);
 
     return (
             <header className="app-header header">
@@ -27,7 +27,7 @@ function AppHeader(props) {
                             <li><Link to="/">내 설정</Link></li>
                             <li><Link to="/detail:10">물품 상세</Link></li>
                             <li className="logout_area"><a onClick={props.handleLogout}>로그아웃</a></li> 
-                            { datas.authenticated ? (<>
+                            { props.data.authenticated ? (<>
                             </>)
                             : 
                             (
@@ -45,7 +45,7 @@ function AppHeader(props) {
                         <nav className="app-nav">
                             <ul>
                                 <li><Link to="/">자동 견적</Link></li>
-                                { datas.authenticated ? (
+                                { props.data.authenticated ? (
                                     <>
                                     <li><Link to="/">견적 비교</Link></li>
                                     <li><Link to="/">내 견적</Link></li>
@@ -58,7 +58,7 @@ function AppHeader(props) {
                     </div>
                     <div className="app-options">
                         <nav className="app-nav">
-                                { datas.authenticated ? (
+                                { props.data.authenticated ? (
                                     <ul>
                                         <li>
                                             <NavLink to="/profile">마이페이지</NavLink>
