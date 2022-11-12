@@ -43,7 +43,9 @@ class Router extends Component {
         loading: false
       });
 
-      console.log("로그인 유저 셋 스테이트 : " + this.state);
+      console.log("로그인 유저 셋 스테이트 : ");
+      console.log(this.state);
+      
     }).catch(error => {
       this.setState({
         loading: false
