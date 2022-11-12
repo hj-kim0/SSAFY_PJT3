@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 //
 import Home from "../screens/Home";
@@ -14,61 +14,53 @@ import Footer from "../components/common/Footer";
 
 import Compare from "../screens/Compare";
 
-import ItemDetail from "../components/detail/ItemDetail";
-
 import "./Router.scss";
 import AutoManual from "../screens/AutoManual";
 
-class Router extends Component {
+function Router() {
 
-  constructor(props) {
-    super(props);
-    this.state = {
+  const [state, setState] = useState(
+    {
       authenticated: false,
       currentUser: null,
       loading: true
     }
-
-    this.loadCurrentlyLoggedInUser = this.loadCurrentlyLoggedInUser.bind(this);
-    this.handleLogout = this.handleLogout.bind(this);
-  }
-
-
-  loadCurrentlyLoggedInUser() {
+  );
+  
+  function loadCurrentlyLoggedInUser() {
     getCurrentUser()
-    .then(response => {
-      this.setState({
-        currentUser: response,
-        authenticated: true,
-        loading: false
+    .then(
+      response => {
+        setState({
+          authenticated: true,
+          currentUser: response,
+          loading: false
+        });
+      }).catch(err => {
+        setState({
+          authenticated: false,
+          currentUser: null,
+          loading: false
+        });
       });
-
-      console.log("로그인 유저 셋 스테이트 : ");
-      console.log(this.state);
-      
-    }).catch(error => {
-      this.setState({
-        loading: false
-      });  
-    });    
   }
 
+  console.log(state);
 
-  handleLogout() {
-    localStorage.removeItem(ACCESS_TOKEN);
-    localStorage.removeItem(REFRESH_TOKEN);
-    this.setState({
-      authenticated: false,
-      currentUser: null
-    });
-    Alert.success("로그아웃 했습니다.");
+  function handleLogout() {
+      localStorage.removeItem(ACCESS_TOKEN);
+      localStorage.removeItem(REFRESH_TOKEN);
+
+      setState({
+        authenticated: false,
+        currentUser: null
+      });
+      Alert.success("로그아웃 했습니다.")
   }
 
-  componentDidMount() {
-    this.loadCurrentlyLoggedInUser();
-  }
-
-  render(){
+  useEffect(() => {
+    loadCurrentlyLoggedInUser();
+  },[]);
 
     return (
       <>
@@ -83,14 +75,14 @@ class Router extends Component {
             <Route path='/money' element={<AutoManual />}></Route>
           </Routes>
           <div id="nav_wrapper">
-            <AppHeader data={this.state} 
-            handleLogout={this.handleLogout}
+            <AppHeader data={state} 
+            handleLogout={handleLogout}
             />
           </div>
           <Footer />
         </div>
       </>
     );
-  }
+
 }
 export default Router;

@@ -3,10 +3,9 @@ import { Link, NavLink } from 'react-router-dom';
 import './AppHeader.scss';
 import logo from "../../assets/images/common/logo.png";
 
-function AppHeader(data, handleLogout) {
+function AppHeader(props) {
     
-    const temp = useState(data);
-    const datas = temp[0].data;
+    const datas = useState(props.data);
 
     console.log(datas);
 
@@ -21,12 +20,13 @@ function AppHeader(data, handleLogout) {
                     <section className="side-nav-panel">
                         <ul className="top-nav">
                             <li><Link to="/money">자동 견적</Link></li>
-                            { datas.authenticated ? (<>
                             <li><Link to="/Compare">비교</Link></li>
                             <li><Link to="/">내 견적</Link></li>
                             <li><Link to="/">내 설정</Link></li>
                             <li><Link to="/detail:10">물품 상세</Link></li>
-                            <li className="logout_area"><a onClick={handleLogout}>로그아웃</a></li></>) 
+                            <li className="logout_area"><a onClick={props.handleLogout}>로그아웃</a></li> 
+                            { datas.authenticated ? (<>
+                            </>)
                             : 
                             (
                                 <>
@@ -62,7 +62,7 @@ function AppHeader(data, handleLogout) {
                                             <NavLink to="/profile">마이페이지</NavLink>
                                         </li>
                                         <li>
-                                            <a onClick={handleLogout}>로그아웃</a>
+                                            <a onClick={props.handleLogout}>로그아웃</a>
                                         </li>
                                     </ul>
                                 ): (
