@@ -3,12 +3,12 @@ import { Link, NavLink } from 'react-router-dom';
 import './AppHeader.scss';
 import logo from "../../assets/images/common/logo.png";
 
-function AppHeader() {
+function AppHeader(data) {
 
     const temp = useState(data);    
 
     console.log(temp);
-    
+
     return (
             <header className="app-header header">
                 <div className="container">
