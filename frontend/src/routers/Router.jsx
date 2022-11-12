@@ -79,7 +79,7 @@ class Router extends Component {
           </Routes>
           <div id="nav_wrapper">
             <AppHeader data={this.state} 
-            // handleLogout={this.handleLogout}
+            handleLogout={this.handleLogout}
             />
           </div>
           <Footer />
