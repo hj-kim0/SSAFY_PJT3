@@ -5,10 +5,10 @@ import logo from "../../assets/images/common/logo.png";
 
 function AppHeader() {
 
-    const state = useState(props.state);
-    console.log(state);
-    
+    const temp = useState(data);    
 
+    console.log(temp);
+    
     return (
             <header className="app-header header">
                 <div className="container">
@@ -25,7 +25,7 @@ function AppHeader() {
                             <li><Link to="/">내 견적</Link></li>
                             <li><Link to="/">내 설정</Link></li>
                             <li><Link to="/detail:10">물품 상세</Link></li>
-                            <li className="logout_area"><Link to={props.handleLogout}>로그아웃</Link></li></>) 
+                            <li className="logout_area"><Link to="">로그아웃</Link></li></>) 
                             : 
                             (
                                 <>
@@ -61,7 +61,7 @@ function AppHeader() {
                                             <NavLink to="/profile">마이페이지</NavLink>
                                         </li>
                                         <li>
-                                            <a onClick={props.handleLogout}>로그아웃</a>
+                                            <a onClick="">로그아웃</a>
                                         </li>
                                     </ul>
                                 ): (

@@ -78,7 +78,9 @@ class Router extends Component {
             <Route path='/money' element={<AutoManual />}></Route>
           </Routes>
           <div id="nav_wrapper">
-            <AppHeader state={this.state} handleLogout={this.handleLogout}/>
+            <AppHeader data={this.state} 
+            // handleLogout={this.handleLogout}
+            />
           </div>
           <Footer />
         </div>
