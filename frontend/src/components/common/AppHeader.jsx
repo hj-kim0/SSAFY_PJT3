@@ -5,6 +5,7 @@ import logo from "../../assets/images/common/logo.png";
 
 class AppHeader extends Component {
     render() {
+        console.log(this.props);
         return (
             <header className="app-header header">
                 <div className="container">

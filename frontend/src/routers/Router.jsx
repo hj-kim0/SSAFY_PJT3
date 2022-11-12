@@ -60,8 +60,6 @@ class Router extends Component {
     Alert.success("로그아웃 했습니다.");
   }
 
-
-
   componentDidMount() {
     this.loadCurrentlyLoggedInUser();
   }

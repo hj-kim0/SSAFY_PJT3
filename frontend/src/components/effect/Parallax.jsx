@@ -33,7 +33,7 @@ export default function Parallax(){
 
     // position scroll y축
     // resize 화면의 x 크기
-    // 
+    
     return (
         <div className="flex center">
         <div className="posrel roBold fs-60 pt-15 pb-15"
