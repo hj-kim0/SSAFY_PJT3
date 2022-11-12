@@ -3,11 +3,12 @@ import { Link, NavLink } from 'react-router-dom';
 import './AppHeader.scss';
 import logo from "../../assets/images/common/logo.png";
 
-function AppHeader(data) {
+function AppHeader(data, handleLogout) {
+    
+    const temp = useState(data);
+    const datas = temp[0].data;
 
-    const temp = useState(data);    
-
-    console.log(temp);
+    // console.log(datas);
 
     return (
             <header className="app-header header">
@@ -20,12 +21,12 @@ function AppHeader(data) {
                     <section className="side-nav-panel">
                         <ul className="top-nav">
                             <li><Link to="/money">자동 견적</Link></li>
-                            { this.props.authenticated ? (<>
+                            { datas.authenticated ? (<>
                             <li><Link to="/Compare">비교</Link></li>
                             <li><Link to="/">내 견적</Link></li>
                             <li><Link to="/">내 설정</Link></li>
                             <li><Link to="/detail:10">물품 상세</Link></li>
-                            <li className="logout_area"><Link to="">로그아웃</Link></li></>) 
+                            <li className="logout_area"><a onClick={handleLogout}>로그아웃</a></li></>) 
                             : 
                             (
                                 <>
@@ -42,7 +43,7 @@ function AppHeader(data) {
                         <nav className="app-nav">
                             <ul>
                                 <li><Link to="/">자동 견적</Link></li>
-                                { this.props.authenticated ? (
+                                { datas.authenticated ? (
                                     <>
                                     <li><Link to="/">견적 비교</Link></li>
                                     <li><Link to="/">내 견적</Link></li>
@@ -55,13 +56,13 @@ function AppHeader(data) {
                     </div>
                     <div className="app-options">
                         <nav className="app-nav">
-                                { this.props.authenticated ? (
+                                { datas.authenticated ? (
                                     <ul>
                                         <li>
                                             <NavLink to="/profile">마이페이지</NavLink>
                                         </li>
                                         <li>
-                                            <a onClick="">로그아웃</a>
+                                            <a onClick={handleLogout}>로그아웃</a>
                                         </li>
                                     </ul>
                                 ): (
