@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './AppHeader.scss';
 import logo from "../../assets/images/common/logo.png";
@@ -6,17 +6,10 @@ import logo from "../../assets/images/common/logo.png";
 function AppHeader(props) {
     
     const [datas, setDatas] = useState(props.data);
-    const [isLogin, setIsLogin] = useState(false);
     
-    function setLoginState(){
-        setIsLogin(!isLogin);
-    }
 
-    useEffect(() => {
-        console.log("헤더 스테이트");
-        console.log(datas);
-        setLoginState();
-    },[datas]);
+    console.log("AppHeader : ");
+    console.log(datas);
 
     return (
             <header className="app-header header">

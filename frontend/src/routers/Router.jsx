@@ -51,7 +51,8 @@ function Router() {
 
       setState({
         authenticated: false,
-        currentUser: null
+        currentUser: null,
+        loading: true
       });
       Alert.success("로그아웃 했습니다.")
   }
@@ -60,6 +61,9 @@ function Router() {
     loadCurrentlyLoggedInUser();
   },[]);
 
+  console.log("Router : ")
+  console.log(state);
+  
     return (
       <>
         <div id="wrapper">
