@@ -6,9 +6,6 @@ export default function Parallax(){
     const [position, setPosition] = useState(0);
     const [resize, setResize] = useState();
 
-    console.log(position);
-    console.log(resize);
-
     const onScroll = () => {
         setPosition(window.scrollY);
     }

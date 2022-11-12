@@ -71,7 +71,7 @@ class Router extends Component {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             {/* user */}
-            <Route path="/login" element={<Login />}></Route>
+            <Route path="/login" element={<Login state={this.state} />}></Route>
             <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler/>}></Route>  
             {/* comssa */}
             <Route path='/compare' element={<Compare />}></Route>

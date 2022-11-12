@@ -1,12 +1,15 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './AppHeader.scss';
 import logo from "../../assets/images/common/logo.png";
 
-class AppHeader extends Component {
-    render() {
-        console.log(this.props);
-        return (
+function AppHeader() {
+
+    const state = useState(props.state);
+
+    console.log(state);
+
+    return (
             <header className="app-header header">
                 <div className="container">
                 <div className="hamburger">
@@ -72,6 +75,5 @@ class AppHeader extends Component {
             </header>
         )
     }
-}
 
 export default AppHeader;
