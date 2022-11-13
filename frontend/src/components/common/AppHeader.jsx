@@ -4,13 +4,6 @@ import './AppHeader.scss';
 import logo from "../../assets/images/common/logo.png";
 
 function AppHeader(props) {
-    
-    // const [datas, setDatas] = useState(props.data);
-    
-
-    console.log("AppHeader : ");
-    console.log(props.data);
-
     return (
             <header className="app-header header">
                 <div className="container">
@@ -21,13 +14,12 @@ function AppHeader(props) {
                     </label>
                     <section className="side-nav-panel">
                         <ul className="top-nav">
-                            <li><Link to="/money">자동 견적</Link></li>
-                            <li><Link to="/Compare">비교</Link></li>
-                            <li><Link to="/">내 견적</Link></li>
-                            <li><Link to="/">내 설정</Link></li>
-                            <li><Link to="/detail:10">물품 상세</Link></li>
-                            <li className="logout_area"><a onClick={props.handleLogout}>로그아웃</a></li> 
+                            <li><Link to="/auto">자동 견적</Link></li>
+                            <li><Link to="/compare">견적 비교</Link></li>
+                            <li><Link to="/estimate">내 견적</Link></li>
+                            <li><Link to="/search">부품 검색</Link></li>
                             { props.data.authenticated ? (<>
+                                <li className="logout_area"><a onClick={props.handleLogout}>로그아웃</a></li> 
                             </>)
                             : 
                             (
@@ -44,15 +36,10 @@ function AppHeader(props) {
                     <div className="app-navigator">
                         <nav className="app-nav">
                             <ul>
-                                <li><Link to="/">자동 견적</Link></li>
-                                { props.data.authenticated ? (
-                                    <>
-                                    <li><Link to="/">견적 비교</Link></li>
-                                    <li><Link to="/">내 견적</Link></li>
-                                    <li><Link to="/">부품 검색</Link></li>
-                                    </>
-                                ):(<></>) 
-                                }
+                                <li><Link to="/auto">자동 견적</Link></li>
+                                <li><Link to="/compare">견적 비교</Link></li>
+                                <li><Link to="/estimate">내 견적</Link></li>
+                                <li><Link to="/search">부품 검색</Link></li>
                             </ul>
                         </nav>
                     </div>
