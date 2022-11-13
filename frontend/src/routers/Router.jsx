@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 //
 import Home from "../screens/Home";
 import Login from "../screens/user/login/Login";
+import Guide from "../screens/Guide";
 //
 import { getCurrentUser } from "../utils/APIUtils";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '../constants';
@@ -78,6 +79,7 @@ class Router extends Component {
             {/* comssa */}
             <Route path='/compare' element={<Compare />}></Route>
             <Route path='/money' element={<AutoManual />}></Route>
+            <Route path='/guide' element={<Guide />}></Route>
           </Routes>
           <div id="nav_wrapper">
             <AppHeader/>
