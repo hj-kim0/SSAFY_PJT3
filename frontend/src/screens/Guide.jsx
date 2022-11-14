@@ -10,9 +10,11 @@ import Case from "../assets/images/Parts/Case.jpg";
 import Power from "../assets/images/Parts/Power.jpg";
 import Fan from "../assets/images/Parts/Fan.jpg";
 
+import "./Guide.scss";
+
 export default function Guide() {
   return (
-    <div style={{ marginTop: "100px", marginBottom: "100px" }} align="center">
+    <div className="guide_body">
       <b>
         <big>본 페이지는 가이드 페이지 입니다.</big>
       </b>
@@ -21,7 +23,8 @@ export default function Guide() {
           color: "3c3c3c",
         }}
       >
-        부품이 각각 어떤 역할을 하는지 비유를 통해 알아보실 수 있습니다.
+        부품이 각각 어떤 역할을 하는지 비유를 통해 알아보실 수 있습니다. <br />
+        커서를 이미지 위에 올릴 경우 부품 이미지가 확대되어 나타납니다.
       </p>
       <div
         style={{
@@ -34,6 +37,7 @@ export default function Guide() {
         }}
       >
         <img
+          id="parts_picture"
           height="100px"
           width="100px"
           style={{
@@ -65,6 +69,7 @@ export default function Guide() {
         }}
       >
         <img
+          id="parts_picture"
           height="100px"
           width="100px"
           style={{
@@ -96,6 +101,7 @@ export default function Guide() {
         }}
       >
         <img
+          id="parts_picture"
           height="100px"
           width="100px"
           style={{
@@ -127,6 +133,7 @@ export default function Guide() {
         }}
       >
         <img
+          id="parts_picture"
           height="100px"
           width="100px"
           style={{
@@ -159,6 +166,7 @@ export default function Guide() {
         }}
       >
         <img
+          id="parts_picture"
           height="100px"
           width="100px"
           style={{
@@ -191,6 +199,7 @@ export default function Guide() {
         }}
       >
         <img
+          id="parts_picture"
           height="100px"
           width="100px"
           style={{
@@ -223,6 +232,7 @@ export default function Guide() {
         }}
       >
         <img
+          id="parts_picture"
           height="100px"
           width="100px"
           style={{
@@ -255,6 +265,7 @@ export default function Guide() {
         }}
       >
         <img
+          id="parts_picture"
           height="100px"
           width="100px"
           style={{
@@ -287,6 +298,7 @@ export default function Guide() {
         }}
       >
         <img
+          id="parts_picture"
           height="100px"
           width="100px"
           style={{
@@ -319,6 +331,7 @@ export default function Guide() {
         }}
       >
         <img
+          id="parts_picture"
           height="100px"
           width="100px"
           style={{
