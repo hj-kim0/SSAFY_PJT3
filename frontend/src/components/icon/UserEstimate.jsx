@@ -54,7 +54,7 @@ const UserEstimate = (props) => {
         }
         </div>
         <div className="flex align-center mt-5 pt-5 pb-3">
-            <button className="button1"><a className="notoBold fs-13 btnstyle">자동 추천</a></button>
+            <button className="button1"><a className="notoBold fs-24 btnstyle">자동 추천</a></button>
         </div>
         </div>
         </>

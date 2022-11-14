@@ -40,7 +40,7 @@ $blue: #2d7eff;
 
 .button1:hover {
 	color: $blue;
-	background-color: white;
+	background-color: $blue;
 	transform: scale(1.1);
-	border: 3px solid $blue;
+	border: 3px solid rgb(147, 136, 168);
 }
