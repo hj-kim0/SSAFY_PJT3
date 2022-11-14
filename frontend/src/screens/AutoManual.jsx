@@ -116,12 +116,13 @@ const AutoManual = () => {
                 {
                 datas.map(
                     item => <>
-                    <ItemCard data={item.gpuDetail} kind="GPU"/>
+                    
+                    <ItemCard data={item.cpuDetail} kind="CPU"/>
                     <ItemCard data={item.mainboardDetail} kind="메인보드"/>
+                    <ItemCard data={item.gpuDetail} kind="GPU"/>
                     <ItemCard data={item.memoryDetail} kind="메모리"/>
                     <ItemCard data={item.coolerDetail} kind="쿨러"/>
                     <ItemCard data={item.powerDetail} kind="파워"/>
-                    <ItemCard data={item.cpuDetail} kind="cpu"/>
                     </>
                     
                 )
