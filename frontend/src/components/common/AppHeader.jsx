@@ -48,7 +48,7 @@ function AppHeader(props) {
                                 { props.data.authenticated ? (
                                     <ul>
                                         <li>
-                                            <NavLink to="/profile">마이페이지</NavLink>
+                                            <NavLink to="/profile"><div className="box"><img className="profile" src={props.data.currentUser.information.imageUrl}/></div></NavLink>
                                         </li>
                                         <li>
                                             <a onClick={props.handleLogout}>로그아웃</a>
