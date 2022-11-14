@@ -1,0 +1,104 @@
+// Variables
+// =========
+$dark:#000411;
+$black:#353535;
+$white:				#FCFCFC;
+$gray:				#F1FFFA;
+$green:				#3DDC97;
+$red:					#FF495C;
+
+$off-state: 	$red;
+$on-state: 		$green;
+
+$react-blue:	#61dafb;
+
+// Mixins
+// ======
+
+
+	
+
+// Base
+// ====
+
+
+.component-wrapper{
+	width: 100%;
+	background-color: $dark;
+	transition: background-color 200ms ease-out;
+}
+
+
+.switch{
+    position: relative;
+	width: 8rem;
+	height: 5rem;
+	border-radius: 20%;
+	transition: background-color 100ms ease-out;
+	z-index: 1;
+	&:before, &:after
+	{	content: "";
+		position: absolute;
+		top: 0;
+		background-color: inherit;
+		border-radius: 50%;
+		width: 5rem;
+		height: 5rem;
+		z-index: 2;
+    }
+    &:before
+	{	left: -1rem;
+    }&:after
+	{	right: -1rem;
+    }
+}
+	
+.toggle-button{
+    position: absolute;
+	width: 5rem;
+	height: 5rem;
+	background-color: $black;
+	border-radius: 50%;
+	transition: transform 100ms ease-in-out;
+	z-index: 3;
+	border: 0.05rem solid $black;
+	top: -0.05rem;
+
+}
+	
+// State
+
+.component-wrapper_is-light{
+    background-color: $white;
+
+}
+
+.component-wrapper_is-dark{
+    background-color: $dark;
+}	
+
+.header_is-lit{
+    color: $react-blue;
+	text-shadow: 0;
+}	
+.header_is-dark{
+    color: $dark;
+	text-shadow: 0 0 3rem $react-blue;
+}
+	
+.switch_is-off{
+    background-color: $off-state;
+}
+	
+.switch_is-on{
+    background-color: $on-state;
+}
+	
+.toggle-button_position-left{
+    transform: translateX(-1.05rem);
+}
+	
+.toggle-button_position-right{
+    transform: translateX(4.05rem);
+}
+	
