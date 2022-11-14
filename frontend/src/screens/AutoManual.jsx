@@ -53,6 +53,13 @@ const datas = [
         }
 ]
 
+const list = [
+    {
+        cpu : "",
+    },
+
+]
+
 const AutoManual = () => {
     return(
         <div className="relative mt-5 pt-5 mb-5">
@@ -64,20 +71,12 @@ const AutoManual = () => {
             </div>
             <div className="w-50 row ml-5 mr-5"> 
                 <div className="mt-4 bd-s bdw-1 m-2">
-
-                {
-                datas.map(
-                    item => <>
-                    <ItemCard data={item.cpuDetail} kind="CPU"/>
-                    <ItemCard data={item.mainboardDetail} kind="메인보드"/>
-                    <ItemCard data={item.gpuDetail} kind="GPU"/>
-                    <ItemCard data={item.memoryDetail} kind="메모리"/>
-                    <ItemCard data={item.coolerDetail} kind="쿨러"/>
-                    <ItemCard data={item.powerDetail} kind="파워"/>
-                    </>
-                )
-                }
-                
+                    <ItemCard data={datas[0].cpuDetail} kind="CPU"/>
+                    <ItemCard data={datas[0].mainboardDetail} kind="메인보드"/>
+                    <ItemCard data={datas[0].gpuDetail} kind="GPU"/>
+                    <ItemCard data={datas[0].memoryDetail} kind="메모리"/>
+                    <ItemCard data={datas[0].coolerDetail} kind="쿨러"/>
+                    <ItemCard data={datas[0].powerDetail} kind="파워"/>
                 </div>
             </div>
         </div>
