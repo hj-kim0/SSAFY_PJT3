@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 //
 import Home from "../screens/Home";
 import Login from "../screens/user/login/Login";
+import Profile from "../screens/user/profile/Profile";
 //
 import { getCurrentUser } from "../utils/APIUtils";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '../constants';
@@ -16,14 +17,16 @@ import Compare from "../screens/Compare";
 
 import "./Router.scss";
 import AutoManual from "../screens/AutoManual";
+import Loading from "../components/effect/Loading";
 
 function Router() {
+
+  const [loading, setLoading] = useState(true);
 
   const [state, setState] = useState(
     {
       authenticated: false,
       currentUser: null,
-      loading: true
     }
   );
   
@@ -34,14 +37,17 @@ function Router() {
         setState({
           authenticated: true,
           currentUser: response,
-          loading: false
         });
+
+        setLoading(false);
+
       }).catch(err => {
         setState({
           authenticated: false,
           currentUser: null,
-          loading: false
         });
+
+        setLoading(false);
       });
   }
 
@@ -52,8 +58,9 @@ function Router() {
       setState({
         authenticated: false,
         currentUser: null,
-        loading: true
       });
+
+      setLoading(true);
       Alert.success("로그아웃 했습니다.")
   }
 
@@ -61,20 +68,21 @@ function Router() {
     loadCurrentlyLoggedInUser();
   },[]);
 
-  console.log("Router : ")
-  console.log(state);
-  
     return (
       <>
         <div id="wrapper">
+          { loading ? <Loading/> : null }
           <Routes>
             <Route path="/" element={<Home />}></Route>
             {/* user */}
             <Route path="/login" element={<Login />}></Route>
             <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler/>}></Route>  
+            <Route path="" element={<Profile/>}></Route>
             {/* comssa */}
             <Route path='/compare' element={<Compare />}></Route>
-            <Route path='/money' element={<AutoManual />}></Route>
+            <Route path='/auto' element={<AutoManual />}></Route>
+            <Route path='/estimate' element={<></>}></Route>
+            <Route path='/search' element={<></>}></Route>
           </Routes>
           <div id="nav_wrapper">
             <AppHeader data={state} 
