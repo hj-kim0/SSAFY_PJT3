@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import DropdownCart from "./DropDownCart";
-import MyResponsiveRadar from "./Rader";
+import DropdownCart from "../components/item/DropDownCart";
+import MyResponsiveRadar from "../components/item/Rader";
+import "./Compare.scss";
 
 const my_list = [
     {
@@ -98,20 +99,28 @@ const recom_list = [
 const Compare = () => {
     return(
         <div>
-            <div className="kyobo fs-40 flex align-center mt-5 pt-5 "> 
-            <div className="bdb-s bdc-grey bdw-7 pb-3">컴퓨터 사양 비교</div></div>
-            <div className="m-2 p-5 flex mb-5">
-                <div className="">
+            <div className="kyobo fs-40 flex align-center mt-5 pt-5"> 
+            <div className="">
+            <div className="bdb-s bdc-grey bdw-7 pb-3   big">컴퓨터 사양 비교</div></div>            </div>
+            <div className="m-2 p-5 flex mb-5  wrapper pb-3">
+                <div className="small">
+                <div className="kyobo fs-40 bdb-s bdc-grey bdw-7 pb-3">컴퓨터 사양 비교</div>
+                </div>
+                <div className="mt-5 pt-5">
                 <div className="flex align-center fs-22 notoBold">내 사양</div>
                     <DropdownCart data={my_list} />
                 </div>
-                <div className="">
+                <div className="mt-5 pt-5">
                 <div className="flex align-center fs-22 notoBold">내 견적</div>
                     <DropdownCart data={recom_list} />
                 </div>
-            </div>
-            <div className="mt-5 pt-5">
+                <div className="small">
                 <MyResponsiveRadar/>
+                </div>
+            </div>
+            <div className="mt-5 pt-5 pb-3  big">
+            <div className="rader"><MyResponsiveRadar/>
+            </div>
             </div>
         </div>
         )

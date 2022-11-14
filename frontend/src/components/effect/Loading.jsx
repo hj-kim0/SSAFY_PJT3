@@ -5,7 +5,7 @@ export default () => {
     return (
         <>
             <div className="flex justify-center align-center">
-            <img src = {Spinner}/>
+            <img src = {Spinner} width="64px" height="64px"/>
             </div>
         </>
     )

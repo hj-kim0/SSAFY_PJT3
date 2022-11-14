@@ -14,6 +14,8 @@ import AppHeader from "../components/common/AppHeader";
 import Footer from "../components/common/Footer";
 
 import Compare from "../screens/Compare";
+import Estimate from "../screens/Estimate";
+import Search from "../screens/Search";
 
 import "./Router.scss";
 import AutoManual from "../screens/AutoManual";
@@ -77,12 +79,12 @@ function Router() {
             {/* user */}
             <Route path="/login" element={<Login />}></Route>
             <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler/>}></Route>  
-            <Route path="" element={<Profile/>}></Route>
+            <Route path="/profile" element={<Profile/>}></Route>
             {/* comssa */}
             <Route path='/compare' element={<Compare />}></Route>
             <Route path='/auto' element={<AutoManual />}></Route>
-            <Route path='/estimate' element={<></>}></Route>
-            <Route path='/search' element={<></>}></Route>
+            <Route path='/estimate' element={<Estimate/>}></Route>
+            <Route path='/search' element={<Search/>}></Route>
           </Routes>
           <div id="nav_wrapper">
             <AppHeader data={state} 

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Dropdown from "../components/icon/Dropdown"
-import CartStruct from "../components/item/CartStruct"
+import Dropdown from "../icon/Dropdown"
+import CartStruct from "./CartStruct"
 
 const DropdownCart = (props) => {
     const [index, setIndex] = useState(null);
