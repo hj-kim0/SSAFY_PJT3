@@ -6,7 +6,7 @@ server:
     key-store-password: dhqor500
     key-store-type: PKCS12
     key-alias: 1
-    port: 8443
+    port: 8080
 
 spring:
   datasource:
