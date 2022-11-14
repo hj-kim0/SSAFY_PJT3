@@ -12,8 +12,6 @@ const Combo = (props) => {
     switch(type) {
         case "1" : onChangeHandler = props.onChangePartsHandler;
             break;
-        case "2" : onChangeHandler = props.onChangeDetail1Handler;
-            break;
         case "3" : onChangeHandler = props.onChangeHierarchyHandler;
             break;
         case "4" : onChangeHandler = props.onChangeLimitsHandler;
@@ -193,9 +191,6 @@ const ManualEstimate = () => {
 
     //type1
     const [selected, setSelected] = useState(0);
-    
-    //type2
-    const [detail1, setDetail1] = useState(0);
 
     //type3
     const [hier, setHier] = useState(0);
@@ -206,18 +201,6 @@ const ManualEstimate = () => {
     const [page, setPage] = useState(1);
     const offset = (page - 1) * limit;
     
-    console.log(
-        "t1 : " + selected 
-    );
-    console.log(
-        "t2 : " + detail1 
-    );
-    console.log(
-        "t3 : " + hier 
-    );
-    console.log(
-        "t4 : " + limit 
-    );
     
 
 
@@ -227,9 +210,6 @@ const ManualEstimate = () => {
         setSelected(e.target.value);
     }
 
-    const onChangeDetail1Handler = (e) => {
-        setDetail1(e.target.value);
-    }
 
     const onChangeHierarchyHandler = (e) => {
         setHier(e.target.value);
@@ -258,12 +238,6 @@ const ManualEstimate = () => {
                 </button>
             </div>
         </div>
-        </div>
-        <div className="flex p-3">
-            <Combo data={partsSet} type="2" onChangePartsHandler={onChangeDetail1Handler}/>
-            <Combo data={partsSet} type="2" onChangePartsHandler={onChangeDetail1Handler}/>
-            <Combo data={partsSet} type="2" onChangePartsHandler={onChangeDetail1Handler}/>
-            <Combo data={partsSet} type="2" onChangePartsHandler={onChangeDetail1Handler}/>
         </div>
         <div className="data-wrapper">
             <div className="flex justify-end">

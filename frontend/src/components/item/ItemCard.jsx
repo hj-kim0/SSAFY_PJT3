@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import dummy from "../../assets/images/sample.png";
-
+import del from "../../assets/images/recommend/delete.png";
 
 const StyledButton = styled.button`
     background-color: inherit;
@@ -22,16 +21,23 @@ const ItemCard = (props) => {
             <div className="bd-s bdw-1 p-3 m-2 br-100">
                 {kind}
             </div>
-            <div className="bd-s bdw-5 p-1 br-100 flex">
-            {/* <img src={`${data.url}`}/> */}
-            <img src={dummy}/>
-            <div className="asd">{data.name}</div>
-            <div>
+            {
+                !!(data) ? <>
+                <div className="bd-s bdw-3 pb-3 br-100 flex">
+                <img src={`${data.imgSrc}`} width="64vw" height="auto"/>
+                <div className="asd pt-3 notoBold fs-18 ellipsis relative w-60p">{data.title}</div>
+                <div>
+                <div className="pt-2">
                 <StyledButton>
-                <img src="" width="16px" height="16px"/>
+                <img src={del} width="32px" height="32px"/>
                 </StyledButton>
+                </div>
             </div>
             </div>
+            </> : <></>
+                
+            }
+            
         </div>
     )
 }

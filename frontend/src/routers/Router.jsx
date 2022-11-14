@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 //
 import Home from "../screens/Home";
 import Login from "../screens/user/login/Login";
+import Profile from "../screens/user/profile/Profile";
 //
 import { getCurrentUser } from "../utils/APIUtils";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '../constants';
