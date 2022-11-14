@@ -1,7 +1,7 @@
 import Tab from "../components/icon/Tab";
-import DropdownCart from "./DropDownCart";
+import DropdownCart from "../components/item/DropDownCart";
 import ItemCard from "../components/item/ItemCard";
-
+import "./AutoManual.scss";
 const itemdata = {
     url : "../assets/images/sample.png",
     idx : 1127,
@@ -108,7 +108,7 @@ const AutoManual = () => {
         <div className="relative mt-5 pt-5 mb-5">
             <div className="mt-5 ">
             </div>
-            <div className="mt-5 pt-5 flex">
+            <div className="mt-5 pt-5 flex wrapper">
             <div className="w-50">
                 <Tab/>
             </div>

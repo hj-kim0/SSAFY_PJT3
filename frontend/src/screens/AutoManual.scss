@@ -1,0 +1,12 @@
+@media (max-width:1000px) {
+    .wrapper{
+        flex-direction: column;
+        align-content: center;
+    }
+}
+
+@media (max-width:750px) {
+    .wrapper{
+        display: inline-block !important;
+    }
+}
