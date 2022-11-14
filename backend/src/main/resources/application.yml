@@ -48,7 +48,7 @@ spring:
             clientAuthenticationMethod: POST
             authorizationGrantType: authorization_code
 #            redirectUri: "http://localhost:8080/oauth2/callback/naver"
-            redirect-uri: "http://k7c204.p.ssafy.io:8080/oauth2/callback/naver"
+            redirect-uri: "https://k7c204.p.ssafy.io:8080/oauth2/callback/naver"
             scope:
               - nickname
               - email
