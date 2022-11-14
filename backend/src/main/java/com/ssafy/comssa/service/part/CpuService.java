@@ -19,10 +19,13 @@ public class CpuService {
 
     public String selectCpu(String name) {
         ObjectMapper objectMapper = new ObjectMapper();
-//        log.info("hello========================================");
+        log.info("hello========================================");
         try {
 //            log.info(objectMapper.writeValueAsString(cpuRepository.findByPartsID(name)));
 //            log.info("hello========================================");
+            if (name.equals("all")){
+                return objectMapper.writeValueAsString(cpuRepository.findAll());
+            }
             if (cpuRepository.findByPartsID(name)==null){
                 return "none";
             }
