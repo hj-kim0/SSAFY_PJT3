@@ -26,29 +26,8 @@ export default function Guide() {
         부품이 각각 어떤 역할을 하는지 비유를 통해 알아보실 수 있습니다. <br />
         커서를 이미지 위에 올릴 경우 부품 이미지가 확대되어 나타납니다.
       </p>
-      <div
-        style={{
-          width: "800px",
-          border: "1px solid #222",
-          padding: "10px",
-          margin: "10px",
-          textAlign: "center",
-          borderRadius: "20px 10px",
-        }}
-      >
-        <img
-          id="parts_picture"
-          height="100px"
-          width="100px"
-          style={{
-            float: "left",
-            marginRight: "20px",
-            marginBottom: "10px",
-            borderRadius: "10px / 5px",
-          }}
-          src={CPU}
-          alt="이 부품은 CPU 입니다."
-        />
+      <div className="parts_bind">
+        <img id="parts_picture" src={CPU} alt="이 부품은 CPU 입니다." />
         <p>
           <b>
             <big>CPU(또는 중앙처리장치)</big>
@@ -58,29 +37,8 @@ export default function Guide() {
           <br /> 농장주가 지시를 내릴 수 있는 인부라고 할 수 있습니다.
         </p>
       </div>
-      <div
-        style={{
-          width: "800px",
-          border: "1px solid #222",
-          padding: "10px",
-          margin: "10px",
-          textAlign: "center",
-          borderRadius: "20px 10px",
-        }}
-      >
-        <img
-          id="parts_picture"
-          height="100px"
-          width="100px"
-          style={{
-            float: "left",
-            marginRight: "20px",
-            marginBottom: "10px",
-            borderRadius: "10px / 5px",
-          }}
-          src={Board}
-          alt="이 부품은 메인보드 입니다."
-        ></img>
+      <div className="parts_bind">
+        <img id="parts_picture" src={Board} alt="이 부품은 메인보드 입니다." />
         <p>
           <b>
             <big>메인보드(또는 마더보드)</big>
@@ -90,29 +48,8 @@ export default function Guide() {
           <br /> 인부들의 숙소 안에 있는 기본 시설이라 할 수 있습니다.
         </p>
       </div>
-      <div
-        style={{
-          width: "800px",
-          border: "1px solid #222",
-          padding: "10px",
-          margin: "10px",
-          textAlign: "center",
-          borderRadius: "20px 10px",
-        }}
-      >
-        <img
-          id="parts_picture"
-          height="100px"
-          width="100px"
-          style={{
-            float: "left",
-            marginRight: "20px",
-            marginBottom: "10px",
-            borderRadius: "10px / 5px",
-          }}
-          src={RAM}
-          alt="이 부품은 메모리 입니다."
-        ></img>
+      <div className="parts_bind">
+        <img id="parts_picture" src={RAM} alt="이 부품은 메모리 입니다." />
         <p>
           <b>
             <big>메모리(또는 RAM)</big>
@@ -122,62 +59,20 @@ export default function Guide() {
           <br /> 수확물을 옮길 수 있는 수레의 크기라고 할 수 있습니다.
         </p>
       </div>
-      <div
-        style={{
-          width: "800px",
-          border: "1px solid #222",
-          padding: "10px",
-          margin: "10px",
-          textAlign: "center",
-          borderRadius: "20px 10px",
-        }}
-      >
-        <img
-          id="parts_picture"
-          height="100px"
-          width="100px"
-          style={{
-            float: "left",
-            marginRight: "20px",
-            marginBottom: "10px",
-            borderRadius: "10px / 5px",
-          }}
-          src={GPU}
-          alt="이 부품은 그래픽카드 입니다."
-        ></img>
+      <div className="parts_bind">
+        <img id="parts_picture" src={GPU} alt="이 부품은 그래픽카드 입니다." />
         <p>
           <b>
             <big>그래픽카드(또는 GPU)</big>
           </b>
           는 더 매끄러운 게임을 하게 해주는 장치입니다. <br />
           컴퓨터를 하나의 농장으로 비유하면
-          <br /> 손만 필요로 하는 것은 서투르지만,
-          <br /> 트랙터같이 특정 일에 최적화 된 기계와 같다고 할 수 있습니다.
+          <br /> 벌레잡기같은 자신과 상관없는 일에는 서투르지만,
+          <br /> 트랙터같이, 특정 일에 최적화 된 기계와 같다고 할 수 있습니다.
         </p>
       </div>
-      <div
-        style={{
-          width: "800px",
-          border: "1px solid #222",
-          padding: "10px",
-          margin: "10px",
-          textAlign: "center",
-          borderRadius: "20px 10px",
-        }}
-      >
-        <img
-          id="parts_picture"
-          height="100px"
-          width="100px"
-          style={{
-            float: "left",
-            marginRight: "20px",
-            marginBottom: "10px",
-            borderRadius: "10px / 5px",
-          }}
-          src={HDD}
-          alt="이 부품은 하드디스크 입니다."
-        ></img>
+      <div className="parts_bind">
+        <img id="parts_picture" src={HDD} alt="이 부품은 하드디스크 입니다." />
         <p>
           <b>
             <big>HDD</big>
@@ -188,29 +83,8 @@ export default function Guide() {
           있습니다.
         </p>
       </div>
-      <div
-        style={{
-          width: "800px",
-          border: "1px solid #222",
-          padding: "10px",
-          margin: "10px",
-          textAlign: "center",
-          borderRadius: "20px 10px",
-        }}
-      >
-        <img
-          id="parts_picture"
-          height="100px"
-          width="100px"
-          style={{
-            float: "left",
-            marginRight: "20px",
-            marginBottom: "10px",
-            borderRadius: "10px / 5px",
-          }}
-          src={SSD}
-          alt="이 부품은 SSD 입니다."
-        ></img>
+      <div className="parts_bind">
+        <img id="parts_picture" src={SSD} alt="이 부품은 SSD 입니다." />
         <p>
           <b>
             <big>SSD</big>
@@ -221,29 +95,8 @@ export default function Guide() {
           있습니다.
         </p>
       </div>
-      <div
-        style={{
-          width: "800px",
-          border: "1px solid #222",
-          padding: "10px",
-          margin: "10px",
-          textAlign: "center",
-          borderRadius: "20px 10px",
-        }}
-      >
-        <img
-          id="parts_picture"
-          height="100px"
-          width="100px"
-          style={{
-            float: "left",
-            marginRight: "20px",
-            marginBottom: "10px",
-            borderRadius: "10px / 5px",
-          }}
-          src={ODD}
-          alt="이 부품은 ODD 입니다."
-        ></img>
+      <div className="parts_bind">
+        <img id="parts_picture" src={ODD} alt="이 부품은 ODD 입니다." />
         <p>
           <b>
             <big>ODD</big>
@@ -254,29 +107,8 @@ export default function Guide() {
           있습니다.
         </p>
       </div>
-      <div
-        style={{
-          width: "800px",
-          border: "1px solid #222",
-          padding: "10px",
-          margin: "10px",
-          textAlign: "center",
-          borderRadius: "20px 10px",
-        }}
-      >
-        <img
-          id="parts_picture"
-          height="100px"
-          width="100px"
-          style={{
-            float: "left",
-            marginRight: "20px",
-            marginBottom: "10px",
-            borderRadius: "10px / 5px",
-          }}
-          src={Case}
-          alt="이 부품은 케이스 입니다."
-        ></img>
+      <div className="parts_bind">
+        <img id="parts_picture" src={Case} alt="이 부품은 케이스 입니다." />
         <p>
           <b>
             <big>케이스</big>
@@ -287,29 +119,8 @@ export default function Guide() {
           <br /> 인부들의 숙소와 같다고 할 수 있습니다.
         </p>
       </div>
-      <div
-        style={{
-          width: "800px",
-          border: "1px solid #222",
-          padding: "10px",
-          margin: "10px",
-          textAlign: "center",
-          borderRadius: "20px 10px",
-        }}
-      >
-        <img
-          id="parts_picture"
-          height="100px"
-          width="100px"
-          style={{
-            float: "left",
-            marginRight: "20px",
-            marginBottom: "10px",
-            borderRadius: "10px / 5px",
-          }}
-          src={Power}
-          alt="이 부품은 파워 입니다."
-        ></img>
+      <div className="parts_bind">
+        <img id="parts_picture" src={Power} alt="이 부품은 파워 입니다." />
         <p>
           <b>
             <big>파워</big>
@@ -320,29 +131,8 @@ export default function Guide() {
           일정량은 항상 주어야 하지만 약간은 더 주어도 괜찮습니다.
         </p>
       </div>
-      <div
-        style={{
-          width: "800px",
-          border: "1px solid #222",
-          padding: "10px",
-          margin: "10px",
-          textAlign: "center",
-          borderRadius: "20px 10px",
-        }}
-      >
-        <img
-          id="parts_picture"
-          height="100px"
-          width="100px"
-          style={{
-            float: "left",
-            marginRight: "20px",
-            marginBottom: "10px",
-            borderRadius: "10px / 5px",
-          }}
-          src={Fan}
-          alt="이 부품은 쿨러 입니다."
-        ></img>
+      <div className="parts_bind">
+        <img id="parts_picture" src={Fan} alt="이 부품은 쿨러 입니다." />
         <p>
           <b>
             <big>쿨러</big>

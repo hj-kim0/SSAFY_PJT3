@@ -6,7 +6,25 @@
     align-items: center;
 }
 
+#parts_picture {
+    height: 100px; 
+    width: 100px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px / 5px;
+}
+
 #parts_picture:hover {
     height: 360px;
     width: 480px;
+}
+
+.parts_bind {
+    width: 800px;
+    border: 1px solid #222;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 20px 10px;
 }
