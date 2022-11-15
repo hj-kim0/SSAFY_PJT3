@@ -54,7 +54,7 @@ spring:
             clientAuthenticationMethod: POST
             authorizationGrantType: authorization_code
 #            redirectUri: "http://localhost:8080/oauth2/callback/kakao"
-            redirect-uri: "https://k7c204.p.ssafy.io/oauth2/callback/kakao"
+            redirect-uri: "https://k7c204.p.ssafy.io/api/oauth2/callback/kakao"
             scope:
               - profile_nickname
               - profile_image
