@@ -33,27 +33,26 @@ public class PartsFindController {
 
     @GetMapping(value = "/cpu")
     public String findCpuData(@RequestParam(value = "code",defaultValue = "all") String code) {
-        log.info("hello========================================");
         return cpuService.selectCpu(code);
     }
     @GetMapping(value = "/gpu")
-    public String findGpuData(String code) {
+    public String findGpuData(@RequestParam(value = "code",defaultValue = "all") String code) {
         return gpuService.selectGpu(code);
     }
     @GetMapping(value = "/mainboard")
-    public String findMainboardData(String code) {
+    public String findMainboardData(@RequestParam(value = "code",defaultValue = "all") String code) {
         return mainboardService.selectMainboard(code);
     }
     @GetMapping(value = "/memory")
-    public String findMemoryData(String code) {
+    public String findMemoryData(@RequestParam(value = "code",defaultValue = "all") String code) {
         return memoryService.selectMemory(code);
     }
     @GetMapping(value = "/power")
-    public String findPowerData(String code) {
+    public String findPowerData(@RequestParam(value = "code",defaultValue = "all") String code) {
         return powerService.selectPower(code);
     }
     @GetMapping(value = "/ssd")
-    public String findSsdData(String code) {
+    public String findSsdData(@RequestParam(value = "code",defaultValue = "all") String code) {
         return ssdService.selectSsd(code);
     }
 

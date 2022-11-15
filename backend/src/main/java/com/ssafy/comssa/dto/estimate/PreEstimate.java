@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 @Setter
 @SuppressWarnings("unused")
-public class Estimate {
+public class PreEstimate {
     @Id
     private String id;
     private String cooler;
@@ -21,8 +21,26 @@ public class Estimate {
     private String mainboard;
     private String memory;
     private String use;
+    private String ssd;
+    private String tower;
 
-    public Estimate() {
+    public String getTower() {
+        return tower;
+    }
+
+    public void setTower(String tower) {
+        this.tower = tower;
+    }
+
+    public String getSsd() {
+        return ssd;
+    }
+
+    public void setSsd(String ssd) {
+        this.ssd = ssd;
+    }
+
+    public PreEstimate() {
     }
 
     public String getId() {
