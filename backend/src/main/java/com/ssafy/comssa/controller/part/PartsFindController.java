@@ -30,6 +30,10 @@ public class PartsFindController {
 
     @Autowired
     SsdService ssdService;
+    @Autowired
+    CoolerService coolerService;
+    @Autowired
+    TowerService towerService;
 
     @GetMapping(value = "/cpu")
     public String findCpuData(@RequestParam(value = "code",defaultValue = "all") String code) {
@@ -54,6 +58,14 @@ public class PartsFindController {
     @GetMapping(value = "/ssd")
     public String findSsdData(@RequestParam(value = "code",defaultValue = "all") String code) {
         return ssdService.selectSsd(code);
+    }
+    @GetMapping(value = "/cooler")
+    public String findCoolerData(@RequestParam(value = "code",defaultValue = "all") String code) {
+        return coolerService.selectCooler(code);
+    }
+    @GetMapping(value = "/tower")
+    public String findTowerData(@RequestParam(value = "code",defaultValue = "all") String code) {
+        return towerService.selectTower(code);
     }
 
     public PartsFindController() {
