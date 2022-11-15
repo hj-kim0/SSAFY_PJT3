@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "./ToggleSwitch.scss";
 
-const ToggleSwitch = () => {
-    const [state, setState] = useState(false);
+const ToggleSwitch = (props) => {
+
+    const [state, setState] = useState(props.recom);
 
     function handleToggle(){
         setState(!state);
@@ -19,16 +20,13 @@ const ToggleSwitch = () => {
 
     const ToggleButton = (props) => {
         let classNames = ["toggle-button", props.state ? "toggle-button_position-right" : "toggle-button_position-left"].join(" ");
-
         return (
-            
             <div className={classNames}>
             </div>
         )
     }
 
     let classNames = ["switch", state ? "switch_is-on" : "switch_is-off"].join(" ");
-
     return(
     <div className={classNames}><Switch state={state} handleToggle={handleToggle}>
     </Switch></div>

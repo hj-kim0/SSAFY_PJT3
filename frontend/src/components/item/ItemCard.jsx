@@ -4,17 +4,17 @@ import "./ItemCard.scss";
 import ToggleSwitch from "./ToggleSwitch";
 
 const ItemCard = (props) => {
-    
-    /* 
-    data contains : img url, product idx, product name
-    */
-    const kind = props.kind;
+
     const data = props.data;
+    const recom = props.recom;
+    const name = props.name;
 
     return (
         <div className="bd-s bdw-3 p-1 m-2 br-100">
             <div className="bd-s bdw-3 p-2 m-1 br-100 flex">
-                {kind} <div className="flex"><ToggleSwitch/></div>
+                {name} <div className="flex">
+                    <ToggleSwitch recom={recom}/>
+                    </div>
             </div>
             {
                 !!(data) ? <>
