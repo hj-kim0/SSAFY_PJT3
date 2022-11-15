@@ -31,7 +31,7 @@ spring:
             clientId: 615676148746-ltjgjc06koe78oo6vcn9b2rd1du21cos.apps.googleusercontent.com
             clientSecret: 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
 #            redirect-uri: "http://localhost:8080/oauth2/callback/google"
-            redirect-uri: "https://k7c204.p.ssafy.io/oauth2/callback/google"
+            redirect-uri: "https://k7c204.p.ssafy.io/api/oauth2/callback/google"
             scope:
               - email
               - profile
@@ -41,7 +41,7 @@ spring:
             clientAuthenticationMethod: POST
             authorizationGrantType: authorization_code
 #            redirectUri: "http://localhost:8080/oauth2/callback/naver"
-            redirect-uri: "https://k7c204.p.ssafy.io/oauth2/callback/naver"
+            redirect-uri: "https://k7c204.p.ssafy.io/api/oauth2/callback/naver"
             scope:
               - nickname
               - email
