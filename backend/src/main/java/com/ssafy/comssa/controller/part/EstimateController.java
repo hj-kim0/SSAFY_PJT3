@@ -9,6 +9,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.util.ArrayList;
+
+
 @Slf4j
 @RestController
 @RequestMapping(path = "/estimate")
@@ -19,7 +22,7 @@ public class EstimateController extends PartsFindController{
 
 
     @GetMapping(value = "/default")
-    public JSONObject findEstimateData(
+    public ArrayList<JSONObject> findEstimateData(
             @RequestParam(value = "program",defaultValue = "normal") String program,
             @RequestParam(value = "budget",defaultValue = "2000000") String budget,
             @RequestParam(value = "cpu",defaultValue = "need") String needCpu,
@@ -44,33 +47,21 @@ public class EstimateController extends PartsFindController{
         String towerCode = jsonObject.get("tower").toString();
         log.info(jsonObject.toJSONString());
         if (!needGpu.equals("need")){
-            log.info("I DON'T NEED GPU!!~!~!~!~!~!~!~~!~!~!~!~!~!~!");
             gpuCode="false";
         }
         if (!needCpu.equals("need")){
-            log.info("I DON'T NEED CPU!!~!~!~!~!~!~!~~!~!~!~!~!~!~!");
             cpuCode="false";
         }
         if (!needMainboard.equals("need")){
-            log.info("I DON'T NEED MB!!~!~!~!~!~!~!~~!~!~!~!~!~!~!");
             mainboardCode="false";
         }
         if (!needMemory.equals("need")){
-            log.info("I DON'T NEED RAM!!~!~!~!~!~!~!~~!~!~!~!~!~!~!");
             memoryCode="false";
         }
         if (!needPower.equals("need")){
-            log.info("I DON'T NEED POWER!!~!~!~!~!~!~!~~!~!~!~!~!~!~!");
             powerCode="false";
         }
-        log.info("=================================");
-        log.info(cpuCode);
-        log.info(gpuCode);
-        log.info(memoryCode);
-        log.info(mainboardCode);
-        log.info(powerCode);
-        log.info(ssdCode);
-        log.info("=================================");
+
 
         String cpuFind = findCpuData(cpuCode);
         String gpuFind = findGpuData(gpuCode);
@@ -92,15 +83,55 @@ public class EstimateController extends PartsFindController{
 //        log.info(needGpu);
 //        log.info(cpuCode);
 //        log.info(cpuFind);
-        jsonObject.put("cpuDetail",cpuJsonObject);
-        jsonObject.put("gpuDetail",gpuJsonObject);
-        jsonObject.put("mainboardDetail",mainboardJsonObject);
-        jsonObject.put("memoryDetail",memoryJsonObject);
-        jsonObject.put("powerDetail",powerJsonObject);
-        jsonObject.put("ssdDetail",ssdJsonObject);
-        jsonObject.put("coolerDetail",coolerJsonObject);
-        jsonObject.put("towerDetail",towerJsonObject);
-        return jsonObject;
+        ArrayList<JSONObject> returnArray = new ArrayList<JSONObject>();
+        JSONObject jsonObject0 = new JSONObject();
+        jsonObject0.put("idx",0);
+        jsonObject0.put("Detail",cpuJsonObject);
+        returnArray.add(jsonObject0);
+        JSONObject jsonObject1 = new JSONObject();
+        jsonObject1.put("idx",1);
+        jsonObject1.put("Detail",mainboardJsonObject);
+        returnArray.add(jsonObject1);
+        JSONObject jsonObject2 = new JSONObject();
+        jsonObject2.put("idx",2);
+        jsonObject2.put("Detail",memoryJsonObject);
+        returnArray.add(jsonObject2);
+        JSONObject jsonObject3 = new JSONObject();
+        jsonObject3.put("idx",3);
+        jsonObject3.put("Detail",gpuJsonObject);
+        returnArray.add(jsonObject3);
+        JSONObject jsonObject4 = new JSONObject();
+        jsonObject4.put("idx",4);
+        jsonObject4.put("Detail",ssdJsonObject);
+        returnArray.add(jsonObject4);
+        JSONObject jsonObject5 = new JSONObject();
+        jsonObject5.put("idx",5);
+        jsonObject5.put("Detail",powerJsonObject);
+        returnArray.add(jsonObject5);
+        JSONObject jsonObject6 = new JSONObject();
+        jsonObject6.put("idx",6);
+        jsonObject6.put("Detail",coolerJsonObject);
+        returnArray.add(jsonObject6);
+        JSONObject jsonObject7 = new JSONObject();
+        jsonObject7.put("idx",7);
+        jsonObject7.put("Detail",towerJsonObject);
+        returnArray.add(jsonObject7);
+        jsonObject1.clear();
+//
+//
+//
+//
+//
+//        jsonObject.put("cpuDetail",cpuJsonObject);
+//        jsonObject.put("gpuDetail",gpuJsonObject);
+//        jsonObject.put("mainboardDetail",mainboardJsonObject);
+//        jsonObject.put("memoryDetail",memoryJsonObject);
+//        jsonObject.put("powerDetail",powerJsonObject);
+//        jsonObject.put("ssdDetail",ssdJsonObject);
+//        jsonObject.put("coolerDetail",coolerJsonObject);
+//        jsonObject.put("towerDetail",towerJsonObject);
+
+        return returnArray;
     }
 
 }
