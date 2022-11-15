@@ -13,7 +13,6 @@ import org.json.simple.parser.ParseException;
 @RestController
 @RequestMapping(path = "/estimate")
 @Controller
-@CrossOrigin(origins="*")
 public class EstimateController extends PartsFindController{
     @Autowired
     EstimateService estimateService;
