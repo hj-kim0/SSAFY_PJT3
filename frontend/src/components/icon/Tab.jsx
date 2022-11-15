@@ -46,6 +46,7 @@ const Tab = () => {
                 <UserEstimate
                     enteredNum={enteredNum}
                     changeEnteredNum={changeEnteredNum}
+                    // handleRecommendEstimate={props.handleRecommendEstimate()}
                 />
             </div>
             <div className={`content justify-center align-center ${getActiveClass(false, "active-content")}`}>
