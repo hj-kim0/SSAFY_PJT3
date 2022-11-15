@@ -20,6 +20,24 @@ public class Cpu {
     private String specsID;
     private String title;
     private String imgSrc;
+    private String socket;
+    private int score;
+
+    public String getSocket() {
+        return socket;
+    }
+
+    public void setSocket(String socket) {
+        this.socket = socket;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 
     public String getImgSrc() {
         return imgSrc;

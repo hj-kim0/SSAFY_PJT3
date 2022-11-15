@@ -18,6 +18,15 @@ public class SSD {
     private String price;
     private String productID;
     private String title;
+    private String imgSrc;
+
+    public String getImgSrc() {
+        return imgSrc;
+    }
+
+    public void setImgSrc(String imgSrc) {
+        this.imgSrc = imgSrc;
+    }
 
     public SSD() {
     }
