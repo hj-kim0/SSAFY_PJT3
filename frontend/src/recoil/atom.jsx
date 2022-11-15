@@ -27,10 +27,17 @@ export const userState = atom({
     }
 })
 
+export const recommendState = atom({
+    key: "recommendState",
+    default: {
+        
+    }
+})
+
 export const estimateState = atom({
     key: "estimateState",
     default:{
-
+        
     }
 })
 

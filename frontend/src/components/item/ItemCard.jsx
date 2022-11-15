@@ -13,8 +13,8 @@ const ItemCard = (props) => {
 
     return (
         <div className="bd-s bdw-3 p-1 m-2 br-100">
-            <div className="bd-s bdw-3 p-2 m-1 br-100">
-                {kind}
+            <div className="bd-s bdw-3 p-2 m-1 br-100 flex">
+                {kind} <div className="flex"><ToggleSwitch/></div>
             </div>
             {
                 !!(data) ? <>
@@ -28,7 +28,7 @@ const ItemCard = (props) => {
                     </button>
                     
                 </div>
-                <ToggleSwitch/>
+                
             </div>
             
             </div>

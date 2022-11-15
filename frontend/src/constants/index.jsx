@@ -11,5 +11,5 @@ export const REFRESH_TOKEN = 'refreshToken';
 export const OAUTH2_REDIRECT_URI = 'https://k7c204.p.ssafy.io/oauth2/redirect'
 
 
-export const KAKAO_AUTH_URL = API_BASE_URL + '/oauth2/authorize/kakao?redirect_uri=' + OAUTH2_REDIRECT_URI;
+export const KAKAO_AUTH_URL = 'https://k7c204.p.ssafy.io/api/oauth2/authorize/kakao?redirect_uri=' + OAUTH2_REDIRECT_URI;
 export const NAVER_AUTH_URL = API_BASE_URL + '/oauth2/authorize/naver?redirect_uri=' + OAUTH2_REDIRECT_URI;
