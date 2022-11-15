@@ -12,7 +12,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping(path = "/find")
 @Controller
-@CrossOrigin(origins="*")
 public class PartsFindController {
     @Autowired
     CpuService cpuService;

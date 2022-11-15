@@ -100,6 +100,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                         .permitAll()
                     .antMatchers("/blog/**")
                         .permitAll()
+                    .antMatchers("/**")
+                        .permitAll()
                     .anyRequest()
                         .authenticated()
                     .and()
