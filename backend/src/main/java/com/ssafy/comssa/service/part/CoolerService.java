@@ -2,32 +2,34 @@ package com.ssafy.comssa.service.part;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ssafy.comssa.repository.part.SSDRepository;
+import com.ssafy.comssa.repository.part.CoolerRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 @Slf4j
 @Component
+@Service
 @SuppressWarnings("unused")
-public class SsdService {
+public class CoolerService {
 
     @Autowired
-    SSDRepository ssdRepository;
+    CoolerRepository coolerRepository;
 
-    public String selectSsd(String name) {
+    public String selectCooler(String name) {
         ObjectMapper objectMapper = new ObjectMapper();
         log.info("hello========================================");
         try {
 //            log.info(objectMapper.writeValueAsString(cpuRepository.findByPartsID(name)));
 //            log.info("hello========================================");
             if (name.equals("all")){
-                return objectMapper.writeValueAsString(ssdRepository.findAll());
+                return objectMapper.writeValueAsString(coolerRepository.findAll());
             }
-            if (ssdRepository.findByPartsID(name)==null){
+            if (coolerRepository.findByPartsID(name)==null){
                 return "none";
             }
-            return objectMapper.writeValueAsString(ssdRepository.findByPartsID(name));
+            return objectMapper.writeValueAsString(coolerRepository.findByPartsID(name));
         } catch (JsonProcessingException e) {
             log.info("hello========================================");
             e.printStackTrace();
@@ -35,18 +37,5 @@ public class SsdService {
         }
     }
 
-//    public void saveUser(String name) {
-//
-//        Cpu cpu = new Cpu();
-////        cpu.setName(name);
-////        cpu.setPrice(price);
-//
-//        if (cpuRepository.findByPartsID(name) != null)
-//            log.info("saved!!!");
-////            cpu.setId(cpuRepository.findByName(name).getId());
-//
-//
-//        cpuRepository.save(cpu);
-//    }
 
 }
