@@ -61,6 +61,16 @@ public class EstimateController extends PartsFindController{
         if (!needPower.equals("need")){
             powerCode="false";
         }
+        if (!needSSD.equals("need")){
+            powerCode="false";
+        }
+        if (!needCooler.equals("need")){
+            powerCode="false";
+        }
+        if (!needTower.equals("need")){
+            powerCode="false";
+        }
+
 
 
         String cpuFind = findCpuData(cpuCode);
@@ -116,20 +126,6 @@ public class EstimateController extends PartsFindController{
         jsonObject7.put("idx",7);
         jsonObject7.put("Detail",towerJsonObject);
         returnArray.add(jsonObject7);
-        jsonObject1.clear();
-//
-//
-//
-//
-//
-//        jsonObject.put("cpuDetail",cpuJsonObject);
-//        jsonObject.put("gpuDetail",gpuJsonObject);
-//        jsonObject.put("mainboardDetail",mainboardJsonObject);
-//        jsonObject.put("memoryDetail",memoryJsonObject);
-//        jsonObject.put("powerDetail",powerJsonObject);
-//        jsonObject.put("ssdDetail",ssdJsonObject);
-//        jsonObject.put("coolerDetail",coolerJsonObject);
-//        jsonObject.put("towerDetail",towerJsonObject);
 
         return returnArray;
     }
