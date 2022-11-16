@@ -1,133 +1,40 @@
-import { useEffect, useState } from "react";
-import { fetchRecommendEstimate } from "../apis/recomAPI";
 import Tab from "../components/icon/Tab";
 import ItemCard from "../components/item/ItemCard";
 import "./AutoManual.scss";
+import { useRecoilState } from "recoil";
+import { nameState, recommendState, estimateState } from "../recoil/atom";
+
+
 
 const AutoManual = () => {
-    // const list = [
-    //     {
-    //         name: "CPU",
-    //         data: "cpu"
-    //     },
-    //     {
-    //         name: "메인보드",
-    //         data: "mainboard"
-    //     },
-    //     {
-    //         name: "GPU",
-    //         data: "gpu"
-    //     },
-    //     {
-    //         name: "메모리",
-    //         data: "memory"
-    //     },
-    //     {
-    //         name: "쿨러",
-    //         data: "cooler"
-    //     },
-    //     {
-    //         name: "파워",
-    //         data: "power"
-    //     },
-    //     {
-    //         name: "케이스",
-    //         data: "tower"
-    //     },
-    //     {
-    //         name: "SSD",
-    //         data: "ssd"
-    //     },
-    // ]
-    // //로컬 데이터 초기값.
-    // const data = [
-    //     {
-    //         "idx": 0,
-    //         "Detail": null
-    //     },
-    //     {
-    //         "idx": 1,
-    //         "Detail": null
-    //     },
-    //     {
-    //         "idx": 2,
-    //         "Detail": null
-    //     },
-    //     {
-    //         "idx": 3,
-    //         "Detail": null
-    //     },
-    //     {
-    //         "idx": 4,
-    //         "Detail": null
-    //     },
-    //     {
-    //         "idx": 5,
-    //         "Detail": null
-    //     },
-    //     {
-    //         "idx": 6,
-    //         "Detail": null
-    //     },
-    //     {
-    //         "idx": 7,
-    //         "Detail": null
-    //     }
-    // ];
-    // const [estimate, setEstimate] = useState(data);
+    //로컬 데이터 초기값.
+    const names = useRecoilState(nameState);
+    // const namedata = names[0].names;
+    
+    //자동 추천 request 요청시 보내는 데이터
+    const [recommend, setRecommend] = useRecoilState(recommendState);
+    // console.log(recommend);
 
-    // const cardlist = estimate.map((items) => ( !!items.Detail ? 
-    //     (
-    //     <ItemCard 
-    //         data={items.Detail} 
-    //         name={list[items.idx].name}
-    //         key={items.idx}
-    //     />
-    //     )
-    //     :
-    //     (<ItemCard 
-    //         data={null} 
-    //         name={list[items.idx].name}
-    //         key={items.idx}
-    //     />)
-    //     ) 
-    // );
+    //자동 추천 response 받는 데이터
+    const [estimate, setEstimate] = useRecoilState(estimateState);
+    // console.log(estimate);
 
-
-    // let payload = {
-    //     budget : 0,
-    //     purpose_program : "",
-    //     cpu : false,
-    //     gpu : false,
-    //     mainboard : false,
-    //     memory : false,
-    //     SSD : false,
-    //     HDD : false,
-    //     power : false
-    // }
-
-
-    // const handleRecommendEstimate = (
-    //     budget, program, cpu, gpu, mainboard, memory, ssd, hdd, power
-    // ) => {  
-    //     payload.budget = budget;
-    //     payload.cpu = program;
-    //     payload.cpu = cpu;
-    //     payload.gpu = gpu;
-    //     payload.mainboard = mainboard;
-    //     payload.memory = memory;
-    //     payload.SSD = ssd;
-    //     payload.HDD = hdd;
-    //     payload.power = power;
-
-    //     fetchRecommendEstimate(payload)
-    //     .then((res) => {
-    //         res.json().then((res) => {
-    //             console.log(res);
-    //             setEstimate(res);
-    //         })
-    //     })
-    // }
+    const cardlist = estimate.map((items) => ( !!items.Detail ? 
+        (
+        <ItemCard 
+            data={items.Detail} 
+            key={items.idx}
+            idx={items.idx}
+        />
+        )
+        :
+        (<ItemCard 
+            data={null} 
+            key={items.idx}
+            idx={items.idx}
+        />)
+        ) 
+    );
 
     return(
         <div className="relative mt-5 pt-5 mb-5">
@@ -135,11 +42,11 @@ const AutoManual = () => {
             </div>
             <div className="mt-5 pt-5 flex wrapper">
             <div className="w-50">
-                {/* <Tab handleRecommendEstimate={handleRecommendEstimate}/> */}
+                <Tab/>
             </div>
             <div className="w-50 row ml-5 mr-5"> 
                 <div className="mt-4 bd-s bdw-1 m-2">
-                    {/* {cardlist} */}
+                    {cardlist}
                 </div>
             </div>
         </div>
