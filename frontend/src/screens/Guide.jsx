@@ -1,6 +1,6 @@
 import React from "react";
 import CPU from "../assets/images/parts/CPU.jpg";
-import Board from "../assets/images/parts/MainBoard.jpg";
+import Board from "../assets/images/parts/MainBoard.png";
 import RAM from "../assets/images/parts/RAM.jpg";
 import GPU from "../assets/images/parts/GPU.png";
 import HDD from "../assets/images/parts/HDD.jpg";
