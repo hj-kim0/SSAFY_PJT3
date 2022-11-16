@@ -23,7 +23,7 @@ SSAFY 7기_자율프로젝트 광주2반(C204) 5백 팀
 
 |Front-End|Front-End|Front-End|Back-End|Back-End|
 |-----|---|---|---|---|
-|<img src="![image__3_](/uploads/0c1c8b4dc466f73acded25848af17c23/image__3_.png)" width="150" height="150"/>|<img src="![image__2_](/uploads/da50344b7a9539cb81fb3171b5de315f/image__2_.png)" width="150" height="150"/>|<img src="![image__1_](/uploads/2a2f319c6eb65ba38990726ac6abb6be/image__1_.png)" width="150" height="150"/>|<img src="![image](/uploads/205dcecafda3eb5fb5a4f0c3ab06433f/image.png)" width="150" height="150"/>|<img src="![image__4_](/uploads/80fd05f226561c725632f9f92bd7a771/image__4_.png)" width="150" height="150"/>|
+|<img src="/uploads/0c1c8b4dc466f73acded25848af17c23/image__3_.png" width="150" height="150"/>|<img src="![image__2_](/uploads/da50344b7a9539cb81fb3171b5de315f/image__2_.png)" width="150" height="150"/>|<img src="![image__1_](/uploads/2a2f319c6eb65ba38990726ac6abb6be/image__1_.png)" width="150" height="150"/>|<img src="![image](/uploads/205dcecafda3eb5fb5a4f0c3ab06433f/image.png)" width="150" height="150"/>|<img src="![image__4_](/uploads/80fd05f226561c725632f9f92bd7a771/image__4_.png)" width="150" height="150"/>|
 |김혁주(팀원)|오승준(팀원)|최진욱(팀원)|박주윤(팀원)|조덕희(팀장)|
 <br/>
 
