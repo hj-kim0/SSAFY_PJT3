@@ -2,7 +2,7 @@ import React from "react";
 import CPU from "../assets/images/parts/CPU.jpg";
 import Board from "../assets/images/parts/MainBoard.png";
 import RAM from "../assets/images/parts/RAM.jpg";
-import GPU from "../assets/images/parts/GPU.png";
+import GPU from "../assets/images/parts/GPU.jpg";
 import HDD from "../assets/images/parts/HDD.jpg";
 import SSD from "../assets/images/parts/SSD.jpg";
 import ODD from "../assets/images/parts/ODD.jpg";
