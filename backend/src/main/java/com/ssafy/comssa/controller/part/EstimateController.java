@@ -24,53 +24,67 @@ public class EstimateController extends PartsFindController{
     @PostMapping(value = "/default")
 //    @GetMapping(value = "/default")
     public ArrayList<JSONObject> findEstimateData(
-            @RequestParam(value = "program",defaultValue = "normal") String program,
-            @RequestParam(value = "budget",defaultValue = "2000000") String budget,
-            @RequestParam(value = "cpu",defaultValue = "need") String needCpu,
-            @RequestParam(value = "gpu",defaultValue = "need") String needGpu,
-            @RequestParam(value = "ssd",defaultValue = "need") String needSSD,
-            @RequestParam(value = "power",defaultValue = "need") String needPower,
-            @RequestParam(value = "memory",defaultValue = "need") String needMemory,
-            @RequestParam(value = "tower",defaultValue = "need") String needTower,
-            @RequestParam(value = "cooler",defaultValue = "need") String needCooler,
-            @RequestParam(value = "mainboard",defaultValue = "need") String needMainboard
+            @RequestBody JSONObject body
+//            @RequestParam(value = "purpose_program",defaultValue = "normal") String program,
+//            @RequestParam(value = "budget",defaultValue = "2000000") String budget,
+//            @RequestParam(value = "cpu",defaultValue = "need") String needCpu,
+//            @RequestParam(value = "gpu",defaultValue = "need") String needGpu,
+//            @RequestParam(value = "ssd",defaultValue = "need") String needSSD,
+//            @RequestParam(value = "power",defaultValue = "need") String needPower,
+//            @RequestParam(value = "memory",defaultValue = "need") String needMemory,
+//            @RequestParam(value = "tower",defaultValue = "need") String needTower,
+//            @RequestParam(value = "cooler",defaultValue = "need") String needCooler,
+//            @RequestParam(value = "mainboard",defaultValue = "need") String needMainboard
     ) throws ParseException {
-        String forReturnString = estimateService.select(program);
         JSONParser parser = new JSONParser();
+        String program = body.get("purpose_program").toString();
+        String forReturnString = estimateService.select(program);
+        log.info(program);
+        log.info(forReturnString);
         JSONObject jsonObject = (JSONObject) parser.parse(forReturnString);
-        String cpuCode = jsonObject.get("cpu").toString();
-        String gpuCode = jsonObject.get("gpu").toString();
-        String mainboardCode=jsonObject.get("mainboard").toString();
-        String memoryCode =jsonObject.get("memory").toString();
-        String powerCode = jsonObject.get("power").toString();
-        String ssdCode = jsonObject.get("ssd").toString();
-        String coolerCode = jsonObject.get("cooler").toString();
-        String towerCode = jsonObject.get("tower").toString();
         log.info(jsonObject.toJSONString());
-        if (!needGpu.equals("need")){
-            gpuCode="false";
-        }
-        if (!needCpu.equals("need")){
-            cpuCode="false";
-        }
-        if (!needMainboard.equals("need")){
-            mainboardCode="false";
-        }
-        if (!needMemory.equals("need")){
-            memoryCode="false";
-        }
-        if (!needPower.equals("need")){
-            powerCode="false";
-        }
-        if (!needSSD.equals("need")){
-            powerCode="false";
-        }
-        if (!needCooler.equals("need")){
-            powerCode="false";
-        }
-        if (!needTower.equals("need")){
-            powerCode="false";
-        }
+        log.info("no error2");
+        String cpuCode = jsonObject.get("cpu").toString();
+        log.info("no error3");
+        String gpuCode = jsonObject.get("gpu").toString();
+        log.info("no error4");
+        String mainboardCode=jsonObject.get("mainboard").toString();
+        log.info("no error5");
+        String memoryCode =jsonObject.get("memory").toString();
+        log.info("no error6");
+        String powerCode = jsonObject.get("power").toString();
+        log.info("no error7");
+        String ssdCode = jsonObject.get("ssd").toString();
+        log.info("no error8");
+        String coolerCode = jsonObject.get("cooler").toString();
+        log.info("no error9");
+        String towerCode = jsonObject.get("tower").toString();
+        log.info("no error10");
+        log.info(jsonObject.toJSONString());
+//        if (!needGpu.equals("need")){
+//            gpuCode="false";
+//        }
+//        if (!needCpu.equals("need")){
+//            cpuCode="false";
+//        }
+//        if (!needMainboard.equals("need")){
+//            mainboardCode="false";
+//        }
+//        if (!needMemory.equals("need")){
+//            memoryCode="false";
+//        }
+//        if (!needPower.equals("need")){
+//            powerCode="false";
+//        }
+//        if (!needSSD.equals("need")){
+//            powerCode="false";
+//        }
+//        if (!needCooler.equals("need")){
+//            powerCode="false";
+//        }
+//        if (!needTower.equals("need")){
+//            powerCode="false";
+//        }
 
 
 
