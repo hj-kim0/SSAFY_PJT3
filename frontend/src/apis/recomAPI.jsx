@@ -4,7 +4,7 @@ export const fetchRecommendEstimate = async ({
     budget, program, cpu, gpu, mainboard,
     memory, ssd, hdd, power 
 }) => {
-    const URL = `${API_BASE_URL}/api`
+    const URL = `${API_BASE_URL}/api/estimate/default`
 
     const response = await fetch(URL, {
         method : "GET",
