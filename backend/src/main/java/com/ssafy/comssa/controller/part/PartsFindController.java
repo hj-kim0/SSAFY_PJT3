@@ -4,10 +4,7 @@ import com.ssafy.comssa.service.part.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -15,7 +12,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping(path = "/find")
 @Controller
-@CrossOrigin(origins="*")
 public class PartsFindController {
     @Autowired
     CpuService cpuService;
@@ -33,30 +29,42 @@ public class PartsFindController {
 
     @Autowired
     SsdService ssdService;
+    @Autowired
+    CoolerService coolerService;
+    @Autowired
+    TowerService towerService;
 
     @GetMapping(value = "/cpu")
-    public String findCpuData(String code) {
+    public String findCpuData(@RequestParam(value = "code",defaultValue = "all") String code) {
         return cpuService.selectCpu(code);
     }
     @GetMapping(value = "/gpu")
-    public String findGpuData(String code) {
+    public String findGpuData(@RequestParam(value = "code",defaultValue = "all") String code) {
         return gpuService.selectGpu(code);
     }
     @GetMapping(value = "/mainboard")
-    public String findMainboardData(String code) {
+    public String findMainboardData(@RequestParam(value = "code",defaultValue = "all") String code) {
         return mainboardService.selectMainboard(code);
     }
     @GetMapping(value = "/memory")
-    public String findMemoryData(String code) {
+    public String findMemoryData(@RequestParam(value = "code",defaultValue = "all") String code) {
         return memoryService.selectMemory(code);
     }
     @GetMapping(value = "/power")
-    public String findPowerData(String code) {
+    public String findPowerData(@RequestParam(value = "code",defaultValue = "all") String code) {
         return powerService.selectPower(code);
     }
     @GetMapping(value = "/ssd")
-    public String findSsdData(String code) {
+    public String findSsdData(@RequestParam(value = "code",defaultValue = "all") String code) {
         return ssdService.selectSsd(code);
+    }
+    @GetMapping(value = "/cooler")
+    public String findCoolerData(@RequestParam(value = "code",defaultValue = "all") String code) {
+        return coolerService.selectCooler(code);
+    }
+    @GetMapping(value = "/tower")
+    public String findTowerData(@RequestParam(value = "code",defaultValue = "all") String code) {
+        return towerService.selectTower(code);
     }
 
     public PartsFindController() {

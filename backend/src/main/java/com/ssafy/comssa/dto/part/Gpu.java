@@ -14,20 +14,39 @@ import java.util.Map;
 public class Gpu {
     @Id
     private String id;
-    private Map<String,Object> optional;
+
     private String partsID;
     private String price;
     private String specsID;
     private String title;
-    private String manufacturer;
 
-    public Map<String, Object> getOptional() {
-        return optional;
+    private String imgSrc;
+    private int score;
+
+    public String getId() {
+        return id;
     }
 
-    public void setOptional(Map<String, Object> optional) {
-        this.optional = optional;
+    public void setId(String id) {
+        this.id = id;
     }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public String getImgSrc() {
+        return imgSrc;
+    }
+
+    public void setImgSrc(String imgSrc) {
+        this.imgSrc = imgSrc;
+    }
+
 
     public String getPartsID() {
         return partsID;
@@ -61,13 +80,6 @@ public class Gpu {
         this.title = title;
     }
 
-    public String getManufacturer() {
-        return manufacturer;
-    }
-
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
-    }
 
     public Gpu() {
     }

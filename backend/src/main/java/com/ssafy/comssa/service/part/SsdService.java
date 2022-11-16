@@ -20,8 +20,16 @@ public class SsdService {
         log.info("hello========================================");
         try {
 //            log.info(objectMapper.writeValueAsString(cpuRepository.findByPartsID(name)));
-            return objectMapper.writeValueAsString(ssdRepository.findAll());
+//            log.info("hello========================================");
+            if (name.equals("all")){
+                return objectMapper.writeValueAsString(ssdRepository.findAll());
+            }
+            if (ssdRepository.findByPartsID(name)==null){
+                return "none";
+            }
+            return objectMapper.writeValueAsString(ssdRepository.findByPartsID(name));
         } catch (JsonProcessingException e) {
+            log.info("hello========================================");
             e.printStackTrace();
             return "ERROR";
         }

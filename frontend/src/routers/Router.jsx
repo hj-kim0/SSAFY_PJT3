@@ -38,7 +38,6 @@ function Router() {
           authenticated: true,
           currentUser: response,
         });
-
         setLoading(false);
       })
       .catch((err) => {
@@ -46,7 +45,6 @@ function Router() {
           authenticated: false,
           currentUser: null,
         });
-
         setLoading(false);
       });
   }
@@ -60,7 +58,7 @@ function Router() {
       currentUser: null,
     });
 
-    setLoading(true);
+    setLoading(false);
     Alert.success("로그아웃 했습니다.");
   }
 

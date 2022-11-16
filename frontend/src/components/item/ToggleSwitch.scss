@@ -1,104 +1,56 @@
-// Variables
-// =========
-$dark:#000411;
-$black:#353535;
-$white:				#FCFCFC;
-$gray:				#F1FFFA;
-$green:				#3DDC97;
-$red:					#FF495C;
-
-$off-state: 	$red;
-$on-state: 		$green;
-
-$react-blue:	#61dafb;
-
-// Mixins
-// ======
-
-
-	
-
-// Base
-// ====
-
-
-.component-wrapper{
-	width: 100%;
-	background-color: $dark;
-	transition: background-color 200ms ease-out;
-}
-
-
 .switch{
+	background-color: lightgrey;
     position: relative;
-	width: 8rem;
-	height: 5rem;
-	border-radius: 20%;
-	transition: background-color 100ms ease-out;
+	left: 40px;
+	width: 1.5rem;
+	height: 1px;
 	z-index: 1;
 	&:before, &:after
 	{	content: "";
 		position: absolute;
 		top: 0;
 		background-color: inherit;
-		border-radius: 50%;
-		width: 5rem;
-		height: 5rem;
+		width: 2rem;
+		height: 1rem;
 		z-index: 2;
+		border-radius: 1rem;
     }
     &:before
-	{	left: -1rem;
+	{	left: -0.5rem;
     }&:after
-	{	right: -1rem;
+	{	right: -0.5rem;
     }
 }
 	
 .toggle-button{
-    position: absolute;
-	width: 5rem;
-	height: 5rem;
-	background-color: $black;
+    position: relative;
+	width: 1.1rem;
+	height: 1.1rem;
+	background-color: rgb(238, 233, 250);
 	border-radius: 50%;
 	transition: transform 100ms ease-in-out;
 	z-index: 3;
-	border: 0.05rem solid $black;
+	border: 0.5px solid rgb(107, 154, 171);
 	top: -0.05rem;
 
 }
 	
 // State
 
-.component-wrapper_is-light{
-    background-color: $white;
 
-}
-
-.component-wrapper_is-dark{
-    background-color: $dark;
-}	
-
-.header_is-lit{
-    color: $react-blue;
-	text-shadow: 0;
-}	
-.header_is-dark{
-    color: $dark;
-	text-shadow: 0 0 3rem $react-blue;
-}
-	
 .switch_is-off{
-    background-color: $off-state;
+    background-color:#dc4f20 !important;
 }
 	
 .switch_is-on{
-    background-color: $on-state;
+    background-color: lightgreen !important;
 }
 	
 .toggle-button_position-left{
-    transform: translateX(-1.05rem);
+    transform: translateX(-0.85rem);
 }
 	
 .toggle-button_position-right{
-    transform: translateX(4.05rem);
+    transform: translateX(1.35rem);
 }
 	

@@ -1,6 +1,6 @@
 package com.ssafy.comssa.repository.estimate;
 
-import com.ssafy.comssa.dto.estimate.Estimate;
+import com.ssafy.comssa.dto.estimate.PreEstimate;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @SuppressWarnings("unused")
 @Repository
-public interface EstimateRepository extends MongoRepository<Estimate,String> {
+public interface EstimateRepository extends MongoRepository<PreEstimate,String> {
 //    List<Estimate> findByPartsID(String name);
-    Estimate findByUse(String name);
+    PreEstimate findByUse(String name);
 }

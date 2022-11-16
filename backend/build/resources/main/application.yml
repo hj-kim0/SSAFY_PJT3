@@ -1,12 +1,5 @@
 server:
   port: 8080
-  ssl:
-    enabled: true
-    key-store: /src/main/resources/keystore.p12
-    key-store-password: dhqor500
-    key-store-type: PKCS12
-    key-alias: 1
-    port: 8080
 
 spring:
   datasource:
@@ -25,9 +18,9 @@ spring:
 #      host: localhost
 #      port: 27017
 #      database: comssa
-  # data:
-  #   mongodb:
-  #     uri: mongodb+srv://S07P31C204:comssaC204!@ssafy.ngivl.mongodb.net/S07P31C204?authSource=admin
+  data:
+    mongodb:
+      uri: mongodb+srv://S07P31C204:comssaC204!@ssafy.ngivl.mongodb.net/S07P31C204?authSource=admin
 
 
   security:
@@ -38,7 +31,7 @@ spring:
             clientId: 615676148746-ltjgjc06koe78oo6vcn9b2rd1du21cos.apps.googleusercontent.com
             clientSecret: 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
 #            redirect-uri: "http://localhost:8080/oauth2/callback/google"
-            redirect-uri: "https://k7c204.p.ssafy.io/oauth2/callback/google"
+            redirect-uri: "https://k7c204.p.ssafy.io/api/oauth2/callback/google"
             scope:
               - email
               - profile
@@ -48,7 +41,8 @@ spring:
             clientAuthenticationMethod: POST
             authorizationGrantType: authorization_code
 #            redirectUri: "http://localhost:8080/oauth2/callback/naver"
-            redirect-uri: "https://k7c204.p.ssafy.io/oauth2/callback/naver"
+            redirect-uri: "https://k7c204.p.ssafy.io/api/oauth2/callback/naver"
+
             scope:
               - nickname
               - email
@@ -105,7 +99,7 @@ h2:
 
 app:
   cors:
-    allowedOrigins: https://localhost:3000, https://localhost:8080, https://k7c204.p.ssafy.io:3000, https://k7c204.p.ssafy.io:8080, https://k7c204.p.ssafy.io, https://k7c204.p.ssafy.io/api
+    allowedOrigins: http://localhost:3000, http://localhost:8080, http://k7c204.p.ssafy.io:3000, http://k7c204.p.ssafy.io:8080, https://k7c204.p.ssafy.io
   auth:
     # JWT를 암호화 하기 위한 암호화 키
     tokenSecret: 'c3ByaW5nLWJvb3Qtc2VjdXJpdHktand0LXR1dG9yaWFsLWppd29vbi1zcHJpbmctYm9vdC1zZWN1cml0eS1qd3QtdHV0b3JpYWwK'
@@ -118,7 +112,7 @@ app:
     # 쿠키는 모바일 클라이언트에서 잘 작동하지 않기 때문에 사용하지 않습니다
     authorizedRedirectUris:
 #      - http://localhost:3000/oauth2/redirect
-      - https://k7c204.p.ssafy.io/oauth2/redirect
+      - http://k7c204.p.ssafy.io/oauth2/redirect
 
 #springdoc:
 #  default-consumes-media-type: application/json
