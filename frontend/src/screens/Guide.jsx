@@ -16,7 +16,7 @@ export default function Guide() {
   return (
     <div className="guide_body">
       <b>
-        <big>본 페이지는 가이드 페이지 입니다.</big>
+        <big>본 페이지는 컴퓨터 부품 가이드 페이지 입니다.</big>
       </b>
       <p
         style={{
@@ -30,18 +30,23 @@ export default function Guide() {
         <img id="parts_picture" src={CPU} alt="이 부품은 CPU 입니다." />
         <p>
           <b>
-            <big>CPU(또는 중앙처리장치)</big>
+            <big>CPU(중앙처리장치)</big>
           </b>
           는 이름에 걸맞게 컴퓨터를 통제하는 핵심적인 장치입니다. <br />
           컴퓨터를 하나의 농장으로 비유하면
-          <br /> 농장주가 지시를 내릴 수 있는 인부라고 할 수 있습니다.
+          <br /> 농장주가 지시를 내릴 수 있는 인부라고 할 수 있습니다. <br/>
+          코어의 수 : 인부의 수 <br/>
+          쓰레드 수 : 인부의 손 갯수 <br/>
+          오버클럭 : 인부의 발까지 써서 수확 <br/>
+          캐쉬 메모리 : 인부가 메고 있는 백팩 <br/>
+          i7 - 10900 : 7명의 10년도 생의 손이 900개인 인부
         </p>
       </div>
       <div className="parts_bind">
         <img id="parts_picture" src={Board} alt="이 부품은 메인보드 입니다." />
         <p>
           <b>
-            <big>메인보드(또는 마더보드)</big>
+            <big>메인보드(마더보드)</big>
           </b>
           는 컴퓨터의 각종 부품을 연결해주는 장치입니다. <br />
           컴퓨터를 하나의 농장으로 비유하면
@@ -52,23 +57,24 @@ export default function Guide() {
         <img id="parts_picture" src={RAM} alt="이 부품은 메모리 입니다." />
         <p>
           <b>
-            <big>메모리(또는 RAM)</big>
+            <big>메모리(RAM)</big>
           </b>
           는 동시에 더 많은 프로그램을 실행하게 해주는 장치입니다. <br />
           컴퓨터를 하나의 농장으로 비유하면
-          <br /> 수확물을 옮길 수 있는 수레의 크기라고 할 수 있습니다.
+          <br /> 수확물을 옮길 수 있는 수레의 크기라고 할 수 있습니다. <br/>
+          옥수수를 많이 따도 수레가 작으면 한번에 가져가지 못하기 때문에 다다익램이라는 말이 있습니다.
         </p>
       </div>
       <div className="parts_bind">
         <img id="parts_picture" src={GPU} alt="이 부품은 그래픽카드 입니다." />
         <p>
           <b>
-            <big>그래픽카드(또는 GPU)</big>
+            <big>그래픽카드(GPU)</big>
           </b>
-          는 더 매끄러운 게임을 하게 해주는 장치입니다. <br />
+          는 그래픽작업을 전문으로 처리하는 영상송출 장치입니다. <br />
           컴퓨터를 하나의 농장으로 비유하면
-          <br /> 벌레잡기같은 자신과 상관없는 일에는 서투르지만,
-          <br /> 트랙터같이, 특정 일에 최적화 된 기계와 같다고 할 수 있습니다.
+          <br /> 옥수수 수확에는 서투르지만,
+          <br /> 감자 수확(영상송출)을 전문으로 하는 인부라고 할 수 있습니다.
         </p>
       </div>
       <div className="parts_bind">
@@ -92,7 +98,8 @@ export default function Guide() {
           는 빠르게 자료를 읽어주는 장치입니다. <br />
           컴퓨터를 하나의 농장으로 비유하면
           <br /> 가격이 비싸지만, 최신 시설의 수확물 저장 창고와 같다고 할 수
-          있습니다.
+          있습니다. <br/>
+          RAM 과 비슷하게 생긴 MVMe방식 SSD는 안에 컨베이어 벨트까지 깔린 최신 시설의 가장 빠른 저장 창고라고 할 수 있습니다.
         </p>
       </div>
       <div className="parts_bind">
@@ -128,7 +135,7 @@ export default function Guide() {
           는 모든 부품들에게 일정량 이상의 전원을 공급해주는 장치입니다. <br />
           컴퓨터를 하나의 농장으로 비유하면 인부들에게 주는 일당이며,
           <br />
-          일정량은 항상 주어야 하지만 약간은 더 주어도 괜찮습니다.
+          일정량은 항상 주어야 하지만 약간 넉넉하게 주는것이 더 좋습니다.
         </p>
       </div>
       <div className="parts_bind">
