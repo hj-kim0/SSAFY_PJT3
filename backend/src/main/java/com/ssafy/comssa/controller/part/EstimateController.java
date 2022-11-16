@@ -21,7 +21,8 @@ public class EstimateController extends PartsFindController{
     EstimateService estimateService;
 
 
-    @GetMapping(value = "/default")
+    @PostMapping(value = "/default")
+//    @GetMapping(value = "/default")
     public ArrayList<JSONObject> findEstimateData(
             @RequestParam(value = "program",defaultValue = "normal") String program,
             @RequestParam(value = "budget",defaultValue = "2000000") String budget,
