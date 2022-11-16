@@ -20,10 +20,11 @@ function AppHeader(props) {
                             <li><Link to="/compare">견적 비교</Link></li>
                             <li><Link to="/estimate">내 견적</Link></li>
                             <li><Link to="/search">부품 검색</Link></li>
+                            <li><Link to="/guide">가이드</Link></li>
                             { props.data.authenticated ? (<>
-                                <li className="logout_area"><a onClick={props.handleLogout}>로그아웃</a></li> 
+                                <li className="logout_area"><a onClick={props.handleLogout}>로그아웃</a></li>
                             </>)
-                            : 
+                            :
                             (
                                 <>
                                 <li><Link to="/login">로그인</Link></li>
@@ -42,6 +43,7 @@ function AppHeader(props) {
                                 <li><Link to="/compare">견적 비교</Link></li>
                                 <li><Link to="/estimate">내 견적</Link></li>
                                 <li><Link to="/search">부품 검색</Link></li>
+                                <li><Link to="/guide">가이드</Link></li>
                             </ul>
                         </nav>
                     </div>
