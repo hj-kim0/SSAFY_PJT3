@@ -1,60 +1,81 @@
 import ChkButtonStruct from "../item/ChkButtonStruct";
 import "./UserEstimate.scss";
+import { fetchRecommendEstimate } from "../../apis/recomAPI";
+import { useRecoilState } from "recoil";
+import { purposeState, recommendState, estimateState, selectState } from "../../recoil/atom";
 
-const list = [
-    {
-        id:0,
-        text : "배그"
-    },
-    {
-        id:1,
-        text : "로아"
-    },
-    {   
-        id:2,
-        text : "롤"
-    },
-    {
-        id:3,
-        text : "사무용"
-    },
-    {
-        id:4,
-        text : "작업용"
-    },
-    {
-        id:5,
-        text : "범용"
-    },
+
+
+const UserEstimate = () => {
+
+    const [ recommend, setRecommend ] = useRecoilState(recommendState);
+
+    // console.log(recommend);
     
-];
+    const [ estimate, setEstimate ] = useRecoilState(estimateState);
+    
+    // console.log(estimate);
 
-const UserEstimate = (props) => {
+    const [ purpose, setPurpose ] = useRecoilState(purposeState);
+
+    const [ select, setSelect ] = useRecoilState(selectState);
+
+    // console.log(purpose[select].target);
+
+    const RecommendEstimateHandler = () => {
+        fetchRecommendEstimate(
+            recommend
+        ).then((res) => {
+            res.json().then((res) => {
+                console.log(res);
+                if(res!=null){
+                    setEstimate(res);
+                }
+            })
+        })
+    }
+    
+    const setRecommendBudget = (e) => {
+        let recom = {...recommend};
+        const etv = e.target.value*1;
+        recom.budget = etv;
+        setRecommend(recom);
+        
+        console.log(e.target.value);
+        console.log(recommend);
+    }
+    
+
     return (
         <>
         <div className="flex align-center column pt-5 mb-5">
             <div className="flex align-center pb-3 notoBold fs-22">
             예산
         </div>
-        <div className="flex align-center pb-3">
+        <div className="flex align-center pb-3 budget">
             <input className="moneyinput"
-            type='text'
-            value={props.enteredNum}
-            onChange={props.changeEnteredNum}
-        />
+            type='number'
+            onChange={setRecommendBudget}
+            />
         </div>
         <div className="flex align-center pb-3 notoBold fs-22">
             사용용도
         </div>
         <div className="flex align-center wkbox mb-5 pb-5">
         {
-            list.map((items) => (
-                <ChkButtonStruct text={items.text} key={items.id}/>
+            purpose.map((items) => (
+                <ChkButtonStruct 
+                text={items.text} 
+                key={items.id} 
+                idx={items.id} 
+                />
             ))
         }
         </div>
         <div className="flex align-center mt-5 pt-5 pb-3">
-            <button className="button1"><a className="notoBold fs-24 btnstyle">자동 추천</a></button>
+            <button className="button1" onClick={RecommendEstimateHandler}>
+                <a className="notoBold fs-24 btnstyle">자동 추천</a>
+            </button>
         </div>
         </div>
         </>

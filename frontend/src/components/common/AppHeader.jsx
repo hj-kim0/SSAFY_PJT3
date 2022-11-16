@@ -5,7 +5,6 @@ import logo from "../../assets/images/common/logo.png";
 
 function AppHeader(props) {
 
-    console.log(props.data.currentUser);
     
     return (
             <header className="app-header header">
