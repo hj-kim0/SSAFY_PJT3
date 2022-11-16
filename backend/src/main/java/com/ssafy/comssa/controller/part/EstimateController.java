@@ -39,28 +39,25 @@ public class EstimateController extends PartsFindController{
         JSONParser parser = new JSONParser();
         String program = body.get("purpose_program").toString();
         String forReturnString = estimateService.select(program);
-        log.info(program);
-        log.info(forReturnString);
+
         JSONObject jsonObject = (JSONObject) parser.parse(forReturnString);
-        log.info(jsonObject.toJSONString());
-        log.info("no error2");
+
         String cpuCode = jsonObject.get("cpu").toString();
-        log.info("no error3");
+
         String gpuCode = jsonObject.get("gpu").toString();
-        log.info("no error4");
+
         String mainboardCode=jsonObject.get("mainboard").toString();
-        log.info("no error5");
+
         String memoryCode =jsonObject.get("memory").toString();
-        log.info("no error6");
+
         String powerCode = jsonObject.get("power").toString();
-        log.info("no error7");
+
         String ssdCode = jsonObject.get("ssd").toString();
-        log.info("no error8");
+
         String coolerCode = jsonObject.get("cooler").toString();
-        log.info("no error9");
+
         String towerCode = jsonObject.get("tower").toString();
-        log.info("no error10");
-        log.info(jsonObject.toJSONString());
+
 //        if (!needGpu.equals("need")){
 //            gpuCode="false";
 //        }
