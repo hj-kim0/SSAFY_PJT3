@@ -36,6 +36,7 @@ const ItemCard = (props) => {
                 tmp.push(item);
             }
         })
+        console.log(tmp);
         setEstimate(tmp);
     }
     // console.log(namedata[props.idx]);
@@ -57,7 +58,7 @@ const ItemCard = (props) => {
                             {/**삭제 버튼 */}
                             <button className="custombtn" onClick={estimateDeletePartsHandler}>
                                 <img src={del} width="32px" height="32px"/>
-                                </button>
+                            </button>
                 </div>
                 
             </div>
