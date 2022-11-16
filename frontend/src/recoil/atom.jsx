@@ -93,16 +93,16 @@ export const selectState = atom({
 export const recommendState = atom({
     key: "recommendState",
     default: {
-        budget : 0,
-        purpose_program : "",
-        cpu : true,
-        gpu : true,
-        mainboard : true,
-        memory : true,
-        ssd : true,
-        cooler : true,
-        power : true,
-        tower : true,
+        "budget" : 0,
+        "purpose_program" : "",
+        "cpu" : "true",
+        "gpu" : "true",
+        "mainboard" : "true",
+        "memory" : "true",
+        "ssd" : "true",
+        "cooler" : "true",
+        "power" : "true",
+        "tower" : "true",
     },
 })
 

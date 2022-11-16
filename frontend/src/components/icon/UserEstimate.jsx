@@ -23,6 +23,9 @@ const UserEstimate = () => {
     // console.log(purpose[select].target);
 
     const RecommendEstimateHandler = () => {
+        
+        console.log(recommend);
+
         fetchRecommendEstimate(
             recommend
         ).then((res) => {

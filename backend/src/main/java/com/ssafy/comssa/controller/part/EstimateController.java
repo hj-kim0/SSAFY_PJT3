@@ -25,63 +25,33 @@ public class EstimateController extends PartsFindController{
 //    @GetMapping(value = "/default")
     public ArrayList<JSONObject> findEstimateData(
             @RequestBody JSONObject body
-//            @RequestParam(value = "purpose_program",defaultValue = "normal") String program,
-//            @RequestParam(value = "budget",defaultValue = "2000000") String budget,
-//            @RequestParam(value = "cpu",defaultValue = "need") String needCpu,
-//            @RequestParam(value = "gpu",defaultValue = "need") String needGpu,
-//            @RequestParam(value = "ssd",defaultValue = "need") String needSSD,
-//            @RequestParam(value = "power",defaultValue = "need") String needPower,
-//            @RequestParam(value = "memory",defaultValue = "need") String needMemory,
-//            @RequestParam(value = "tower",defaultValue = "need") String needTower,
-//            @RequestParam(value = "cooler",defaultValue = "need") String needCooler,
-//            @RequestParam(value = "mainboard",defaultValue = "need") String needMainboard
     ) throws ParseException {
         JSONParser parser = new JSONParser();
-        String program = body.get("purpose_program").toString();
-        String forReturnString = estimateService.select(program);
+
+        //리퀘스트 파라미터
+        String inputProgram = body.get("purpose_program").toString();
+        String inputCpu = body.get("cpu").toString();
+        String inputGpu = body.get("gpu").toString();
+        String inputMainboard = body.get("mainboard").toString();
+        String inputMemory = body.get("memory").toString();
+        String inputPower = body.get("power").toString();
+        String inputCooler = body.get("cooler").toString();
+        String inputCase  = body.get("cooler").toString();
+        String inputSsd  = body.get("cooler").toString();
+        // 프로그램 이름 받아서 검색
+        String forReturnString = estimateService.select(inputProgram);
 
         JSONObject jsonObject = (JSONObject) parser.parse(forReturnString);
 
+
         String cpuCode = jsonObject.get("cpu").toString();
-
         String gpuCode = jsonObject.get("gpu").toString();
-
         String mainboardCode=jsonObject.get("mainboard").toString();
-
         String memoryCode =jsonObject.get("memory").toString();
-
         String powerCode = jsonObject.get("power").toString();
-
         String ssdCode = jsonObject.get("ssd").toString();
-
         String coolerCode = jsonObject.get("cooler").toString();
-
         String towerCode = jsonObject.get("tower").toString();
-
-//        if (!needGpu.equals("need")){
-//            gpuCode="false";
-//        }
-//        if (!needCpu.equals("need")){
-//            cpuCode="false";
-//        }
-//        if (!needMainboard.equals("need")){
-//            mainboardCode="false";
-//        }
-//        if (!needMemory.equals("need")){
-//            memoryCode="false";
-//        }
-//        if (!needPower.equals("need")){
-//            powerCode="false";
-//        }
-//        if (!needSSD.equals("need")){
-//            powerCode="false";
-//        }
-//        if (!needCooler.equals("need")){
-//            powerCode="false";
-//        }
-//        if (!needTower.equals("need")){
-//            powerCode="false";
-//        }
 
 
 
@@ -93,14 +63,14 @@ public class EstimateController extends PartsFindController{
         String ssdFind = findSsdData(ssdCode);
         String coolerFind = findCoolerData(coolerCode);
         String towerFind = findTowerData(towerCode);
-        JSONObject cpuJsonObject = (cpuFind.equals("none"))? null : (JSONObject) parser.parse(cpuFind);
-        JSONObject gpuJsonObject = (gpuFind.equals("none"))? null : (JSONObject) parser.parse(gpuFind);
-        JSONObject mainboardJsonObject = (mainboardFind.equals("none"))?null:(JSONObject) parser.parse(mainboardFind);
-        JSONObject memoryJsonObject = (memoryFind.equals("none"))?null:(JSONObject) parser.parse(memoryFind);
-        JSONObject powerJsonObject = (powerFind.equals("none"))?null:(JSONObject) parser.parse(powerFind);
-        JSONObject ssdJsonObject = (ssdFind.equals("none"))?null:(JSONObject) parser.parse(ssdFind);
-        JSONObject towerJsonObject = (towerFind.equals("none"))?null:(JSONObject) parser.parse(towerFind);
-        JSONObject coolerJsonObject = (coolerFind.equals("none"))?null:(JSONObject) parser.parse(coolerFind);
+        JSONObject cpuJsonObject = (cpuFind.equals("none"))||(inputCpu.equals("false"))? null : (JSONObject) parser.parse(cpuFind);
+        JSONObject gpuJsonObject = (gpuFind.equals("none"))||(inputGpu.equals("false"))? null : (JSONObject) parser.parse(gpuFind);
+        JSONObject mainboardJsonObject = (mainboardFind.equals("none"))||(inputMainboard.equals("false"))?null:(JSONObject) parser.parse(mainboardFind);
+        JSONObject memoryJsonObject = (memoryFind.equals("none"))||(inputMemory.equals("false"))?null:(JSONObject) parser.parse(memoryFind);
+        JSONObject powerJsonObject = (powerFind.equals("none"))||(inputPower.equals("false"))?null:(JSONObject) parser.parse(powerFind);
+        JSONObject ssdJsonObject = (ssdFind.equals("none"))||(inputSsd.equals("false"))?null:(JSONObject) parser.parse(ssdFind);
+        JSONObject towerJsonObject = (towerFind.equals("none"))||(inputCase.equals("false"))?null:(JSONObject) parser.parse(towerFind);
+        JSONObject coolerJsonObject = (coolerFind.equals("none"))||(inputCooler.equals("false"))?null:(JSONObject) parser.parse(coolerFind);
 ////        log.info(gpuFind);
 //        log.info(needGpu);
 //        log.info(cpuCode);
