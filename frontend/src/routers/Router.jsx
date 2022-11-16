@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "../screens/Home";
 import Login from "../screens/user/login/Login";
 import Profile from "../screens/user/profile/Profile";
+import Userinfo from "../screens/UserInfo";
 //
 import { getCurrentUser } from "../utils/APIUtils";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
@@ -84,6 +85,7 @@ function Router() {
           <Route path="/estimate" element={<Estimate />}></Route>
           <Route path="/search" element={<Search />}></Route>
           <Route path="/guide" element={<Guide />}></Route>
+          <Route path="/userinfo" element={<Userinfo />}></Route>
         </Routes>
         <div id="nav_wrapper">
           <AppHeader data={state} handleLogout={handleLogout} />

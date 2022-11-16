@@ -1,0 +1,73 @@
+.info_body {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.info_user {
+    text-align: center;
+}
+
+.info_pc {
+    width: 800px;
+    border: 5px solid #222;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    margin-bottom: 100px;
+    margin-top: 50px;
+}
+
+#info_picture {
+    width: 300px;
+    height: 300px;
+    border-width: 50px;
+    border-bottom: 100px;
+    border-color: white;
+    border-style: solid;
+}
+
+#mypc_list {
+    width: 550px;
+    height: 40px;
+    margin-right: 100px;
+}
+
+#add_button {
+    align-items: flex-end;
+    margin-left: 700px;
+}
+
+#pc_add {
+    height: 25px;
+    width: 25px;
+}
+
+#add_but {
+    height: 25px;
+    width: 25px;
+    display: inline;
+    margin: auto;
+    margin-right: 5%;
+}
+
+#sub_but {
+    height: 25px;
+    width: 25px;
+    display: inline;
+    margin: auto;
+    border-radius: 20px;
+    border: 0;
+}
+
+#button_complete {
+    width: 200px;
+    height: 50px;
+    display: block;
+    margin: auto;
+    text-align: center;
+    border-radius: 10px;
+}
