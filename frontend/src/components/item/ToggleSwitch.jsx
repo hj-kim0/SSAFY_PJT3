@@ -37,6 +37,12 @@ const ToggleSwitch = (props) => {
                 console.log(toggleChg);
                 setRecommend(toggleChg);
                 break;
+            case `cooler` :
+                toggleChg.cooler = (!toggleChg.cooler);
+                console.log(toggleChg);
+                setRecommend(toggleChg);
+                break;
+            
             case `ssd` :
                 toggleChg.ssd = (!toggleChg.ssd);
                 console.log(toggleChg);
