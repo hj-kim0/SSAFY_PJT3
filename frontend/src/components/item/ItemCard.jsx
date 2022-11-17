@@ -23,9 +23,22 @@ const ItemCard = (props) => {
 
 
     const estimateDeletePartsHandler = () => {
-        setEstimate();
+        let tmp = [];
+        estimate.map((item) => {
+            if(item.idx ==  props.idx){
+                tmp.push(
+                    {
+                        idx: props.idx,
+                        Detail : null
+                    }
+                )
+            }else{
+                tmp.push(item);
+            }
+        })
+        console.log(tmp);
+        setEstimate(tmp);
     }
-
     // console.log(namedata[props.idx]);
     return (
         <div className="bd-s bdw-3 p-1 m-2 br-100">
@@ -43,9 +56,9 @@ const ItemCard = (props) => {
                     <div>
                         <div className="pt-3 mt-1">
                             {/**삭제 버튼 */}
-                            <button className="custombtn" onClick={() => {}}>
+                            <button className="custombtn" onClick={estimateDeletePartsHandler}>
                                 <img src={del} width="32px" height="32px"/>
-                                </button>
+                            </button>
                 </div>
                 
             </div>

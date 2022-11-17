@@ -44,8 +44,8 @@ const AutoManual = () => {
             <div className="w-50">
                 <Tab/>
             </div>
-            <div className="w-50 row ml-5 mr-5"> 
-                <div className="mt-4 bd-s bdw-1 m-2">
+            <div className="row ml-5 mr-5"> 
+                <div className="mt-4 bd-s bdw-1 m-2 p-5">
                     {cardlist}
                 </div>
             </div>
