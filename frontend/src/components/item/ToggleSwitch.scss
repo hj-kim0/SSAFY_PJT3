@@ -1,56 +1,35 @@
-.switch{
-	background-color: lightgrey;
-    position: relative;
-	left: 40px;
-	width: 1.5rem;
-	height: 1px;
-	z-index: 1;
-	&:before, &:after
-	{	content: "";
-		position: absolute;
-		top: 0;
-		background-color: inherit;
-		width: 2rem;
-		height: 1rem;
-		z-index: 2;
-		border-radius: 1rem;
-    }
-    &:before
-	{	left: -0.5rem;
-    }&:after
-	{	right: -0.5rem;
-    }
-}
-	
-.toggle-button{
-    position: relative;
-	width: 1.1rem;
-	height: 1.1rem;
-	background-color: rgb(238, 233, 250);
-	border-radius: 50%;
-	transition: transform 100ms ease-in-out;
-	z-index: 3;
-	border: 0.5px solid rgb(107, 154, 171);
-	top: -0.05rem;
 
+.tbutton{
+	cursor:pointer;
+	height:40px;
+	width:70px;
+	padding:5px;
+	margin:10px auto;
+	display:flex;
+	align-items:center;
+	background-color:#FFF;
+	border:2px solid #AAA;
+	border-radius:100px;
+	transition:0.3s;
 }
-	
-// State
 
+.tbutton.on{
+	border-color:#2192FF;
+}
 
-.switch_is-off{
-    background-color:#dc4f20 !important;
+.tbutton:hover{
+	opacity:0.7;
 }
-	
-.switch_is-on{
-    background-color: lightgreen !important;
+
+.tcircle{
+	width:50%;
+	height:90%;
+	background-color:#BBB;
+	border-radius:90px;
+	transition:0.5s;
 }
-	
-.toggle-button_position-left{
-    transform: translateX(-0.85rem);
+
+.tcircle.on{
+		background-color:#2192FF;
+		transform:translatex(100%);
 }
-	
-.toggle-button_position-right{
-    transform: translateX(1.35rem);
-}
-	
