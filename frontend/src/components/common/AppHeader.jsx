@@ -5,7 +5,7 @@ import logo from "../../assets/images/common/logo.png";
 
 function AppHeader(props) {
 
-    
+
     return (
             <header className="app-header header">
                 <div className="container">

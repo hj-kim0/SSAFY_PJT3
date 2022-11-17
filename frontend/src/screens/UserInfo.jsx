@@ -15,12 +15,13 @@ export default function UserInfo() {
         </h1>
         <br />
         <img
-          src={ProfilePicture}
+          className="profile"
+          src={props.data.currentUser.information.imageUrl}
           id="info_picture"
-          alt="이 곳에 프로필 사진이 들어갑니다"
+          alt="Profile image"
         />
         <h2>
-          <b>이곳에 자신의 닉네임을 표시합니다.</b>
+          <b>props.data.currentUser.information.name</b>
         </h2>
       </div>
       <div className="info_pc">
