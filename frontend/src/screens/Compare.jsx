@@ -45,7 +45,7 @@ const my_list = [
                 name : "메인보드"
             },
         ],
-    },   
+    },
 ];
 
 const recom_list = [
@@ -93,13 +93,13 @@ const recom_list = [
                 name : "메인보드"
             },
         ],
-    },   
+    },
 ];
 
 const Compare = () => {
     return(
         <div>
-            <div className="kyobo fs-40 flex align-center mt-5 pt-5"> 
+            <div className="kyobo fs-40 flex align-center mt-5 pt-5">
             <div className="">
             <div className="bdb-s bdc-grey bdw-7 pb-3   big">컴퓨터 사양 비교</div></div>            </div>
             <div className="m-2 p-5 flex mb-5  wrapper pb-3">

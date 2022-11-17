@@ -9,17 +9,17 @@ function ArticleBody(){
             <div className="p-15 bdr6 bd-3">
             <div className="flex">
                 <div className="bd-3 flex mt-5" >
-                    
+
             <p className="gg">
-                    Recommend For Game
+                    견적 추천
                 </p>
             <CardComponent/>
                 </div>
                 <div className="bd-3 flex mt-5">
-                    
+
             <CardComponent/>
             <p className="gg">
-                    Recommend For Affairs
+                    견적 비교
                 </p>
                 </div>
             </div>
