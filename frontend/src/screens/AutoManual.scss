@@ -10,3 +10,54 @@
         display: inline-block !important;
     }
 }
+
+.structwrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.contents {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    max-width: 100vw;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(250, 250, 250, 0.8);
+}
+
+.list_items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 3px;
+}
+
+.red{
+    color:red;
+}
+
+.black{
+    color: #000;
+}
+
+.cash{
+    display: contents;
+    justify-content: space-between !important;
+
+}
+
+.hrs{
+    background-color: #184788;
+    width : 100%;
+    height : 2px;
+}
+
+.left{
+    margin-left: auto;
+    margin-right: 6px;
+}
