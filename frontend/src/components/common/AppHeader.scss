@@ -48,7 +48,7 @@ a {
 
 .app-branding {
     float: left;
-    
+
     padding-left: 60px;
 }
 
@@ -99,13 +99,13 @@ header {
 		width: 35px;
 		height: 35px;
 	}
-	
+
 	input[name="toggle-nav"] {
 		display: block;
 		cursor: pointer;
 		opacity: 0;
 		z-index: 100;
-		
+
         &:hover:checked + label[for="toggle-nav"],
         &:active:checked + label[for="toggle-nav"],
         &:focus:checked + label[for="toggle-nav"] {
@@ -115,7 +115,7 @@ header {
             }
         }
 	}
-	
+
 	label[for="toggle-nav"] {
 		top:-10px;
 		display: flex;
@@ -123,7 +123,7 @@ header {
 		justify-content: center;
 		align-items: center;
 		z-index: 80;
-		
+
 		// creating the menu button
 		.menu-icon {
 			display: block;
@@ -132,18 +132,18 @@ header {
 			border-radius: 10px;
 			background-color: $white;
 			transition: all .5s ease;
-			
+
 			&::before,
 			&::after {
 				position: absolute;
 				@extend .menu-icon;
 				content: '';
 			}
-			
+
 			&::before {
 				top: 7px;
 			}
-			
+
 			&::after {
 				bottom: 7px;
 			}
@@ -154,31 +154,31 @@ header {
 		& ~ .side-nav-panel {
 			left: 0;
 		}
-		
+
 		& + label[for="toggle-nav"] {
 			.menu-icon {
 				// makes the middle bar disappear to help create the X
 				background-color: transparent;
-				
+
 				&::before,
 				&::after {
 					background-color: $white;
 				}
-				
+
 				// rotates and positions the top and bottom bar to create the X
 				&::before {
 					top: 16px;
 					transform: rotate(45deg);
 				}
-				
+
 				&::after {
 					bottom: 16px;
 					transform: rotate(-45deg);
 				}
-			}			
+			}
 		}
 	}
-	
+
 	.side-nav-panel {
 		display: flex;
 		flex-direction: column;
@@ -198,11 +198,11 @@ header {
 	.top-nav {
         max-height: 50vh;
         overflow-y: auto;
-        
+
         @media ( max-height: 540px ) {
             max-height: 30vh;
         }
-		
+
 		// link styling for entire nav menu
 		a:link,
 		a:visited {
@@ -215,13 +215,13 @@ header {
 		.active a:visited {
 			color: $black;
 		}
-		
+
 		a:hover,
 		a:active,
 		a:focus {
 			text-decoration: none;
 		}
-		
+
 		> li {
 			min-height: 50px;
 			max-height: 100vh;
@@ -230,27 +230,27 @@ header {
 			border-bottom-right-radius: 10px;
 			letter-spacing: 1px;
 			cursor: pointer;
-			
+
 			// keep the background white on hover or when a submenu is open
 			&:hover,
 			&:active,
 			&:focus,
 			&.active{
 				background-color: $white;
-			
+
 				a:link,
 				a:visited {
 					color: $black;
 				}
 			}
-			
+
 		    a {
 				display: block;
 				width: 100%;
                 height: 100%;
 				padding-left: 2em;
 			}
-            
+
             > a {
                 padding-top: 15px;
             }
@@ -259,7 +259,7 @@ header {
 
 	.parent-item {
 		position: relative;
-		
+
 		> a::after {
 			content: '^';
 			display: inline-block;
@@ -270,7 +270,7 @@ header {
 			transform: rotate(90deg);
 			transition: all .3s;
 		}
-		
+
 		// rotates the icon to show submenu being open
 		&.active > a::after {
 			top: -2px;
@@ -290,11 +290,11 @@ header {
 		// lets the submenu fill in nicely with the parent element
 		border-bottom-right-radius: 10px;
 		// using max-height allows for better transitioning over just height
-		transition:	opacity .3s ease-in-out, 
+		transition:	opacity .3s ease-in-out,
 								visibility .3s ease-in-out,
 								max-height .2s ease-in-out,
 								margin-bottom .3s ease-in-out;
-		
+
 		&.active {
 			opacity: 1;
 			visibility: visible;
@@ -302,12 +302,12 @@ header {
 			margin-bottom: 8px;
 			transition: max-height 1s;
 		}
-		
+
 		li {
 			position: relative;
 			padding-left: 1em;
 			background-color: $white;
-			
+
 			// add icon before all submenu items for better clarity
 			&::before {
 				content: '▸';
@@ -317,16 +317,16 @@ header {
 				left: 32px;
 				color: #000;
 			}
-            
+
             a {
                 padding-top: 12px;
                 padding-bottom: 12px;
             }
 		}
 	}
-    
+
 //     NAV PROFILE CSS
-    
+
     .nav-profile {
         display: flex;
         flex-direction: row;
@@ -334,7 +334,7 @@ header {
         align-items: center;
         width: 80%;
         margin: 0 auto 2em;
-        
+
         img {
             width: 100px;
             height: 100px;
@@ -342,7 +342,7 @@ header {
             object-fit: fill;
             margin-right: 12px;
         }
-        
+
         .profile-info {
             display: flex;
             flex-direction: column;
@@ -350,8 +350,8 @@ header {
             height: 100%;
             max-height: 100px;
             width: 200px;
-            
-            p { 
+
+            p {
                 margin-top: 4px;
             }
         }
@@ -389,12 +389,12 @@ header {
 }
 .box {
     width: 48px;
-    height: 48px; 
+    height: 48px;
     border-radius: 70%;
     overflow: hidden;
 }
 .profile {
-    width: 100%;
-    height: 100%;
+    width: 130%;
+    height: 130%;
     object-fit: cover;
 }

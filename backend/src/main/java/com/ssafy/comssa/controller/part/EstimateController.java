@@ -73,7 +73,7 @@ public class EstimateController extends PartsFindController {
 //        log.info(needGpu);
 //        log.info(cpuCode);
 //        log.info(cpuFind);
-        ArrayList<JSONObject> returnArray = new ArrayList<JSONObject>();
+        ArrayList<JSONObject> returnArray = new ArrayList<>();
         JSONObject jsonObject0 = new JSONObject();
         jsonObject0.put("idx", 0);
         jsonObject0.put("Detail", cpuJsonObject);

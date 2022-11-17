@@ -1,4 +1,5 @@
 // export const API_BASE_URL = 'http://k7c204.p.ssafy.io:8080';
+// export const API_BASE_URL = 'http://localhost:8080';
 export const API_BASE_URL = 'https://k7c204.p.ssafy.io/api';
 
 export const ACCESS_TOKEN = 'accessToken';

@@ -22,12 +22,13 @@
 }
 
 #info_picture {
-    width: 300px;
-    height: 300px;
-    border-width: 50px;
-    border-bottom: 100px;
-    border-color: white;
-    border-style: solid;
+    width: 250px;
+    height: 250px;
+    border-radius: 75%;
+    border-style:none;
+    overflow: hidden;
+    object-fit: cover;
+    margin : 40px;
 }
 
 #mypc_list {

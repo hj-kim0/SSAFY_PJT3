@@ -18,7 +18,7 @@ const data = {
       borderColor: 'rgba(251, 255, 132, 1)',
       borderWidth: 1,
     },
-    
+
   ],
 
 

@@ -13,12 +13,12 @@ export default function Parallax(){
     const handleResize = () => {
         setResize(window.innerWidth);
     }
-    
+
     useEffect(() => {
         window.addEventListener("scroll", onScroll);
         return () => {
             window.removeEventListener("scroll", onScroll);
-        }   
+        }
     }, []);
 
     useEffect(() => {
@@ -30,7 +30,7 @@ export default function Parallax(){
 
     // position scroll y축
     // resize 화면의 x 크기
-    
+
     return (
         <div className="flex center">
         <div className="posrel roBold fs-60 pt-15 pb-15"
@@ -41,7 +41,7 @@ export default function Parallax(){
             transform: `translateX(${(position*0.05)}vw)`,
         }}
         >
-            Parts 
+            Computer
         </p>
         </div>
 
@@ -53,7 +53,7 @@ export default function Parallax(){
             transform: `translateX(${1-position*0.05}vw)`,
         }}
         >
-            Computer 
+            Compare
         </p>
         </div>
         </div>

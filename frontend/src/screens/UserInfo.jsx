@@ -21,7 +21,7 @@ export default function UserInfo(props) {
           alt="Profile image"
         />
         <h2>
-          <b>props.data.currentUser.information.name</b>
+          <b>{props.data.currentUser.information.name}</b>
         </h2>
       </div>
       <div className="info_pc">
