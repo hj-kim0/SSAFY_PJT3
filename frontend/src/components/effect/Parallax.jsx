@@ -41,7 +41,7 @@ export default function Parallax(){
             transform: `translateX(${(position*0.05)}vw)`,
         }}
         >
-            Computer
+            Parts
         </p>
         </div>
 
@@ -53,7 +53,7 @@ export default function Parallax(){
             transform: `translateX(${1-position*0.05}vw)`,
         }}
         >
-            Compare
+            Computer
         </p>
         </div>
         </div>

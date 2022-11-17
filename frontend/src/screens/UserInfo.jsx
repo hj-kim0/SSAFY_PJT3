@@ -10,9 +10,9 @@ export default function UserInfo(props) {
   return (
     <div className="info_body">
       <div className="info_user">
-        <h1>
+        <h3>
           <b>회원 정보</b>
-        </h1>
+        </h3>
         <br />
         <img
           className="profile"
@@ -20,9 +20,9 @@ export default function UserInfo(props) {
           id="info_picture"
           alt="Profile image"
         />
-        <h2>
+        <h4>
           <b>{props.data.currentUser.information.name}</b>
-        </h2>
+        </h4>
       </div>
       <div className="info_pc">
         <div>
@@ -52,11 +52,6 @@ export default function UserInfo(props) {
             />
           </button>
         </div>
-      </div>
-      <div>
-        <button type="EditComplete" id="button_complete">
-          수정 완료
-        </button>
       </div>
     </div>
   );

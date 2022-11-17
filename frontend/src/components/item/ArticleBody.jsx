@@ -11,7 +11,7 @@ function ArticleBody(){
                 <div className="bd-3 flex mt-5" >
 
             <p className="gg">
-                    견적 추천
+                    Recommend For you
                 </p>
             <CardComponent/>
                 </div>
@@ -19,7 +19,7 @@ function ArticleBody(){
 
             <CardComponent/>
             <p className="gg">
-                    견적 비교
+                    Compare Estimate
                 </p>
                 </div>
             </div>

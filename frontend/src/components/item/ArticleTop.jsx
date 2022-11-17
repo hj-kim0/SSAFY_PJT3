@@ -11,10 +11,10 @@ const scrollToBody = () => {
 function ArticleTop(){
     return(
         <div className="relative">
-            <div className="relative banner"> 
+            <div className="relative banner">
             <div className="banner-txt fs-60 kyobo white">
                 COM SSA
-            </div> 
+            </div>
             </div>
 
             <button className="visual_scroll" onClick={scrollToBody}>
