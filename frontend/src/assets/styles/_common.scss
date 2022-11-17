@@ -60,6 +60,12 @@
     justify-content: space-between;
   }
 
+  &.justify-space-around {
+    justify-content: space-around;
+  }
+
+  
+
   .f-one {
     flex: 1;
   }

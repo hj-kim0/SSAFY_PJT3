@@ -8,6 +8,7 @@
 @media (max-width:750px) {
     .wrapper{
         display: inline-block !important;
+        min-width: 750px;
     }
 }
 
@@ -61,3 +62,8 @@
     margin-left: auto;
     margin-right: 6px;
 }
+
+
+.status{
+    min-width: 40vw;
+  }

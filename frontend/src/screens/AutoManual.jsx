@@ -44,7 +44,7 @@ const AutoManual = () => {
     return(
         <div className="relative mt-5 pt-5 mb-5 structwrapper">
             <div className="flex wrapper">
-            <div className="contents">
+            <div className="contents status">
                 <Tab/>
             </div>
             <div className="row contents"> 
