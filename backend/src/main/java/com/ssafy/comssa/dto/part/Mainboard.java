@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.Map;
 @Document(collection="mainboard")
 @Getter
@@ -19,6 +20,79 @@ public class Mainboard {
     private String specsID;
     private String title;
     private String imgSrc;
+
+    private ArrayList<String> PCIeCpu;
+    private String PCIeGpu;
+    private boolean canWifi;
+    private boolean canBluetooth;
+    private String formfactor;
+    private boolean heatsink;
+    private String memorySocket;
+    private int memoryCount;
+
+    public ArrayList<String> getPCIeCpu() {
+        return PCIeCpu;
+    }
+
+    public void setPCIeCpu(ArrayList<String> PCIeCpu) {
+        this.PCIeCpu = PCIeCpu;
+    }
+
+    public String getPCIeGpu() {
+        return PCIeGpu;
+    }
+
+    public void setPCIeGpu(String PCIeGpu) {
+        this.PCIeGpu = PCIeGpu;
+    }
+
+    public boolean isCanWifi() {
+        return canWifi;
+    }
+
+    public void setCanWifi(boolean canWifi) {
+        this.canWifi = canWifi;
+    }
+
+    public boolean isCanBluetooth() {
+        return canBluetooth;
+    }
+
+    public void setCanBluetooth(boolean canBluetooth) {
+        this.canBluetooth = canBluetooth;
+    }
+
+    public String getFormfactor() {
+        return formfactor;
+    }
+
+    public void setFormfactor(String formfactor) {
+        this.formfactor = formfactor;
+    }
+
+    public boolean isHeatsink() {
+        return heatsink;
+    }
+
+    public void setHeatsink(boolean heatsink) {
+        this.heatsink = heatsink;
+    }
+
+    public String getMemorySocket() {
+        return memorySocket;
+    }
+
+    public void setMemorySocket(String memorySocket) {
+        this.memorySocket = memorySocket;
+    }
+
+    public int getMemoryCount() {
+        return memoryCount;
+    }
+
+    public void setMemoryCount(int memoryCount) {
+        this.memoryCount = memoryCount;
+    }
 
     public String getImgSrc() {
         return imgSrc;

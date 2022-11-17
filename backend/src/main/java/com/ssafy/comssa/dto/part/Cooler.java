@@ -17,6 +17,24 @@ public class Cooler {
     private String partsID;
     private String title;
     private int price;
+    private String cpusocket;
+    private String tdp;
+
+    public String getCpusocket() {
+        return cpusocket;
+    }
+
+    public void setCpusocket(String cpusocket) {
+        this.cpusocket = cpusocket;
+    }
+
+    public String getTdp() {
+        return tdp;
+    }
+
+    public void setTdp(String tdp) {
+        this.tdp = tdp;
+    }
 
     public String getId() {
         return id;

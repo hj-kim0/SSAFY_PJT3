@@ -19,6 +19,24 @@ public class Memory {
     private String specsID;
     private String title;
     private String imgSrc;
+    private int count;
+    private int memorysize;
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public int getMemorysize() {
+        return memorysize;
+    }
+
+    public void setMemorysize(int memorysize) {
+        this.memorysize = memorysize;
+    }
 
     public String getImgSrc() {
         return imgSrc;

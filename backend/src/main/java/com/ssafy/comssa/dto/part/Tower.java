@@ -16,6 +16,33 @@ public class Tower {
     private String size;
     private String title;
     private int price;
+    private String boardform;
+    private int coolerform;
+    private int gpuform;
+
+    public String getBoardform() {
+        return boardform;
+    }
+
+    public void setBoardform(String boardform) {
+        this.boardform = boardform;
+    }
+
+    public int getCoolerform() {
+        return coolerform;
+    }
+
+    public void setCoolerform(int coolerform) {
+        this.coolerform = coolerform;
+    }
+
+    public int getGpuform() {
+        return gpuform;
+    }
+
+    public void setGpuform(int gpuform) {
+        this.gpuform = gpuform;
+    }
 
     public String getId() {
         return id;

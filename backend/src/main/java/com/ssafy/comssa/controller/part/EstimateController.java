@@ -37,6 +37,7 @@ public class EstimateController extends PartsFindController {
         String inputCooler = body.get("cooler").toString();
         String inputCase = body.get("cooler").toString();
         String inputSsd = body.get("cooler").toString();
+        int inputBudget = Integer.parseInt( body.get("budget").toString());
         // 프로그램 이름 받아서 검색
         String forReturnString = estimateService.select(inputProgram);
 
@@ -69,10 +70,7 @@ public class EstimateController extends PartsFindController {
         JSONObject ssdJsonObject = (ssdFind.equals("none")) || (inputSsd.equals("false")) ? null : (JSONObject) parser.parse(ssdFind);
         JSONObject towerJsonObject = (towerFind.equals("none")) || (inputCase.equals("false")) ? null : (JSONObject) parser.parse(towerFind);
         JSONObject coolerJsonObject = (coolerFind.equals("none")) || (inputCooler.equals("false")) ? null : (JSONObject) parser.parse(coolerFind);
-////        log.info(gpuFind);
-//        log.info(needGpu);
-//        log.info(cpuCode);
-//        log.info(cpuFind);
+
         ArrayList<JSONObject> returnArray = new ArrayList<>();
         JSONObject jsonObject0 = new JSONObject();
         jsonObject0.put("idx", 0);

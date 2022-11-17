@@ -12,12 +12,21 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Power {
     @Id
     private String id;
-    private String power;
+
     private String partsID;
     private String price;
     private String formfactor;
     private String title;
     private String imgSrc;
+    private int power;
+
+    public int getPower() {
+        return power;
+    }
+
+    public void setPower(int power) {
+        this.power = power;
+    }
 
     public String getImgSrc() {
         return imgSrc;
@@ -38,13 +47,7 @@ public class Power {
         this.id = id;
     }
 
-    public String getPower() {
-        return power;
-    }
 
-    public void setPower(String power) {
-        this.power = power;
-    }
 
     public String getPartsID() {
         return partsID;

@@ -19,6 +19,33 @@ public class SSD {
     private String productID;
     private String title;
     private String imgSrc;
+    private String socket;
+    private int size;
+    private String formfactor;
+
+    public String getSocket() {
+        return socket;
+    }
+
+    public void setSocket(String socket) {
+        this.socket = socket;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public String getFormfactor() {
+        return formfactor;
+    }
+
+    public void setFormfactor(String formfactor) {
+        this.formfactor = formfactor;
+    }
 
     public String getImgSrc() {
         return imgSrc;

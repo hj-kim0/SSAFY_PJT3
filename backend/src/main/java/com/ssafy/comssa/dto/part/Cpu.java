@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 @Document(collection="cpu")
@@ -22,6 +23,41 @@ public class Cpu {
     private String imgSrc;
     private String socket;
     private int score;
+    private ArrayList<String> PCIeSocket;
+    private ArrayList<String> memorySocket;
+    private int tdp;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public ArrayList<String> getPCIeSocket() {
+        return PCIeSocket;
+    }
+
+    public void setPCIeSocket(ArrayList<String> PCIeSocket) {
+        this.PCIeSocket = PCIeSocket;
+    }
+
+    public ArrayList<String> getMemorySocket() {
+        return memorySocket;
+    }
+
+    public void setMemorySocket(ArrayList<String> memorySocket) {
+        this.memorySocket = memorySocket;
+    }
+
+    public int getTdp() {
+        return tdp;
+    }
+
+    public void setTdp(int tdp) {
+        this.tdp = tdp;
+    }
 
     public String getSocket() {
         return socket;

@@ -22,6 +22,33 @@ public class Gpu {
 
     private String imgSrc;
     private int score;
+    private String PCIeSocket;
+    private int length;
+    private int powerNeed;
+
+    public String getPCIeSocket() {
+        return PCIeSocket;
+    }
+
+    public void setPCIeSocket(String PCIeSocket) {
+        this.PCIeSocket = PCIeSocket;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public int getPowerNeed() {
+        return powerNeed;
+    }
+
+    public void setPowerNeed(int powerNeed) {
+        this.powerNeed = powerNeed;
+    }
 
     public String getId() {
         return id;
