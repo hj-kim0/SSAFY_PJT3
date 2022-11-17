@@ -6,7 +6,7 @@ import ComputerAdd from "../assets/images/common/Computer_Add.png";
 
 import "./UserInfo.scss";
 
-export default function UserInfo() {
+export default function UserInfo(props) {
   return (
     <div className="info_body">
       <div className="info_user">

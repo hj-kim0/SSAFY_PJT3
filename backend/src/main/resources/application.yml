@@ -113,7 +113,7 @@ app:
     authorizedRedirectUris:
 #      - http://localhost:3000/oauth2/redirect
       - http://k7c204.p.ssafy.io/oauth2/redirect
-
+ 
 #springdoc:
 #  default-consumes-media-type: application/json
 #  default-produces-media-type: application/json
