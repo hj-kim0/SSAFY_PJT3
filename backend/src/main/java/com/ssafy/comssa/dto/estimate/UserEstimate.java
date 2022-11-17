@@ -19,6 +19,16 @@ public class UserEstimate {
     private String userID;
     private String estimateName;
 
+    public UserEstimate(int idx,
+                        String userID,
+                        String estimateName,
+                        ArrayList<JSONObject> parts) {
+        this.parts = parts;
+        this.idx = idx;
+        this.userID = userID;
+        this.estimateName = estimateName;
+    }
+
     public String getId() {
         return id;
     }

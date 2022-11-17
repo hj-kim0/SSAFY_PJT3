@@ -1,5 +1,6 @@
 package com.ssafy.comssa.controller.part;
 
+import com.ssafy.comssa.dto.estimate.UserEstimate;
 import com.ssafy.comssa.service.estimate.EstimateService;
 import com.ssafy.comssa.service.estimate.UserEstimateService;
 import lombok.extern.slf4j.Slf4j;
@@ -51,8 +52,20 @@ public class UserEstimateController extends PartsFindController {
     }
 
     @PutMapping(value = "/put")
-    public void testF(){
-        log.info("hello Fucking world");
+    public String putUserEstimateData(
+            @RequestBody JSONObject body
+    ) throws ParseException {
+        JSONParser parser = new JSONParser();
+
+        String inputUserID = body.get("userID").toString();
+        int inputIdx = Integer.parseInt(body.get("idx").toString());
+        String inputPartsString = body.get("parts").toString();
+        ArrayList<JSONObject> inputParts = (ArrayList<JSONObject>) body.get("parts");
+        String inputEstimateNAme = body.get("estimateName").toString();
+        UserEstimate userEstimate = new UserEstimate(inputIdx,inputUserID,inputEstimateNAme,inputParts);
+        userEstimateService.insert(userEstimate);
+
+        return "hello Fucking Put world";
     }
 
 }

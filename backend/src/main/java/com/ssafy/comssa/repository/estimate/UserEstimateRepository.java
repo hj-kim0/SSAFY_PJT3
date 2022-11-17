@@ -11,6 +11,5 @@ import java.util.List;
 @Repository
 public interface UserEstimateRepository extends MongoRepository<UserEstimate,String> {
     List<UserEstimate> findByUserID(String name);
-
 //    UserEstimate findByUserID(String name);
 }

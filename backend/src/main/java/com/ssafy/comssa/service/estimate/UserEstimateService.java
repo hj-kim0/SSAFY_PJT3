@@ -2,6 +2,7 @@ package com.ssafy.comssa.service.estimate;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ssafy.comssa.dto.estimate.UserEstimate;
 import com.ssafy.comssa.repository.estimate.UserEstimateRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,11 @@ public class UserEstimateService {
             e.printStackTrace();
             return "ERROR";
         }
+    }
+
+    public String insert(UserEstimate estimate){
+        userEstimateRepository.insert(estimate);
+        return "OK";
     }
 
 //    public void saveUser(String name) {

@@ -53,8 +53,8 @@ spring:
             clientSecret: hv153n2mnh5nqFw6xjsQB5mRoKcxlJL5
             clientAuthenticationMethod: POST
             authorizationGrantType: authorization_code
-            redirectUri: "http://localhost:8080/oauth2/callback/kakao"
-#            redirect-uri: "https://k7c204.p.ssafy.io/api/oauth2/callback/kakao"
+#            redirectUri: "http://localhost:8080/oauth2/callback/kakao"
+            redirect-uri: "https://k7c204.p.ssafy.io/api/oauth2/callback/kakao"
             scope:
               - profile_nickname
               - profile_image
@@ -111,9 +111,9 @@ app:
     # 프론트 엔드 클라이언트가 /oauth2/authorize 요청에서 지정한 redirectUri 입니다.
     # 쿠키는 모바일 클라이언트에서 잘 작동하지 않기 때문에 사용하지 않습니다
     authorizedRedirectUris:
-      - http://localhost:3000/oauth2/redirect
-#      - http://k7c204.p.ssafy.io/oauth2/redirect
-
+#      - http://localhost:3000/oauth2/redirect
+      - http://k7c204.p.ssafy.io/oauth2/redirect
+ 
 #springdoc:
 #  default-consumes-media-type: application/json
 #  default-produces-media-type: application/json
