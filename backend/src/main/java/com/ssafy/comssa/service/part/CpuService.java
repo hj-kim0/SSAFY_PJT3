@@ -2,11 +2,16 @@ package com.ssafy.comssa.service.part;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ssafy.comssa.dto.part.Cpu;
 import com.ssafy.comssa.repository.part.CpuRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @Component
@@ -16,6 +21,7 @@ public class CpuService {
 
     @Autowired
     CpuRepository cpuRepository;
+    MongoTemplate mongoTemplate;
 
     public String selectCpu(String name) {
         ObjectMapper objectMapper = new ObjectMapper();
@@ -37,18 +43,16 @@ public class CpuService {
         }
     }
 
-//    public void saveUser(String name) {
-//
-//        Cpu cpu = new Cpu();
-////        cpu.setName(name);
-////        cpu.setPrice(price);
-//
-//        if (cpuRepository.findByPartsID(name) != null)
-//            log.info("saved!!!");
-////            cpu.setId(cpuRepository.findByName(name).getId());
-//
-//
-//        cpuRepository.save(cpu);
-//    }
+    public Object selectCpuByOthers(String socket, ArrayList<String> cooler, String memory, int tdp) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        cpuRepository.findAllBySocketEqualsAndSocketIn(socket,cooler);
+
+        log.info("sevice");
+        List<Cpu> returnList = cpuRepository.findAllBySocketEqualsAndSocketIn(socket,cooler);
+
+        log.info(objectMapper.writeValueAsString(cpuRepository.findAllBySocketEqualsAndSocketIn(socket,cooler)));
+        return objectMapper.writeValueAsString(cpuRepository.findAllBySocketEqualsAndSocketIn(socket,cooler));
+    }
 
 }

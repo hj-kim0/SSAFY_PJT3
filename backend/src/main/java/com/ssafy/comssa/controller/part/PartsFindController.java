@@ -34,35 +34,38 @@ public class PartsFindController {
     @Autowired
     TowerService towerService;
 
-    @GetMapping(value = "/cpu")
+    @PostMapping(value = "/cpu")
     public String findCpuData(@RequestParam(value = "code",defaultValue = "all") String code) {
         return cpuService.selectCpu(code);
     }
-    @GetMapping(value = "/gpu")
+
+
+
+    @PostMapping(value = "/gpu")
     public String findGpuData(@RequestParam(value = "code",defaultValue = "all") String code) {
         return gpuService.selectGpu(code);
     }
-    @GetMapping(value = "/mainboard")
+    @PostMapping(value = "/mainboard")
     public String findMainboardData(@RequestParam(value = "code",defaultValue = "all") String code) {
         return mainboardService.selectMainboard(code);
     }
-    @GetMapping(value = "/memory")
+    @PostMapping(value = "/memory")
     public String findMemoryData(@RequestParam(value = "code",defaultValue = "all") String code) {
         return memoryService.selectMemory(code);
     }
-    @GetMapping(value = "/power")
+    @PostMapping(value = "/power")
     public String findPowerData(@RequestParam(value = "code",defaultValue = "all") String code) {
         return powerService.selectPower(code);
     }
-    @GetMapping(value = "/ssd")
+    @PostMapping(value = "/ssd")
     public String findSsdData(@RequestParam(value = "code",defaultValue = "all") String code) {
         return ssdService.selectSsd(code);
     }
-    @GetMapping(value = "/cooler")
+    @PostMapping(value = "/cooler")
     public String findCoolerData(@RequestParam(value = "code",defaultValue = "all") String code) {
         return coolerService.selectCooler(code);
     }
-    @GetMapping(value = "/tower")
+    @PostMapping(value = "/tower")
     public String findTowerData(@RequestParam(value = "code",defaultValue = "all") String code) {
         return towerService.selectTower(code);
     }

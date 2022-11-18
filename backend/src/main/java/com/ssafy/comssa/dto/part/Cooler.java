@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.Map;
 @Document(collection = "cooler")
 @Getter
@@ -17,14 +18,14 @@ public class Cooler {
     private String partsID;
     private String title;
     private int price;
-    private String cpusocket;
+    private ArrayList<String> cpusocket;
     private String tdp;
 
-    public String getCpusocket() {
+    public ArrayList<String> getCpusocket() {
         return cpusocket;
     }
 
-    public void setCpusocket(String cpusocket) {
+    public void setCpusocket(ArrayList<String> cpusocket) {
         this.cpusocket = cpusocket;
     }
 

@@ -1,5 +1,6 @@
-package com.ssafy.comssa.controller.part;
+package com.ssafy.comssa.controller.estimate;
 
+import com.ssafy.comssa.controller.part.PartsFindController;
 import com.ssafy.comssa.service.estimate.EstimateService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,6 @@ public class EstimateController extends PartsFindController {
     EstimateService estimateService;
 
     @PostMapping(value = "/default")
-//    @GetMapping(value = "/default")
     public ArrayList<JSONObject> findEstimateData(
             @RequestBody JSONObject body
     ) throws ParseException {

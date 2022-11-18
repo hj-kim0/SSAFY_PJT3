@@ -21,7 +21,7 @@ public class EstimateService {
         ObjectMapper objectMapper = new ObjectMapper();
         log.info("hello========================================");
         try {
-            log.info(estimateRepository.findByUse(name).getClass().getName());
+//            log.info(estimateRepository.findByUse(name).getClass().getName());
             return objectMapper.writeValueAsString(estimateRepository.findByUse(name));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
