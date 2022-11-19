@@ -13,6 +13,8 @@ export const fetchRecommendEstimate = async (data) => {
     })
 
 
+
+
 // export const fetchRecommendEstimate = async ({ 
 //     budget, purpose_program, cpu, gpu, mainboard,
 //     memory, ssd, cooler, power, tower 
@@ -41,4 +43,20 @@ export const fetchRecommendEstimate = async (data) => {
 //     const response = await fetch(url)
     
     return response
+}
+
+export const fetchSearchByEstimate = async (url, data) => {
+
+    const URL = `${API_BASE_URL}/find/` + url;
+
+    const response = await fetch(URL, {
+        method : "POST",
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        },
+        body : JSON.stringify(data)
+    })
+
+    return response;
 }

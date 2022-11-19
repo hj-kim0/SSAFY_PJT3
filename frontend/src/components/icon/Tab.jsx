@@ -15,16 +15,16 @@ const Tab = () => {
     check === chk ? className : "";
 
     return (
-    <div className="container">
-        <ul className="tab-list">
+    <div className="container flex">
+        <ul className="tab-list flex">
             <li
-            className={`tabs ${getActiveClass(true, "active-tabs")}`}
+            className={`flex tabs ${getActiveClass(true, "active-tabs")}`}
             onClick={() => checkTab(true)}
         >
             사용자 기반 견적
             </li>
             <li
-            className={`tabs ${getActiveClass(false, "active-tabs")}`}
+            className={`flex tabs ${getActiveClass(false, "active-tabs")}`}
             onClick={() => checkTab(false)}
         >
             수동 기반 견적

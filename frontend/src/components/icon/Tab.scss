@@ -1,6 +1,4 @@
 .tab-container {
-    width: 400px;
-    height: 250px;
     background-color: #eeeded;
     border: 1px solid rgba(0, 0, 0, 0.3);
 }
@@ -12,16 +10,17 @@
     font-size: 18px;
     padding: 0;
     margin: 0;
+    width: 100%;
 }
 
 .tabs {
-    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     background: #80808013;
     position: relative;
     cursor: pointer;
+    width: 50%;
 }
 
 .tabs:not(:last-child) {

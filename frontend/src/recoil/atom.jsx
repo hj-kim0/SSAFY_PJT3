@@ -10,38 +10,79 @@ export const nameState = atom({
         {
             names : [
             {
+                idx:0,
                 name: "CPU",
                 data: "cpu"
             },
             {
+                idx:1,
                 name: "메인보드",
                 data: "mainboard"
             },
             {
+                idx:2,
                 name: "메모리",
                 data: "memory"
             },
             {
+                idx:3,
                 name: "GPU",
                 data: "gpu"
             },
             {
+                idx:4,
                 name: "파워",
                 data: "power"
             },
             {
+                idx:5,
                 name: "쿨러",
                 data: "cooler"
             },
             {
+                idx:6,
                 name: "SSD",
                 data: "ssd"
             },
             {
+                idx:7,
                 name: "케이스",
                 data: "tower"
             },
         ]}
+})
+
+export const limitsState = atom({
+    key: "limitsState",
+    default: {
+        names : [
+        {
+            idx:10,
+            name:"10개씩보기",
+            data:10,
+        },
+        {
+            idx:20,
+            name:"20개씩보기",
+            data:20,
+        },
+        {
+            idx:30,
+            name:"30개씩보기",
+            data:30,
+        },
+        {
+            idx:40,
+            name:"40개씩보기",
+            data:40,
+        },
+    ]
+}
+})
+
+export const partsState = atom({
+    key: "partsState",
+    default:[]
 })
 
 export const purposeState = atom({
@@ -78,15 +119,15 @@ export const purposeState = atom({
 export const cartState = atom({
     key: "cartState",
     default:{
-        "cartItems" : []
-    },
-    effects_UNSTABLEL:[persistAtom],
+        state : -1,
+    }
+    // effects_UNSTABLEL:[persistAtom],
 })
 
 export const selectState = atom({
     key: "selectState",
     default:{
-        state : -1,
+        state : 0,
     }
 }) 
 
@@ -141,5 +182,12 @@ export const estimateState = atom({
             "idx": 7,
             "Detail": null
         }
+    ]
+})
+
+export const simpleEstimateState = atom({
+    key: "simpleEstimateState",
+    default:[
+        {list : [null,null,null,null,null,null,null,null]}
     ]
 })

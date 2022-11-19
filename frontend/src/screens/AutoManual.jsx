@@ -3,7 +3,7 @@ import ItemCard from "../components/item/ItemCard";
 import "./AutoManual.scss";
 import { useRecoilState } from "recoil";
 import { nameState, recommendState, estimateState } from "../recoil/atom";
-
+import Comma from "../utils/Comma";
 import { useState } from "react";
 
 
@@ -41,13 +41,21 @@ const AutoManual = () => {
         ) 
     );
 
+    const commaSum = Comma(sum);
+
     return(
         <div className="relative mt-5 pt-5 mb-5 structwrapper">
-            <div className="flex wrapper">
-            <div className="contents status">
+            <div className="wrapper inline">
+            <div className="contents flex">
                 <Tab/>
             </div>
             <div className="row contents"> 
+                <div className="p-3">
+                    <div className="flex justify-center">
+                        <input type="text" className="pl-2 pr-2 namebox" defaultValue="내 PC" />
+                        <button className="decon pl-2 pr-2"><b className="fs-32">&#128190;</b></button>
+                    </div>
+                </div>
                 <div className="cost_struct">
                     {cardlist}
                 <hr className="hrs"/>
@@ -55,7 +63,7 @@ const AutoManual = () => {
                 <div className="fs-22 notoBold cash">
                     <div className="fs-28 black">총 </div>
                     <div className="flex">
-                    <div className="fs-32 red flex p-1 left">{sum}</div>
+                    <div className="fs-32 red flex p-1 left">{commaSum}</div>
                     <div className="flex justify-center align-center pl-1">원</div>
                     </div>
                 </div>

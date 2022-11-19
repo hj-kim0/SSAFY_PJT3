@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import { selectState, purposeState, recommendState } from "../../recoil/atom";
+import { cartState, purposeState, recommendState } from "../../recoil/atom";
 
 import "./ChkButtonStruct.scss";
 
@@ -10,7 +10,7 @@ const ChkButtonStruct = (props) => {
     const [ purpose, setPurpose ] = useRecoilState(purposeState);
 
     //선택된 애 -1이면 아무도 아님, 나머지는 해당 idx
-    const [ select, setSelect ] = useRecoilState(selectState);
+    const [ select, setSelect ] = useRecoilState(cartState);
     //이름
     const text = props.text;
     //idx
