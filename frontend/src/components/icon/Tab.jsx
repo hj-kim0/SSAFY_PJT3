@@ -15,7 +15,7 @@ const Tab = () => {
     check === chk ? className : "";
 
     return (
-    <div className="container flex">
+    <div className="container flex row">
         <ul className="tab-list flex">
             <li
             className={`flex tabs ${getActiveClass(true, "active-tabs")}`}
