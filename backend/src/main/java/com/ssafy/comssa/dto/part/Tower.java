@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.ArrayList;
+
 @Document(collection = "case")
 @Getter
 @Setter
@@ -16,15 +19,15 @@ public class Tower {
     private String size;
     private String title;
     private int price;
-    private String boardform;
+    private ArrayList<String> boardform;
     private int coolerform;
     private int gpuform;
 
-    public String getBoardform() {
+    public ArrayList<String> getBoardform() {
         return boardform;
     }
 
-    public void setBoardform(String boardform) {
+    public void setBoardform(ArrayList<String> boardform) {
         this.boardform = boardform;
     }
 
