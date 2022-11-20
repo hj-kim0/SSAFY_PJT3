@@ -45,10 +45,10 @@ const Compare = (props) => {
                 <div className="kyobo fs-40 bdb-s bdc-grey bdw-7 pb-3">컴퓨터 사양 비교</div>
                 </div>
                 <div className="inline">
-                <div className="flex mt-5 pt-5 w-50p">
+                <div className="flex mt-5 pt-5 w-50p contentshalf">
                     <DropdownCart data={mylist} legend="내 사양" setidx={setMylistidx}/>
                 </div>
-                <div className="flex mt-5 pt-5 w-50p">
+                <div className="flex mt-5 pt-5 w-50p contentshalf">
                     <DropdownCart data={comparelist} legend="내 견적" setidx={setComparelistidx} />
                 </div>
                 </div>

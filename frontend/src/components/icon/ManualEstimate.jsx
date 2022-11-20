@@ -41,9 +41,11 @@ const Item = (props) => {
                                     </div>
                                     <div className="w-70p flex row align-center justify-center">
                                         <div className="notoBold m-4 fs-24 ellipsis"> {item.title}</div>
-                                        <div className="notoBold m-4 fs-18 flex justify-end"> {commaNum} 원</div>
                                         <div className="flex justify-end">
+                                        <div className="notoBold m-4 fs-18"> {commaNum} 원</div>
+                                        <div className="">
                                             <button className="cartbutton" onClick={() => {props.insertPartsHandler(item)}}><b className="fs-18">담기</b></button>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -113,9 +115,9 @@ const ManualEstimate = () => {
 
 
     useEffect(() => {
-        console.log("첫 실행");
+        // console.log("첫 실행");
         onFetchSearchByEstimateHandler(0);
-        console.log("디폴트 검색리스트 불러오기 완료");
+        // console.log("디폴트 검색리스트 불러오기 완료");
     },[])
 
     return (
