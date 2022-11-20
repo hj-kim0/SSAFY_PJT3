@@ -394,6 +394,8 @@ header {
     overflow: hidden;
 }
 .profile {
+	position: relative;
+	top : -8px;
     width: 100%;
     height: 100%;
     object-fit: cover;

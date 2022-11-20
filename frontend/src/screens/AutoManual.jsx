@@ -25,7 +25,7 @@ const AutoManual = (props) => {
         const estimateName = document.getElementById("pcName").value;
         const parts = {...estimate};
         
-        console.log(state);
+        console.log(state.information.email);
         console.log(estimateName);
         console.log(parts);
         // fetchSaveEstimate(
