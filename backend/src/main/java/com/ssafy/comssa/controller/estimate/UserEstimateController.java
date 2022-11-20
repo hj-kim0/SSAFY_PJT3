@@ -1,5 +1,6 @@
 package com.ssafy.comssa.controller.estimate;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.ssafy.comssa.controller.part.PartsFindController;
 import com.ssafy.comssa.dto.estimate.UserEstimate;
 import com.ssafy.comssa.service.estimate.EstimateService;
@@ -28,13 +29,15 @@ public class UserEstimateController extends PartsFindController {
 //    @GetMapping(value = "/default")
     public ArrayList<JSONObject> findUserEstimateData(
             @RequestBody JSONObject body
-    ) throws ParseException {
+    ) throws ParseException, JsonProcessingException {
         JSONParser parser = new JSONParser();
 
         String inputUserID = body.get("userID").toString();
         log.info("============userID===========");
         log.info(inputUserID);
         String forReturnString = userEstimateService.select(inputUserID);
+        log.info("c=========lear");
+
         log.info(forReturnString);
         log.info("c=========lear");
         ArrayList<JSONObject> returnArrayList = (JSONArray) parser.parse(forReturnString);
@@ -59,11 +62,12 @@ public class UserEstimateController extends PartsFindController {
         JSONParser parser = new JSONParser();
 
         String inputUserID = body.get("userID").toString();
-        int inputIdx = Integer.parseInt(body.get("idx").toString());
+//        int inputIdx = Integer.parseInt(body.get("idx").toString());
         String inputPartsString = body.get("parts").toString();
-        ArrayList<JSONObject> inputParts = (ArrayList<JSONObject>) body.get("parts");
+        ArrayList<String> inputParts = (ArrayList<String>) body.get("parts");
+        log.info("clear");
         String inputEstimateNAme = body.get("estimateName").toString();
-        UserEstimate userEstimate = new UserEstimate(inputIdx,inputUserID,inputEstimateNAme,inputParts);
+        UserEstimate userEstimate = new UserEstimate(inputUserID,inputEstimateNAme,inputParts);
         userEstimateService.insert(userEstimate);
 
         return "hello Fucking Put world";
