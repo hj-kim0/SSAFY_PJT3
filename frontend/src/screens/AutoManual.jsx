@@ -17,22 +17,19 @@ const AutoManual = (props) => {
 
     const [isCheckedList, setIsCheckedList] = useState([true,true,true,true,true,true,true,true,]);
 
-    const [simpleEstimate, setSimpleEstimate] = useRecoilState(simpleEstimateState);
-
     const state = props.data.currentUser;
     let sum = 0;
     
     
     const SaveEstimateHandler = () => {
         const estimateName = document.getElementById("pcName").value;
-        const parts = {...estimate};
         // console.log(state.information.email);
-        console.log(estimateName);
-        console.log(parts);
+        // console.log(estimateName);
+        // console.log(estimate);
         
         let lst = [];
 
-        parts.map((item) => {
+        estimate.map((item) => {
             lst.push(item.Detail.partsID);
         })
 
