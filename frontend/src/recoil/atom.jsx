@@ -188,6 +188,10 @@ export const estimateState = atom({
 export const simpleEstimateState = atom({
     key: "simpleEstimateState",
     default:[
-        {list : [null,null,null,null,null,null,null,null]}
+        {
+            userID : "", 
+            parts : [null,null,null,null,null,null,null,null],
+            estimateName : ""
+        }
     ]
 })

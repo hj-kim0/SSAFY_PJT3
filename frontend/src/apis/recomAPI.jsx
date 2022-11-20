@@ -1,5 +1,6 @@
 import { API_BASE_URL } from "../constants";
 
+//추천 리스트 받아옴
 export const fetchRecommendEstimate = async (data) => {
     const URL = `${API_BASE_URL}/estimate/default`
 
@@ -14,6 +15,7 @@ export const fetchRecommendEstimate = async (data) => {
     return response
 }
 
+//검색 리스트 받아옴
 export const fetchSearchByEstimate = async (url, data) => {
 
     const URL = `${API_BASE_URL}/find/` + url;
@@ -30,9 +32,10 @@ export const fetchSearchByEstimate = async (url, data) => {
     return response;
 }
 
+//견적 저장함
 export const fetchSaveEstimate = async (data) => {
 
-    const URL = `${API_BASE_URL}/put`;
+    const URL = `${API_BASE_URL}/userestimate/put`;
 
     const response = await fetch(URL, {
         method : "PUT",
@@ -45,3 +48,21 @@ export const fetchSaveEstimate = async (data) => {
 
     return response;
 }
+
+//견적 리스트 받아옴
+export const fetchEstimateList = async (data) => {
+
+    const URL = `${API_BASE_URL}/userestimate/find`;
+
+    const response = await fetch(URL, {
+        method : "POST",
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        },
+        body : JSON.stringify(data)
+    })
+
+    return response;
+}
+

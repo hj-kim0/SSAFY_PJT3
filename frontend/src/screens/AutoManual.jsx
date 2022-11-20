@@ -2,7 +2,7 @@ import Tab from "../components/icon/Tab";
 import ItemCard from "../components/item/ItemCard";
 import "./AutoManual.scss";
 import { useRecoilState } from "recoil";
-import { nameState, recommendState, estimateState } from "../recoil/atom";
+import { nameState, recommendState, estimateState, simpleEstimateState } from "../recoil/atom";
 import { fetchSaveEstimate } from "../apis/recomAPI";
 import Comma from "../utils/Comma";
 import { useState } from "react";
@@ -17,6 +17,8 @@ const AutoManual = (props) => {
 
     const [isCheckedList, setIsCheckedList] = useState([true,true,true,true,true,true,true,true,]);
 
+    const [simpleEstimate, setSimpleEstimate] = useRecoilState(simpleEstimateState);
+
     const state = props.data.currentUser;
     let sum = 0;
     
@@ -24,18 +26,24 @@ const AutoManual = (props) => {
     const SaveEstimateHandler = () => {
         const estimateName = document.getElementById("pcName").value;
         const parts = {...estimate};
-        
-        console.log(state.information.email);
+        // console.log(state.information.email);
         console.log(estimateName);
         console.log(parts);
-        // fetchSaveEstimate(
-        //     {
-        //         userID : "",
-        //         idx : "",
-        //         parts: "",
-        //         estimateName : ""
-        //     }
-        // );
+        
+        let lst = [];
+
+        parts.map((item) => {
+            lst.push(item.Detail.partsID);
+        })
+
+        let temp =
+        {
+            userID : state.information.email, 
+            parts : lst,
+            estimateName : estimateName
+        };
+
+        fetchSaveEstimate(temp)
     }
 
 

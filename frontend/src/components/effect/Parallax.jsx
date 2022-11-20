@@ -41,7 +41,7 @@ export default function Parallax(){
             transform: `translateX(${(position*0.05)}vw)`,
         }}
         >
-            Parts
+            Recommend
         </p>
         </div>
 
@@ -53,8 +53,24 @@ export default function Parallax(){
             transform: `translateX(${1-position*0.05}vw)`,
         }}
         >
-            Computer
+            Compare
         </p>
+        </div>
+
+        <div className="br-125 cardwrap pos1"
+        style={{
+            transform: `translateX(${position*0.01-1}vw)`,
+        }}
+        >
+            
+        </div>
+
+        <div className="br-125 cardwrap pos2"
+        style={{
+            transform: `translateX(${1-position*0.01}vw)`,
+        }}
+        >
+            
         </div>
         </div>
     )

@@ -18,9 +18,10 @@ function AppHeader(props) {
                         <ul className="top-nav">
                             <li><Link to="/auto">자동 견적</Link></li>
                             <li><Link to="/compare">견적 비교</Link></li>
-                            <li><Link to="/estimate">내 견적</Link></li>
                             <li><Link to="/guide">가이드</Link></li>
+                            
                             { props.data.authenticated ? (<>
+                                <li><Link to="/profile">마이 페이지</Link></li>
                                 <li className="logout_area"><a onClick={props.handleLogout}>로그아웃</a></li>
                             </>)
                             :
@@ -40,7 +41,6 @@ function AppHeader(props) {
                             <ul>
                                 <li><Link to="/auto">자동 견적</Link></li>
                                 <li><Link to="/compare">견적 비교</Link></li>
-                                <li><Link to="/estimate">내 견적</Link></li>
                                 <li><Link to="/guide">가이드</Link></li>
                             </ul>
                         </nav>

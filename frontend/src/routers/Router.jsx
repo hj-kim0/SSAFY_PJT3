@@ -3,8 +3,6 @@ import { Route, Routes } from "react-router-dom";
 //
 import Home from "../screens/Home";
 import Login from "../screens/user/login/Login";
-import Profile from "../screens/user/profile/Profile";
-import Userinfo from "../screens/UserInfo";
 //
 import { getCurrentUser } from "../utils/APIUtils";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
@@ -15,8 +13,6 @@ import AppHeader from "../components/common/AppHeader";
 import Footer from "../components/common/Footer";
 
 import Compare from "../screens/Compare";
-import Estimate from "../screens/Estimate";
-import Search from "../screens/Search";
 import Guide from "../screens/Guide";
 
 import "./Router.scss";
@@ -83,7 +79,6 @@ function Router() {
           {/* comssa */}
           <Route path="/compare" element={<Compare />}></Route>
           <Route path="/auto" element={<AutoManual data={state}/> }></Route>
-          <Route path="/estimate" element={<Estimate />}></Route>
           <Route path="/guide" element={<Guide />}></Route>
         </Routes>
         <div id="nav_wrapper">
