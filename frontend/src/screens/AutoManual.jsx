@@ -72,10 +72,14 @@ const AutoManual = (props) => {
             </div>
             <div className="row contents"> 
                 <div className="p-3">
-                    <div className="flex justify-center">
-                        <input id="pcName" type="text" className="pl-2 pr-2 namebox" defaultValue="내 PC" />
-                        <button className="decon pl-2 pr-2" onClick={SaveEstimateHandler}><b className="fs-32">&#128190;</b></button>
-                    </div>
+                    {
+                        !!state ? 
+                        <div className="flex justify-center">
+                            <input id="pcName" type="text" className="pl-2 pr-2 namebox" defaultValue="내 PC" />
+                            <button className="decon pl-2 pr-2" onClick={SaveEstimateHandler}><b className="fs-32">&#128190;</b></button>
+                        </div> 
+                    : <></>       
+                    }
                 </div>
                 <div className="cost_struct">
                     {cardlist}
