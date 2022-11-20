@@ -16,8 +16,12 @@ const Compare = (props) => {
     const [mylistidx, setMylistidx]= useState(null);
     const [comparelistidx, setComparelistidx] = useState(null);
 
-    
 
+
+    console.log(props);
+    console.log(props.data);
+    console.log(props.data.currentUser);
+    
     const state = props.data.currentUser;
 
     const data = {
