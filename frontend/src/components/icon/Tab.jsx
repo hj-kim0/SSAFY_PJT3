@@ -31,10 +31,10 @@ const Tab = () => {
             </li>
         </ul>
         <div className="content-container">
-            <div className={`content justify-center align-center ${getActiveClass(true, "active-content")}`}>
+            <div className={`content align-center ${getActiveClass(true, "active-content")}`}>
                 <UserEstimate/>
             </div>
-            <div className={`content justify-center align-center ${getActiveClass(false, "active-content")}`}>
+            <div className={`content align-center ${getActiveClass(false, "active-content")}`}>
                 <ManualEstimate/>
             </div>
         </div>
