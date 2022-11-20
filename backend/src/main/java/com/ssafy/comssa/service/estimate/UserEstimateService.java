@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+
 
 @Slf4j
 @Component
@@ -17,17 +19,13 @@ public class UserEstimateService {
     @Autowired
     UserEstimateRepository userEstimateRepository;
 
-    public String select(String name) {
+    public String select(String name) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         log.info("hello========================================");
-        try {
-            log.info(userEstimateRepository.findByUserID(name).toString());
+        //            log.info(userEstimateRepository.findByUserID(name).toString());
 //            log.info(objectMapper.writeValueAsString(cpuRepository.findByPartsID(name)));
-            return objectMapper.writeValueAsString(userEstimateRepository.findByUserID(name));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            return "ERROR";
-        }
+
+        return objectMapper.writeValueAsString(userEstimateRepository.findAllByUserID(name));
     }
 
     public String insert(UserEstimate estimate){

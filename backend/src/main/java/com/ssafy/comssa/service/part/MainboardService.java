@@ -18,6 +18,9 @@ public class MainboardService {
     public String selectMainboard(String name) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
+            if (name.equals("all")){
+                return objectMapper.writeValueAsString(mainboardRepository.findAll());
+            }
             if (mainboardRepository.findByPartsID(name)==null){
                 return "none";
             }

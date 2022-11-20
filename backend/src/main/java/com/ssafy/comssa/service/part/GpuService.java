@@ -21,6 +21,9 @@ public class GpuService {
     public String selectGpu(String name) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
+            if (name.equals("all")){
+                return objectMapper.writeValueAsString(gpuRepository.findAll());
+            }
             if (gpuRepository.findByPartsID(name)==null){
                 return "none";
             }

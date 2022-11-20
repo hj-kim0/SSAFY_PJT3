@@ -18,6 +18,9 @@ public class PowerService {
     public String selectPower(String name) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
+            if (name.equals("all")){
+                return objectMapper.writeValueAsString(powerRepository.findAll());
+            }
             if (powerRepository.findByPartsID(name)==null){
                 return "none";
             }

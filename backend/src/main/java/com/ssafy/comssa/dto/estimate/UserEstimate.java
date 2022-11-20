@@ -14,17 +14,17 @@ import java.util.ArrayList;
 public class UserEstimate {
     @Id
     private String id;
-    private ArrayList<JSONObject> parts;
-    private int idx;
+    private ArrayList<String> parts;
+//    private int idx;
     private String userID;
     private String estimateName;
 
-    public UserEstimate(int idx,
+    public UserEstimate(//int idx,
                         String userID,
                         String estimateName,
-                        ArrayList<JSONObject> parts) {
+                        ArrayList<String> parts) {
         this.parts = parts;
-        this.idx = idx;
+//        this.idx = idx;
         this.userID = userID;
         this.estimateName = estimateName;
     }
@@ -37,21 +37,21 @@ public class UserEstimate {
         this.id = id;
     }
 
-    public ArrayList<JSONObject> getParts() {
+    public ArrayList<String> getParts() {
         return parts;
     }
 
-    public void setParts(ArrayList<JSONObject> parts) {
+    public void setParts(ArrayList<String> parts) {
         this.parts = parts;
     }
 
-    public int getIdx() {
-        return idx;
-    }
-
-    public void setIdx(int idx) {
-        this.idx = idx;
-    }
+//    public int getIdx() {
+//        return idx;
+//    }
+//
+//    public void setIdx(int idx) {
+//        this.idx = idx;
+//    }
 
     public String getUserID() {
         return userID;

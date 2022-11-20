@@ -18,6 +18,9 @@ public class MemoryService {
     public String selectMemory(String name) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
+            if (name.equals("all")){
+                return objectMapper.writeValueAsString(memoryRepository.findAll());
+            }
             if (memoryRepository.findByPartsID(name)==null){
                 return "none";
             }
