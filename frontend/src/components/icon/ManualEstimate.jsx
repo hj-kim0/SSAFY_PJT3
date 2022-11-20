@@ -30,7 +30,7 @@ const Item = (props) => {
             {
                 props.data.slice(props.offset, props.offset + props.limit)
                 .map((item, idx) => {
-                    console.log(item);
+                    // console.log(item);
                     const commaNum = Comma(item.price);
                     return (
                         <div key={idx}>
