@@ -6,7 +6,7 @@ import "./ToggleSwitch.scss";
 import { useRecoilState } from "recoil";
 import { nameState, recommendState, estimateState } from "../../recoil/atom";
 import { useState } from "react";
-
+import Comma from "../../utils/Comma";
 
 const ToggleSwitch = (props) => {
 
@@ -152,7 +152,8 @@ const ItemCard = (props) => {
                 </summary>
                 <div className="cover">
             {
-                !!(estimate[props.idx].Detail) ? <>
+                !!(estimate[props.idx].Detail) ? 
+                <>
                 <div className="bd-s bdw-3 br-100 flex list__item">
                     <div className="pt-2 list__item flex justify-center align-center">
                         <img src={`${estimate[props.idx].Detail.imgSrc}`} width="64vw" height="auto"/>
@@ -170,7 +171,7 @@ const ItemCard = (props) => {
                 <div className="fs-18 notoBold cash">
                     <div className="fs-20 black">가격</div>
                     <div className="flex">
-                    <div className="fs-24 red flex p-1">{estimate[props.idx].Detail.price}</div>
+                    <div className="fs-24 red flex p-1">{Comma(estimate[props.idx].Detail.price)}</div>
                     <div className="flex justify-center align-center pl-1">원</div>
                     </div>
                 </div>

@@ -2,7 +2,10 @@ import ChkButtonStruct from "../item/ChkButtonStruct";
 import "./UserEstimate.scss";
 import { fetchRecommendEstimate } from "../../apis/recomAPI";
 import { useRecoilState } from "recoil";
-import { purposeState, recommendState, estimateState, selectState } from "../../recoil/atom";
+import { purposeState, recommendState, estimateState, cartState } from "../../recoil/atom";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
 
 
 
@@ -18,24 +21,34 @@ const UserEstimate = () => {
 
     const [ purpose, setPurpose ] = useRecoilState(purposeState);
 
-    const [ select, setSelect ] = useRecoilState(selectState);
+    const [ select, setSelect ] = useRecoilState(cartState);
 
+    const MySwal = withReactContent(Swal);
     // console.log(purpose[select].target);
 
     const RecommendEstimateHandler = () => {
-        
-        console.log(recommend);
-
-        fetchRecommendEstimate(
-            recommend
-        ).then((res) => {
-            res.json().then((res) => {
-                console.log(res);
-                if(res!=null){
-                    setEstimate(res);
-                }
-            })
+        recommend.purpose_program == "" ? 
+        // 여기에 얼러트창
+    MySwal.fire({
+        title: <strong>❗ 경고</strong>,
+        html: <i>용도를 선택해야 합니다.</i>,
+        icon: 'fail'
         })
+        : 
+        (
+            fetchRecommendEstimate(
+                recommend
+            ).then((res) => {
+                res.json().then((res) => {
+                    console.log(res);
+                    if(res!=null){
+                        setEstimate(res);
+                    }
+                })
+            })
+        );
+
+
     }
     
     const setRecommendBudget = (e) => {
@@ -43,9 +56,6 @@ const UserEstimate = () => {
         const etv = e.target.value*1;
         recom.budget = etv;
         setRecommend(recom);
-        
-        console.log(e.target.value);
-        console.log(recommend);
     }
     
 
@@ -61,6 +71,7 @@ const UserEstimate = () => {
             onChange={setRecommendBudget}
             />
         </div>
+        <hr className="hrs"/>
         <div className="flex align-center pb-3 notoBold fs-22">
             사용용도
         </div>
