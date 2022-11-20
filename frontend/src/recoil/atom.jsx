@@ -195,3 +195,15 @@ export const simpleEstimateState = atom({
         }
     ]
 })
+
+export const complexEstimateState = atom({
+    key: "complexEstimateState",
+    default:[
+        {
+            idx : -1,
+            userID : "", 
+            parts : [null,null,null,null,null,null,null,null],
+            estimateName : ""
+        },
+    ]
+})

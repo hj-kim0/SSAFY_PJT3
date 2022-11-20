@@ -5,7 +5,12 @@ import { useRecoilState } from "recoil";
 import { nameState, recommendState, estimateState, simpleEstimateState } from "../recoil/atom";
 import { fetchSaveEstimate } from "../apis/recomAPI";
 import Comma from "../utils/Comma";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
 import { useState } from "react";
+
+
 
 
 const AutoManual = (props) => {
@@ -13,24 +18,25 @@ const AutoManual = (props) => {
     const names = useRecoilState(nameState);
     //자동 추천 response 받는 데이터
     const [estimate, setEstimate] = useRecoilState(estimateState);
-    // console.log(estimate);
 
     const [isCheckedList, setIsCheckedList] = useState([true,true,true,true,true,true,true,true,]);
 
+    const MySwal = withReactContent(Swal);
+    
     const state = props.data.currentUser;
     let sum = 0;
     
     
     const SaveEstimateHandler = () => {
         const estimateName = document.getElementById("pcName").value;
-        // console.log(state.information.email);
-        // console.log(estimateName);
-        // console.log(estimate);
+
         
         let lst = [];
 
         estimate.map((item) => {
-            lst.push(item.Detail.partsID);
+            !!item.Detail
+            ? lst.push(item.Detail.partsID)
+            : lst.push(null)
         })
 
         let temp =
@@ -41,6 +47,14 @@ const AutoManual = (props) => {
         };
 
         fetchSaveEstimate(temp)
+
+        MySwal.fire({
+            title: <strong> SUCCESS</strong>,
+            html: <i>저장했습니다.</i>,
+            icon: 'success'
+            })
+        
+        window.location.replace("/auto")
     }
 
 

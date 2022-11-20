@@ -1,102 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DropdownCart from "../components/item/DropDownCart";
 import MyResponsiveRadar from "../components/item/Rader";
+import { fetchEstimateList } from "../apis/recomAPI";
+
+import { complexEstimateState } from "../recoil/atom";
 import "./Compare.scss";
+import { useRecoilState } from "recoil";
 
-const my_list = [
-    {
-        id : 0,
-        label: "PC1",
-        parts : [
-            {
-                id: 0,
-                part : [
-                    {id: 1674},
-                ],
-                name : "CPU"
-            },
-            {
-                id: 1,
-                part : [
-                    {id: 2223},
-                ],
-                name : "메인보드"
-            },
-        ],
-    },
-    {
-        id : 1,
-        label: "PC2",
-        parts : [
-            {
-                id: 0,
-                part : [
-                    {id: 1000},
-                    {id: 1111},
-                ],
-                name : "CPU"
-            },
-            {
-                id: 1,
-                part : [
-                    {id: 2000},
-                    {id: 2009},
-                ],
-                name : "메인보드"
-            },
-        ],
-    },
-];
 
-const recom_list = [
-    {
-        id : 0,
-        label: "PC1",
-        parts : [
-            {
-                id: 0,
-                part : [
-                    {id: 1244},
-                    {id: 1554},
-                    {id: 1557},
-                ],
-                name : "CPU"
-            },
-            {
-                id: 1,
-                part : [
-                    {id: 2423},
+const Compare = (props) => {
+    
+    const [mylist, setMylist] = useRecoilState(complexEstimateState);
+    const [comparelist, setComparelist] = useRecoilState(complexEstimateState);
 
-                ],
-                name : "메인보드"
-            },
-        ],
-    },
-    {
-        id : 1,
-        label: "PC2",
-        parts : [
-            {
-                id: 0,
-                part : [
-                    {id: 1131},
-                    {id: 1557},
-                ],
-                name : "CPU"
-            },
-            {
-                id: 1,
-                part : [
-                    {id: 2031},
-                    {id: 2999},
-                ],
-                name : "메인보드"
-            },
-        ],
-    },
-];
+    const [mylistidx, setMylistidx]= useState(null);
+    const [comparelistidx, setComparelistidx] = useState(null);
 
-const Compare = () => {
+    
+
+    const state = props.data.currentUser;
+
+    const data = {
+        userID : state.information.email
+    }
+    
+    useEffect(() => {
+    fetchEstimateList(data)
+    .then((res) => {
+        res.json().then((res) => {
+            console.log(res);
+            if(res!=null){
+                setMylist(res);
+                setComparelist(res);
+            }
+        })
+    })
+    },[])    
+    
     return(
         <div>
             <div className="kyobo fs-40 flex align-center mt-5 pt-5">
@@ -106,21 +46,31 @@ const Compare = () => {
                 <div className="small">
                 <div className="kyobo fs-40 bdb-s bdc-grey bdw-7 pb-3">컴퓨터 사양 비교</div>
                 </div>
-                <div className="mt-5 pt-5">
-                <div className="flex align-center fs-22 notoBold">내 사양</div>
-                    <DropdownCart data={my_list} />
+                <div className="inline">
+                <div className="flex mt-5 pt-5 w-50p">
+                    <DropdownCart data={mylist} legend="내 사양" setidx={setMylistidx}/>
                 </div>
-                <div className="mt-5 pt-5">
-                <div className="flex align-center fs-22 notoBold">내 견적</div>
-                    <DropdownCart data={recom_list} />
+                <div className="flex mt-5 pt-5 w-50p">
+                    <DropdownCart data={comparelist} legend="내 견적" setidx={setComparelistidx} />
+                </div>
                 </div>
                 <div className="small">
-                <MyResponsiveRadar/>
+                {!!mylistidx ? 
+                (!!comparelistidx ?
+                    <MyResponsiveRadar mylistidx={mylistidx} comparelistidx={comparelistidx} mylist={mylist}/>
+                    : <></>
+                    ) :<></>
+                }
+                
                 </div>
             </div>
             <div className="mt-5 pt-5 pb-3  big">
-            <div className="rader"><MyResponsiveRadar/>
-            </div>
+            {!!mylistidx ? 
+                (!!comparelistidx ?
+                    <MyResponsiveRadar mylistidx={mylistidx} comparelistidx={comparelistidx} mylist={mylist}/>
+                    : <></>
+                    ) :<></>
+                }
             </div>
         </div>
         )
