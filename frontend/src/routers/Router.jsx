@@ -82,11 +82,10 @@ function Router() {
           <Route path="/profile" element={<UserInfo data={state}/>}></Route>
           {/* comssa */}
           <Route path="/compare" element={<Compare />}></Route>
-          <Route path="/auto" element={<AutoManual />}></Route>
+          <Route path="/auto" element={<AutoManual data={state}/> }></Route>
           <Route path="/estimate" element={<Estimate />}></Route>
           <Route path="/search" element={<Search />}></Route>
           <Route path="/guide" element={<Guide />}></Route>
-          <Route path="/profile" element={<Userinfo data={state}/>}></Route>
         </Routes>
         <div id="nav_wrapper">
           <AppHeader data={state} handleLogout={handleLogout} />

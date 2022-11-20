@@ -3,11 +3,12 @@ import ItemCard from "../components/item/ItemCard";
 import "./AutoManual.scss";
 import { useRecoilState } from "recoil";
 import { nameState, recommendState, estimateState } from "../recoil/atom";
+import { fetchSaveEstimate } from "../apis/recomAPI";
 import Comma from "../utils/Comma";
 import { useState } from "react";
 
 
-const AutoManual = () => {
+const AutoManual = (props) => {
     //로컬 데이터 초기값.
     const names = useRecoilState(nameState);
     //자동 추천 response 받는 데이터
@@ -16,8 +17,28 @@ const AutoManual = () => {
 
     const [isCheckedList, setIsCheckedList] = useState([true,true,true,true,true,true,true,true,]);
 
+    const state = props.data.currentUser;
     let sum = 0;
     
+    
+    const SaveEstimateHandler = () => {
+        const estimateName = document.getElementById("pcName").value;
+        const parts = {...estimate};
+        
+        console.log(state);
+        console.log(estimateName);
+        console.log(parts);
+        // fetchSaveEstimate(
+        //     {
+        //         userID : "",
+        //         idx : "",
+        //         parts: "",
+        //         estimateName : ""
+        //     }
+        // );
+    }
+
+
     estimate.map((items) => (!!items.Detail ? sum += items.Detail.price*1 : sum += 0));
 
     const cardlist = estimate.map((items) => ( !!items.Detail ? 
@@ -52,8 +73,8 @@ const AutoManual = () => {
             <div className="row contents"> 
                 <div className="p-3">
                     <div className="flex justify-center">
-                        <input type="text" className="pl-2 pr-2 namebox" defaultValue="내 PC" />
-                        <button className="decon pl-2 pr-2"><b className="fs-32">&#128190;</b></button>
+                        <input id="pcName" type="text" className="pl-2 pr-2 namebox" defaultValue="내 PC" />
+                        <button className="decon pl-2 pr-2" onClick={SaveEstimateHandler}><b className="fs-32">&#128190;</b></button>
                     </div>
                 </div>
                 <div className="cost_struct">

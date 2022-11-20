@@ -53,7 +53,7 @@ function AppHeader(props) {
                                             <NavLink to="/profile"><div className="box"><img className="profile" src={props.data.currentUser.information.imageUrl}/></div></NavLink>
                                         </li>
                                         <li>
-                                            <a onClick={props.handleLogout}>로그아웃</a>
+                                            <a classNam="dec" onClick={props.handleLogout}>로그아웃</a>
                                         </li>
                                     </ul>
                                 ): (
