@@ -77,7 +77,7 @@ function Router() {
           ></Route>
           <Route path="/profile" element={<UserInfo data={state}/>}></Route>
           {/* comssa */}
-          <Route path="/compare" element={<Compare />}></Route>
+          <Route path="/compare" element={<Compare  data={state}/>}></Route>
           <Route path="/auto" element={<AutoManual data={state}/> }></Route>
           <Route path="/guide" element={<Guide />}></Route>
         </Routes>
