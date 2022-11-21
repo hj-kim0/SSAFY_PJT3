@@ -19,10 +19,7 @@ public class CoolerService {
 
     public String selectCooler(String name) {
         ObjectMapper objectMapper = new ObjectMapper();
-        log.info("hello========================================");
         try {
-//            log.info(objectMapper.writeValueAsString(cpuRepository.findByPartsID(name)));
-//            log.info("hello========================================");
             if (name.equals("all")){
                 return objectMapper.writeValueAsString(coolerRepository.findAll());
             }
@@ -31,7 +28,6 @@ public class CoolerService {
             }
             return objectMapper.writeValueAsString(coolerRepository.findByPartsID(name));
         } catch (JsonProcessingException e) {
-            log.info("hello========================================");
             e.printStackTrace();
             return "ERROR";
         }

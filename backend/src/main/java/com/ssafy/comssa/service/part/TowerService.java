@@ -19,10 +19,7 @@ public class TowerService {
 
     public String selectTower(String name) {
         ObjectMapper objectMapper = new ObjectMapper();
-        log.info("hello========================================");
         try {
-//            log.info(objectMapper.writeValueAsString(cpuRepository.findByPartsID(name)));
-//            log.info("hello========================================");
             if (name.equals("all")){
                 return objectMapper.writeValueAsString(towerRepository.findAll());
             }
@@ -31,7 +28,6 @@ public class TowerService {
             }
             return objectMapper.writeValueAsString(towerRepository.findByPartsID(name));
         } catch (JsonProcessingException e) {
-            log.info("hello========================================");
             e.printStackTrace();
             return "ERROR";
         }

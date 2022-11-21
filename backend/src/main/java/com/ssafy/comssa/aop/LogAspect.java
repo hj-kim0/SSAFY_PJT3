@@ -12,9 +12,7 @@ public class LogAspect {
 
     @Around("execution(* com.ssafy.comssa.controller.*.*(..))")
     public Object ControllerLogger(ProceedingJoinPoint proceedingJoinPoint) throws Throwable, Exception {
-        //log.info("start = {} / {}", proceedingJoinPoint.getSignature().getDeclaringTypeName(), proceedingJoinPoint.getSignature().getName());
         Object result = proceedingJoinPoint.proceed();
-        //log.info("end = {} / {}", proceedingJoinPoint.getSignature().getDeclaringTypeName(), proceedingJoinPoint.getSignature().getName());
         return result;
     }
 }

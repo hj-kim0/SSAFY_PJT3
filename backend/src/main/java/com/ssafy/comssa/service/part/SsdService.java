@@ -17,10 +17,7 @@ public class SsdService {
 
     public String selectSsd(String name) {
         ObjectMapper objectMapper = new ObjectMapper();
-        log.info("hello========================================");
         try {
-//            log.info(objectMapper.writeValueAsString(cpuRepository.findByPartsID(name)));
-//            log.info("hello========================================");
             if (name.equals("all")){
                 return objectMapper.writeValueAsString(ssdRepository.findAll());
             }
@@ -29,24 +26,10 @@ public class SsdService {
             }
             return objectMapper.writeValueAsString(ssdRepository.findByPartsID(name));
         } catch (JsonProcessingException e) {
-            log.info("hello========================================");
             e.printStackTrace();
             return "ERROR";
         }
     }
 
-//    public void saveUser(String name) {
-//
-//        Cpu cpu = new Cpu();
-////        cpu.setName(name);
-////        cpu.setPrice(price);
-//
-//        if (cpuRepository.findByPartsID(name) != null)
-//            log.info("saved!!!");
-////            cpu.setId(cpuRepository.findByName(name).getId());
-//
-//
-//        cpuRepository.save(cpu);
-//    }
 
 }

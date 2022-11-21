@@ -31,18 +31,4 @@ public class MemoryService {
         }
     }
 
-//    public void saveUser(String name) {
-//
-//        Cpu cpu = new Cpu();
-////        cpu.setName(name);
-////        cpu.setPrice(price);
-//
-//        if (cpuRepository.findByPartsID(name) != null)
-//            log.info("saved!!!");
-////            cpu.setId(cpuRepository.findByName(name).getId());
-//
-//
-//        cpuRepository.save(cpu);
-//    }
-
 }

@@ -33,16 +33,9 @@ public class UserEstimateController extends PartsFindController {
         JSONParser parser = new JSONParser();
 
         String inputUserID = body.get("userID").toString();
-        log.info("============userID===========");
-        log.info(inputUserID);
         String forReturnString = userEstimateService.select(inputUserID);
-        log.info("c=========lear");
 
-        log.info(forReturnString);
-        log.info("c=========lear");
         ArrayList<JSONObject> returnArrayList = (JSONArray) parser.parse(forReturnString);
-        log.info("============arraylistk return");
-        log.info(returnArrayList.toString());
 
         ArrayList<JSONObject> returnJsonList = new ArrayList<JSONObject>();
         int count =0;
@@ -147,12 +140,6 @@ public class UserEstimateController extends PartsFindController {
             inputJson.put("parts",returnArray);
             returnJsonList.add(inputJson);
         }
-//        JSONObject jsonObject = (JSONObject) parser.parse(forReturnString);
-
-//        log.info(jsonObject.toString());
-
-
-//        ArrayList<JSONObject> returnArrayList = new ArrayList<>();
 
         return returnJsonList;
     }
@@ -164,10 +151,8 @@ public class UserEstimateController extends PartsFindController {
         JSONParser parser = new JSONParser();
 
         String inputUserID = body.get("userID").toString();
-//        int inputIdx = Integer.parseInt(body.get("idx").toString());
         String inputPartsString = body.get("parts").toString();
         ArrayList<String> inputParts = (ArrayList<String>) body.get("parts");
-        log.info("clear");
         String inputEstimateNAme = body.get("estimateName").toString();
         UserEstimate userEstimate = new UserEstimate(inputUserID,inputEstimateNAme,inputParts);
         userEstimateService.insert(userEstimate);

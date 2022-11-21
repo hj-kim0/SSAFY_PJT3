@@ -21,9 +21,6 @@ public class UserEstimateService {
 
     public String select(String name) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
-        log.info("hello========================================");
-        //            log.info(userEstimateRepository.findByUserID(name).toString());
-//            log.info(objectMapper.writeValueAsString(cpuRepository.findByPartsID(name)));
 
         return objectMapper.writeValueAsString(userEstimateRepository.findAllByUserID(name));
     }
@@ -33,18 +30,5 @@ public class UserEstimateService {
         return "OK";
     }
 
-//    public void saveUser(String name) {
-//
-//        Cpu cpu = new Cpu();
-////        cpu.setName(name);
-////        cpu.setPrice(price);
-//
-//        if (cpuRepository.findByPartsID(name) != null)
-//            log.info("saved!!!");
-////            cpu.setId(cpuRepository.findByName(name).getId());
-//
-//
-//        cpuRepository.save(cpu);
-//    }
 
 }
