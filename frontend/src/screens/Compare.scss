@@ -55,3 +55,9 @@
 //         display: block !important;
 //     }
 // }
+
+.contentshalf{
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+}
