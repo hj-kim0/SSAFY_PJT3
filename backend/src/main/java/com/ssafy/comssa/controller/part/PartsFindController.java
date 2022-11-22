@@ -65,7 +65,7 @@ public class PartsFindController {
             inputjson.put("specString",specString);
             returnArray.add(inputjson);
         }
-        return returnArray.get(0).toString();
+        return returnArray.toString();
     }
 
 
@@ -91,7 +91,7 @@ public class PartsFindController {
             inputjson.put("specString",specString);
             returnArray.add(inputjson);
         }
-        return returnArray.get(0).toString();
+        return returnArray.toString();
     }
     @PostMapping(value = "/mainboard")
     public String findMainboardData(@RequestParam(value = "code",defaultValue = "all") String code) throws ParseException {
