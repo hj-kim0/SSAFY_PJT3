@@ -41,57 +41,59 @@ public class PartsFindController {
 
     @PostMapping(value = "/cpu")
     public String findCpuData(@RequestParam(value = "code",defaultValue = "all") String code) throws ParseException {
-        JSONParser parser = new JSONParser();
-        JSONArray searchArray = (JSONArray) parser.parse(cpuService.selectCpu(code));
-        JSONArray returnArray = new JSONArray();
-        for (Object json:searchArray ) {
-
-            JSONObject inputjson = (JSONObject) json;
-            ArrayList<String> specString= new ArrayList<>();
-            String memory = "메모리 규격 : ";
-            for (String a: (ArrayList<String>)inputjson.get("memorySocket")  ) {
-                memory = memory + a + " ";
-            }
-            specString.add(memory);
-
-            String pcie = "PCIe : ";
-            for (String a: (ArrayList<String>)inputjson.get("pcieSocket")  ) {
-                pcie = pcie + a + " ";
-            }
-            specString.add(pcie);
-            specString.add("CPU 소켓 : "+inputjson.get("socket").toString());
-
-
-            inputjson.put("specString",specString);
-            returnArray.add(inputjson);
-        }
-        return returnArray.toString();
+//        JSONParser parser = new JSONParser();
+//        JSONArray searchArray = (JSONArray) parser.parse(cpuService.selectCpu(code));
+//        JSONArray returnArray = new JSONArray();
+//        for (Object json:searchArray ) {
+//
+//            JSONObject inputjson = (JSONObject) json;
+//            ArrayList<String> specString= new ArrayList<>();
+//            String memory = "메모리 규격 : ";
+//            for (String a: (ArrayList<String>)inputjson.get("memorySocket")  ) {
+//                memory = memory + a + " ";
+//            }
+//            specString.add(memory);
+//
+//            String pcie = "PCIe : ";
+//            for (String a: (ArrayList<String>)inputjson.get("pcieSocket")  ) {
+//                pcie = pcie + a + " ";
+//            }
+//            specString.add(pcie);
+//            specString.add("CPU 소켓 : "+inputjson.get("socket").toString());
+//
+//
+//            inputjson.put("specString",specString);
+//            returnArray.add(inputjson);
+//        }
+//        return returnArray.toString();
+        return cpuService.selectCpu(code);
     }
 
 
 
     @PostMapping(value = "/gpu")
     public String findGpuData(@RequestParam(value = "code",defaultValue = "all") String code) throws ParseException {
-        JSONParser parser = new JSONParser();
-        JSONArray searchArray = (JSONArray) parser.parse(gpuService.selectGpu(code));
-        JSONArray returnArray = new JSONArray();
-        for (Object json:searchArray ) {
-
-            JSONObject inputjson = (JSONObject) json;
-            ArrayList<String> specString= new ArrayList<>();
-
-
-            String pcie = "PCIe : " +inputjson.get("pcieSocket");
-;
-            specString.add(pcie);
-            specString.add("그래픽 카드 : "+inputjson.get("specsID").toString());
-
-            specString.add("요구 전력 : "+inputjson.get("powerNeed").toString()+"W");
-
-            inputjson.put("specString",specString);
-            returnArray.add(inputjson);
-        }
-        return returnArray.toString();
+//        JSONParser parser = new JSONParser();
+//        JSONArray searchArray = (JSONArray) parser.parse(gpuService.selectGpu(code));
+//        JSONArray returnArray = new JSONArray();
+//        for (Object json:searchArray ) {
+//
+//            JSONObject inputjson = (JSONObject) json;
+//            ArrayList<String> specString= new ArrayList<>();
+//
+//
+//            String pcie = "PCIe : " +inputjson.get("pcieSocket");
+//;
+//            specString.add(pcie);
+//            specString.add("그래픽 카드 : "+inputjson.get("specsID").toString());
+//
+//            specString.add("요구 전력 : "+inputjson.get("powerNeed").toString()+"W");
+//
+//            inputjson.put("specString",specString);
+//            returnArray.add(inputjson);
+//        }
+//        return returnArray.toString();
+        return gpuService.selectGpu(code);
     }
     @PostMapping(value = "/mainboard")
     public String findMainboardData(@RequestParam(value = "code",defaultValue = "all") String code) throws ParseException {

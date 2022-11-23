@@ -35,19 +35,19 @@ public class UserEstimateController extends PartsFindController {
 
         String inputUserID = body.get("userID").toString();
         String forReturnString = userEstimateService.select(inputUserID);
-
-        ArrayList<JSONObject> returnArrayList = (JSONArray) parser.parse(forReturnString);
+        log.info(forReturnString);
+        ArrayList<JSONObject> returnArrayList = (ArrayList<JSONObject>) parser.parse(forReturnString);
 
         ArrayList<JSONObject> returnJsonList = new ArrayList<>();
         int count =0;
-
+        log.info("here2");
         for (JSONObject j:returnArrayList) {
             JSONObject inputJson = new JSONObject();
             ArrayList<String> partsString = (ArrayList<String>) j.get("parts");
             inputJson.put("userID",j.get("userID"));
             inputJson.put("estimateName",j.get("estimateName"));
             inputJson.put("idx",count++);
-
+            log.info("here3+"+(count));
             String cpuFind;
             if (partsString.get(0) ==null)
                 cpuFind ="none";
@@ -95,7 +95,7 @@ public class UserEstimateController extends PartsFindController {
                 towerFind ="none";
             else
                 towerFind = findCoolerData(partsString.get(7));
-
+            log.info("here4+"+(count));
             JSONObject cpuJsonObject = (cpuFind.equals("none")) ? null : (JSONObject) parser.parse(cpuFind);
             JSONObject gpuJsonObject = (gpuFind.equals("none")) ? null : (JSONObject) parser.parse(gpuFind);
             JSONObject mainboardJsonObject = (mainboardFind.equals("none"))  ? null : (JSONObject) parser.parse(mainboardFind);
@@ -106,6 +106,8 @@ public class UserEstimateController extends PartsFindController {
             JSONObject coolerJsonObject = (coolerFind.equals("none")) ? null : (JSONObject) parser.parse(coolerFind);
 
             ArrayList<JSONObject> returnArray = new ArrayList<>();
+            log.info("here5+"+(count));
+
             JSONObject jsonObject0 = new JSONObject();
             jsonObject0.put("idx", 0);
             jsonObject0.put("Detail", cpuJsonObject);
@@ -138,6 +140,7 @@ public class UserEstimateController extends PartsFindController {
             jsonObject7.put("idx", 7);
             jsonObject7.put("Detail", towerJsonObject);
             returnArray.add(jsonObject7);
+            log.info("here5+"+(count));
 
             inputJson.put("parts",returnArray);
             returnJsonList.add(inputJson);
