@@ -48,6 +48,8 @@ SSAFY 7기_자율프로젝트 광주2반(C204) 5백 팀
 ### 0. 로그인
 
 ![image](/uploads/041b0f924d38cd368dabf0b7f0fb5f06/image.png)
+<hr/>
+
 카카오 API를 사용하여 간편 로그인이 가능합니다.
 
 <br/>
