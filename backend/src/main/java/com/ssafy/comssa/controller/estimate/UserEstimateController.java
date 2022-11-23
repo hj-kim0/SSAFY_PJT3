@@ -30,6 +30,7 @@ public class UserEstimateController extends PartsFindController {
     public ArrayList<JSONObject> findUserEstimateData(
             @RequestBody JSONObject body
     ) throws ParseException, JsonProcessingException {
+        log.info("here1");
         JSONParser parser = new JSONParser();
 
         String inputUserID = body.get("userID").toString();
@@ -37,8 +38,9 @@ public class UserEstimateController extends PartsFindController {
 
         ArrayList<JSONObject> returnArrayList = (JSONArray) parser.parse(forReturnString);
 
-        ArrayList<JSONObject> returnJsonList = new ArrayList<JSONObject>();
+        ArrayList<JSONObject> returnJsonList = new ArrayList<>();
         int count =0;
+
         for (JSONObject j:returnArrayList) {
             JSONObject inputJson = new JSONObject();
             ArrayList<String> partsString = (ArrayList<String>) j.get("parts");
